@@ -182,11 +182,6 @@ body {
     color: #e8e8e8;
 }
 
-.logo {
-    width: 50px;
-    height: 50px;
-}
-
 .bg-darkstyle {
     background-color: rgb(51, 51, 51);
 }
@@ -203,6 +198,15 @@ body {
 #multiplierBucket:disabled,
 #multiplierFirefighter:disabled,
 #multiplierAircraft:disabled,
-#multiplierKoala:disabled {
+#multiplierKoala:disabled,
+#multiplierZoo:disabled,
+#multiplierFunds:disabled,
+#multiplierRain:disabled,
+#multiplierHouse:disabled,
+#multiplierTree:disabled,
+#multiplierAnimals:disabled,
+#multiplierInternational:disabled,
+#multiplierDivine:disabled,
+#multiplierAlien:disabled {
     background-color: gray;
 }
