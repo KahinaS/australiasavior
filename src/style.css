@@ -20,6 +20,10 @@ html, body {
     @apply bg-australiandarkblue text-australianwhite;
 }
 
+.btn-yellow {
+    @apply bg-yellow-500 text-australianwhite;
+}
+
 .btn-border {
     @apply border border-white border-2;
 }

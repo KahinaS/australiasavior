@@ -11423,6 +11423,11 @@ html, body {
   color: #e8e8e8;
 }
 
+.btn-yellow {
+  background-color: #ecc94b;
+  color: #e8e8e8;
+}
+
 .btn-border {
   border-width: 1px;
   border-color: #fff;
