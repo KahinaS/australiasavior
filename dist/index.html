@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 
 <head>
     <meta charset="UTF-8">
@@ -10,9 +10,9 @@
     <title>Australia Savior</title>
 </head>
 
-<body class="bg-darkstyle">
-    <nav class="flex bg-australianblue border border-australiandarkblue border-b-8 border-onlybottom py-2 w-full">
-        <img src="img/logo.svg" class="logo ml-2 mt-1" alt="">
+<body class="bg-australiandarkblue h-full">
+    <nav class="flex bg-australianblue border border-australianwhite border-b-2 border-onlybottom py-2 w-full">
+        <img src="img/logo.svg" class="w-10 ml-3 mt-1" alt="">
         <div class="w-5/12"><span class="text-australianwhite font-semibold text-4xl ml-5"><a href="#">Australia Savior</a></span></div>
         <div class="w-6/12">
             <ul class="uppercase text-australianwhite mt-1">
@@ -23,108 +23,136 @@
             </ul>
     </nav>
     <div class="flex h-screen">
-        <div class="scrollable w-1/5 px-10 py-10 bg-australianwhite rounded">
+        <div class="scrollable w-1/5 px-10 py-10 bg-australianwhite">
             <ul class="mb-10">
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Sceau d'eau</button>
+                        <div id="multiplierBucketCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierBucket" class="btn btn-blue btn-border mb-5 mr-2" disabled>Seau d'eau</button>
                     </div>
                     <img src="img/throw.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Pompier</button>
+                        <div id="multiplierFirefighterCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierFirefighter" class="btn btn-blue btn-border mb-5 mr-2" disabled>Pompier</button>
                     </div>
                     <img src="img/fireman.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Canadair</button>
+                        <div id="multiplierAircraftCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierAircraft" class="btn btn-blue btn-border mb-5 mr-2" disabled>Canadair</button>
                     </div>
                     <img src="img/aircraft.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Hopital à koala</button>
+                        <div id="multiplierKoalaCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierKoala" class="btn btn-blue btn-border mb-5 mr-2" disabled>Hopital à koala</button>
                     </div>
                     <img src="img/hospital.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Zoo hospitalier</button>
+                        <div id="multiplierZooCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierZoo" class="btn btn-blue btn-border mb-5 mr-2" disabled>Zoo hospitalier</button>
                     </div>
                     <img src="img/kangaroo.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Collecte de fond</button>
+                        <div id="multiplierFundsCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierFunds" class="btn btn-blue btn-border mb-5 mr-2" disabled>Collecte de fond</button>
                     </div>
                     <img src="img/money.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Pluie miraculeuse</button>
+                        <div id="multiplierRainCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierRain" class="btn btn-blue btn-border mb-5 mr-2" disabled>Pluie miraculeuse</button>
                     </div>
                     <img src="img/thunderstorm.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Reconstruction des maisons</button>
+                        <div id="multiplierHouseCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierHouse" class="btn btn-blue btn-border mb-5 mr-2" disabled>Reconstruction des maisons</button>
                     </div>
                     <img src="img/mansion.svg" class="w-10 mb-5">
                 </li>
-
+                
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Plantation d'arbres</button>
+                        <div id="multiplierTreeCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierTree" class="btn btn-blue btn-border mb-5 mr-2" disabled>Plantation d'arbres</button>
                     </div>
                     <img src="img/forest.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Reproduction intensive des animaux</button>
+                        <div id="multiplierAnimalsCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierAnimals" class="btn btn-blue btn-border mb-5 mr-2" disabled>Reproduction intensive des animaux</button>
                     </div>
                     <img src="img/stroller.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Aide internationale</button>
+                        <div id="multiplierInternationalCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierInternational" class="btn btn-blue btn-border mb-5 mr-2" disabled>Aide internationale</button>
                     </div>
                     <img src="img/earth.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button class="btn btn-blue btn-border mb-5 mr-2">Aide divine</button>
+                        <div id="multiplierDivineCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierDivine" class="btn btn-blue btn-border mb-5 mr-2" disabled>Aide divine</button>
                     </div>
                     <img src="img/jesus.svg" class="w-10 mb-5">
+                </li>
+
+                <li class="flex w-auto">
+                    <div class="flex justify-center content-center items-center">
+                        <div id="multiplierAlienCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <button id="multiplierAlien" class="btn btn-blue btn-border mb-5 mr-2" disabled>Aide extra-terrestre</button>
+                    </div>
+                    <img src="img/alien.svg" class="w-10 mb-5">
                 </li>
             </ul>
         </div>
         <div class="w-7/12">
-            <div class="flex bg-australianwhite"></div>
-            <div class="flex bg-australianwhite"></div>
+            <div class="flex justify-center h-full justify-center content-center items-center">
+                <ul class="mb-24">
+                    <li class="flex justify-center">
+                        <div id="display" class="text-australianwhite font-semibold text-4xl mb-20"><span>0$ de Dons</span></div>
+                        <img src="img/cash.svg" class="ml-4 w-10 mb-20">
+                    </li>
+                    <li class="flex justify-center">
+                        <div id="plus">
+                            <span id="plus1" class="flex absolute z-10 text-red-600 text-shadow-red font-semibold ml-8 hidden noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
+                            <span id="plus2" class="flex absolute z-10 text-purple-600 text-shadow-purple font-semibold ml-16 hidden noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
+                            <span id="plus3" class="flex absolute z-10 text-teal-600 text-shadow-teal font-semibold hidden noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
+                            <span id="plus4" class="flex absolute z-10 text-green-600 text-shadow-green font-semibold hidden ml-20 noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
+                            <span id="plus5" class="flex absolute z-10 text-orange-600 text-shadow-orange font-semibold hidden ml-12 noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
+                        </div>
+                        <button id="btnClicker" class="w-full"><img src="img/australiamapborder.svg"></button>
+                    </li>
+                    <li class="flex justify-center">
+                        <span class="text-australianwhite font-semibold text-4xl mt-20">Dons par secondes : 0$</span>
+                        <img src="img/cash.svg" class="ml-4 w-10 mt-20">
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="w-3/12"></div>
     </div>
