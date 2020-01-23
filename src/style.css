@@ -4,80 +4,79 @@
 
 @tailwind utilities;
 
-* {
-    font-family: 'Open Sans', sans-serif;
+.LightWaves {
+    animation: lightwaves 2s infinite;
+    position: relative;
 }
 
- html, body {
-    overflow-y: hidden;
-} 
+@keyframes lightwaves {
 
-.btn {
-    @apply rounded px-2 py-2 font-semibold;
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(5px, 5px);
+        transform: scale(1.05);
+    }
+
+    50% {
+        transform: translate(25px, 5px);
+    }
+
+    75% {
+        transform: translate(12px, 10px);
+        transform: scale(1.05);
+    }
 }
 
-.btn-blue {
-    @apply bg-australiandarkblue text-australianwhite;
+.DarkWaves {
+    animation: darkwaves 3.8s infinite;
 }
 
-.btn-yellow {
-    @apply bg-yellow-500 text-australianwhite;
+@keyframes darkwaves {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(25px, 5px);
+        transform: scale(1.05);
+    }
+
+    50% {
+        transform: translate(12px, 10px);
+    }
+
+    75% {
+        transform: translate(5px, 5px);
+    }
 }
 
-.btn-border {
-    @apply border border-white border-2;
+.WhiteWaves {
+    animation: whitewaves 4s alternate ease infinite;
 }
 
-.bg-australianblue {
-background-color: #1831a2;
+@keyframes whitewaves {
+    0% {
+        transform: translate(0, 25px);
+    }
+
+    100% {
+        transform: translate(25px, 35px);
+    }
 }
 
-.bg-australiandarkblue {
-background-color: #10216d;
+.-z-10 {
+    z-index: -10;
 }
 
-.bg-australianwhite {
-    background-color: #e8e8e8;
+.sea {
+    top: -130%;
 }
-
-.border-australiandarkblue {
-    border-color: #10216d;
-}
-
-.text-australiandarkblue {
-color: #10216d;
-}
-
-.border-onlybottom {
-    @apply border-t-0 border-r-0 border-l-0;
-}
-
-.text-australianwhite {
-    color: #e8e8e8;
-}
-
-.logo {
-    width: 50px;
-    height: 50px;
-}
-
-.bg-darkstyle {
-    background-color: rgb(51, 51, 51);
-}
-
-#donatebrand {
-    top: 2%;
-    left: 80%;
-}
-
-.scrollable {
-    overflow-y: scroll;
-=======
-@tailwind base;
-
-@tailwind components;
-
-@tailwind utilities;
 
 * {
     font-family: 'Open Sans', sans-serif;
@@ -86,6 +85,7 @@ color: #10216d;
 html,
 body {
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 @-webkit-keyframes moveplus {
@@ -221,6 +221,10 @@ body {
     @apply bg-australiandarkblue text-australianwhite;
 }
 
+.btn-yellow {
+    @apply bg-yellow-500 text-australianwhite;
+}
+
 .btn-border {
     @apply border border-white border-2;
 }
@@ -266,8 +270,16 @@ body {
     left: 80%;
 }
 
+.australiaSize {
+    transform: scale(3.2);
+}
+
 .scrollable {
     overflow-y: scroll;
+}
+
+.text-shadow {
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
 }
 
 #multiplierBucket:disabled,
@@ -284,4 +296,44 @@ body {
 #multiplierDivine:disabled,
 #multiplierAlien:disabled {
     background-color: gray;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-right {
+    top: 5px;
+    left: 100%;
+}
+
+.tooltip-right::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #555 transparent transparent;
 }

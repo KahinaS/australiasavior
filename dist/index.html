@@ -27,39 +27,51 @@
             <ul class="mb-10">
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierBucketCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button id="multiplierBucket" class="btn btn-blue btn-border mb-5 mr-2" disabled>Seau d'eau</button>
+                        <div id="multiplierBucketCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div class="tooltip">
+                            <button id="multiplierBucket" class="btn btn-blue btn-border mb-5 mr-2" disabled>Seau d'eau</button>
+                            <span id="tooltipBucket" class="tooltiptext tooltip-right">Prix = 15$</span>
+                        </div>
                     </div>
                     <img src="img/throw.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierFirefighterCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button id="multiplierFirefighter" class="btn btn-blue btn-border mb-5 mr-2" disabled>Pompier</button>
+                        <div id="multiplierFirefighterCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div class="tooltip">
+                            <button id="multiplierFirefighter" class="btn btn-blue btn-border mb-5 mr-2" disabled>Pompier</button>
+                            <span id="tooltipFirefighter" class="tooltiptext tooltip-right">Prix = 100$</span>
+                        </div>
                     </div>
                     <img src="img/fireman.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierAircraftCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button id="multiplierAircraft" class="btn btn-blue btn-border mb-5 mr-2" disabled>Canadair</button>
+                        <div id="multiplierAircraftCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div class="tooltip">
+                            <button id="multiplierAircraft" class="btn btn-blue btn-border mb-5 mr-2" disabled>Canadair</button>
+                            <span id="tooltipAircraft" class="tooltiptext tooltip-right">Prix = 1100$</span>
+                        </div>
                     </div>
                     <img src="img/aircraft.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierKoalaCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
-                        <button id="multiplierKoala" class="btn btn-blue btn-border mb-5 mr-2" disabled>Hopital à koala</button>
+                        <div id="multiplierKoalaCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div class="tooltip">
+                            <button id="multiplierKoala" class="btn btn-blue btn-border mb-5 mr-2" disabled>Hopital à koala</button>
+                            <span id="tooltipKoala" class="tooltiptext tooltip-right">Prix = 12000$</span>
+                        </div>
                     </div>
                     <img src="img/hospital.svg" class="w-10 mb-5">
                 </li>
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierZooCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div id="multiplierZooCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
                         <button id="multiplierZoo" class="btn btn-blue btn-border mb-5 mr-2" disabled>Zoo hospitalier</button>
                     </div>
                     <img src="img/kangaroo.svg" class="w-10 mb-5">
@@ -67,7 +79,7 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierFundsCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div id="multiplierFundsCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
                         <button id="multiplierFunds" class="btn btn-blue btn-border mb-5 mr-2" disabled>Collecte de fond</button>
                     </div>
                     <img src="img/money.svg" class="w-10 mb-5">
@@ -75,7 +87,7 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierRainCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div id="multiplierRainCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
                         <button id="multiplierRain" class="btn btn-blue btn-border mb-5 mr-2" disabled>Pluie miraculeuse</button>
                     </div>
                     <img src="img/thunderstorm.svg" class="w-10 mb-5">
@@ -83,7 +95,7 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierHouseCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div id="multiplierHouseCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
                         <button id="multiplierHouse" class="btn btn-blue btn-border mb-5 mr-2" disabled>Reconstruction des maisons</button>
                     </div>
                     <img src="img/mansion.svg" class="w-10 mb-5">
@@ -91,7 +103,7 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierTreeCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div id="multiplierTreeCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
                         <button id="multiplierTree" class="btn btn-blue btn-border mb-5 mr-2" disabled>Plantation d'arbres</button>
                     </div>
                     <img src="img/forest.svg" class="w-10 mb-5">
@@ -99,7 +111,7 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierAnimalsCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div id="multiplierAnimalsCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
                         <button id="multiplierAnimals" class="btn btn-blue btn-border mb-5 mr-2" disabled>Reproduction intensive des animaux</button>
                     </div>
                     <img src="img/stroller.svg" class="w-10 mb-5">
@@ -107,7 +119,7 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierInternationalCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div id="multiplierInternationalCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
                         <button id="multiplierInternational" class="btn btn-blue btn-border mb-5 mr-2" disabled>Aide internationale</button>
                     </div>
                     <img src="img/earth.svg" class="w-10 mb-5">
@@ -115,7 +127,7 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierDivineCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div id="multiplierDivineCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
                         <button id="multiplierDivine" class="btn btn-blue btn-border mb-5 mr-2" disabled>Aide divine</button>
                     </div>
                     <img src="img/jesus.svg" class="w-10 mb-5">
@@ -123,7 +135,7 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierAlienCounts" class="mr-3 rounded-full bg-australiandarkblue text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
+                        <div id="multiplierAlienCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0</div>
                         <button id="multiplierAlien" class="btn btn-blue btn-border mb-5 mr-2" disabled>Aide extra-terrestre</button>
                     </div>
                     <img src="img/alien.svg" class="w-10 mb-5">
@@ -134,8 +146,7 @@
             <div class="flex justify-center h-full justify-center content-center items-center">
                 <ul class="mb-24">
                     <li class="flex justify-center">
-                        <div id="display" class="text-australianwhite font-semibold text-4xl mb-20"><span>0$ de Dons</span></div>
-                        <img src="img/cash.svg" class="ml-4 w-10 mb-20">
+                        <div id="display" class="text-australianwhite text-shadow font-semibold mb-48 text-4xl"><span>0$ de Dons</span></div>
                     </li>
                     <li class="flex justify-center">
                         <div id="plus">
@@ -145,58 +156,120 @@
                             <span id="plus4" class="flex absolute z-10 text-green-600 text-shadow-green font-semibold hidden ml-20 noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
                             <span id="plus5" class="flex absolute z-10 text-orange-600 text-shadow-orange font-semibold hidden ml-12 noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
                         </div>
-                        <button id="btnClicker" class="w-full"><img src="img/australiamapborder.svg"></button>
+                        <img id="changeMap" src="img/australiamapborder.svg" usemap="#image_map" class="australiaSize">
+                        <map name="image_map">
+                            <area alt="Australia" title="Australia" id="btnClicker" coords="69,10 96,6 97,22 111,31 120,1 143,45 160,80 150,110 128,128 104,123 87,103 71,94 39,107 17,115 12,96 2,79 2,56 18,45 30,39 36,27 50,15 62,17 "
+                                shape="polygon">
+                        </map>
+
                     </li>
                     <li class="flex justify-center">
-                        <span class="text-australianwhite font-semibold text-4xl mt-20">Dons par secondes : 0$</span>
-                        <img src="img/cash.svg" class="ml-4 w-10 mt-20">
+                        <span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : 0$</span>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="w-3/12">
-            <div class=" flex flex-col mt-32 mr-0 ">
-
-                <div class=" w-5/6 bg-australianwhite px-10 py-10 rounded-lg ">
-                    <button class="btn btn-blue btn-border ml-2 mr-2">Ajouter une association</button>
-                    <ul class="flex content-start mt-10">
-                        <li class="mr-3 "> <img src="img/asso1.svg" class=" w-10"></li>
-
-                        <li class="mr-3 "> <img src="img/gofundme.svg" class="w-16 "></li>
-                        <li class="mr-3"> <img src="img/wwf.svg" class="w-10 "></li>
-
-
-
-
-
+        <div class="w-3/12 h-full">
+            <div class="flex flex-col h-48"></div>
+            <div class="flex flex-col content-end items-end justify-end">
+                <div class="w-5/6 bg-australianwhite py-8 rounded-lg justify-center content-center items-center">
+                    <div class="flex justify-center w-full"><button class="rounded-lg w-6/12 text-white font-semibold px-2 py-2 btn-blue">Ajouter une association</button></div>
+                    <ul class="flex justify-center mt-10">
+                        <li class="mr-3 "> <img src="img/asso1.svg" class="w-10"></li>
+                        <li class="mr-3 "> <img src="img/gofundme.svg" class="w-16"></li>
+                        <li class="mr-3"> <img src="img/wwf.svg" class="w-10"></li>
                     </ul>
-
-                    <ul class="flex content-start mt-4">
+                    <ul class="flex justify-center mt-4">
                         <li class="mr-3"><img src="img/croixrouge.svg" class="w-10"></li>
 
-                        <li class="mr-3 "> <img src="img/nsw.svg" class="w-10"></li>
+                        <li class="mr-3 "><img src="img/nsw.svg" class="w-10"></li>
 
-                        <li class="mr-3"> <img src="img/cfs.svg" class="w-16"></li>
+                        <li class="mr-3"><img src="img/cfs.svg" class="w-16"></li>
                     </ul>
                 </div>
-                <div class=" w-5/6 bg-australianwhite px-10 py-10 rounded mt-6 rounded-lg ">
-                    <button class="btn btn-yellow btn-border mx-16 font-bold ">BONUS X2 </button>
-                    <div class="flex justify-center mt-10 ">
-                        <p>
-                            Regardez une vidéo pour sauver 1 Koala !
-                        </p>
+                <div class="w-5/6 bg-australianwhite py-10 rounded-lg mt-10">
+                    <div class="flex justify-center w-full"><button class="rounded-lg px-8 py-2 btn-yellow text-4xl font-bold ">BONUS X2</button></div>
+                    <div class="flex justify-center">
+                        <div class="flex w-2/3 flex-wrap text-center mt-2">Regardez une vidéo pour sauver 1 Koala !</div>
                     </div>
-                    <div class="flex justify-center flex-row  ">
-                        <img src="img/play.svg" class="w-16 ml-2 mt-10 mb-5">
-
-
+                    <div class="flex justify-center flex-row">
+                        <img src="img/play.svg" class="w-16 ml-2 mt-5 mb-5">
                     </div>
                 </div>
 
             </div>
         </div>
-
     </div>
+    <div class="sea absolute -z-10"><svg class="sea" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="2500px" height="2500px" viewBox="0 0 800 350"
+            style="enable-background:new 0 0 800 400;" xml:space="preserve">
+            <style type="text/css">
+                <![CDATA[
+                .st0 {
+                    opacity: 0.76;
+                }
+
+                .st1 {
+                    fill: url(#SVGID_1_);
+                }
+
+                .st2 {
+                    fill: url(#SVGID_2_);
+                }
+
+                .st3 {
+                    fill: url(#SVGID_3_);
+                }
+
+                .st4 {
+                    fill: none;
+                    stroke: #FFFFFF;
+                    stroke-width: 4;
+                    stroke-miterlimit: 10;
+                }
+                ]]>
+            </style>
+            <g id="DarkWaves" class="DarkWaves">
+                <g>
+                    <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="400.0005" y1="602" x2="400.0005" y2="202.3545">
+                        <stop offset="0" style="stop-color:#0000FF" />
+                        <stop offset="0.1789" style="stop-color:#0020EC" />
+                        <stop offset="0.4149" style="stop-color:#0043D7" />
+                        <stop offset="0.6374" style="stop-color:#005CC8" />
+                        <stop offset="0.8386" style="stop-color:#006CBF" />
+                        <stop offset="1" style="stop-color:#0071BC" />
+                    </linearGradient>
+                    <path class="st2" d="M761.8,202.4c-24.7,0-36.7,7.2-49.5,14.7c-13.2,7.8-26.8,15.9-53.8,15.9c-27,0-40.6-8.1-53.8-15.9
+               c-12.8-7.6-24.9-14.7-49.6-14.7c-24.7,0-36.8,7.2-49.6,14.7c-13.2,7.8-26.8,15.9-53.8,15.9c-27,0-40.7-8.1-53.8-15.9
+               c-12.8-7.6-24.9-14.7-49.6-14.7c-24.7,0-36.8,7.2-49.6,14.7c-13.2,7.8-26.8,15.9-53.8,15.9c-27,0-40.7-8.1-53.8-15.9
+               c-12.8-7.6-24.9-14.7-49.6-14.7c-24.7,0-36.8,7.2-49.6,14.7C78.7,224.9,65,232.9,38,232.9c-27,0-40.4-8.1-53.6-15.9
+               c-12.1-7.1-24.3-13.9-45.4-14.6V602h922V232.9c-22.6-0.8-37.2-8.4-49.7-15.8C798.5,209.5,786.5,202.4,761.8,202.4z" />
+                </g>
+            </g>
+            <g id="LightWaves" class="LightWaves">
+                <g>
+                    <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="400.0005" y1="600" x2="400.0005" y2="214.3545">
+                        <stop offset="0" style="stop-color:#0000FF" />
+                        <stop offset="0.1643" style="stop-color:#0B2CF7" />
+                        <stop offset="0.3574" style="stop-color:#1559F0" />
+                        <stop offset="0.5431" style="stop-color:#1E7DEA" />
+                        <stop offset="0.7168" style="stop-color:#2496E6" />
+                        <stop offset="0.874" style="stop-color:#28A6E3" />
+                        <stop offset="1" style="stop-color:#29ABE2" />
+                    </linearGradient>
+                    <path class="st3" d="M750.9,229.8c-14.8-7.9-28.7-15.4-57.2-15.4c-28.5,0-42.4,7.5-57.2,15.4c-15.2,8.2-30.9,16.6-62.1,16.6
+               s-46.9-8.4-62.1-16.6c-14.8-7.9-28.7-15.4-57.2-15.4c-28.5,0-42.4,7.5-57.2,15.4c-15.2,8.2-30.9,16.6-62.1,16.6
+               c-31.2,0-46.9-8.4-62.1-16.6c-14.8-7.9-28.7-15.4-57.2-15.4c-28.5,0-42.4,7.5-57.2,15.4c-15.2,8.2-30.9,16.6-62.1,16.6
+               c-31.2,0-46.9-8.4-62.1-16.6c-14.8-7.9-28.9-15.4-57.3-15.4c-16.9,0-28.8,2.6-38.8,6.4V600h922V237c-12,5.3-26,9.4-47.8,9.4
+               C782.1,246.4,766.1,237.9,750.9,229.8z" />
+                </g>
+            </g>
+            <g id="WhiteWaves" class="WhiteWaves">
+                <g class="st0">
+                    <path class="st4" d="M-71,220c94.2,0,94.2,18,188.4,18c94.2,0,94.2-18,188.4-18c94.2,0,94.2,18,188.4,18c94.2,0,94.2-18,188.4-18
+               s94.2,18,188.4,18" />
+                </g>
+            </g>
+        </svg></div>
     <script src="../src/engine.js"></script>
 </body>
 

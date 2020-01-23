@@ -3,6 +3,7 @@ const plus2 = document.getElementById("plus2");
 const plus3 = document.getElementById("plus3");
 const plus4 = document.getElementById("plus4");
 const plus5 = document.getElementById("plus5");
+const changeMap = document.getElementById("changeMap");
 const btnClicker = document.getElementById("btnClicker");
 const display = document.getElementById("display");
 const multiplierBucket = document.getElementById("multiplierBucket");
@@ -31,6 +32,10 @@ const multiplierDivine = document.getElementById("multiplierDivine");
 const multiplierDivineCounts = document.getElementById("multiplierDivineCounts");
 const multiplierAlien = document.getElementById("multiplierAlien");
 const multiplierAlienCounts = document.getElementById("multiplierAlienCounts");
+const tooltipBucket = document.getElementById("tooltipBucket");
+const tooltipFirefighter = document.getElementById("tooltipFirefighter");
+const tooltipAircraft = document.getElementById("tooltipAircraft");
+const tooltipKoala = document.getElementById("tooltipKoala");
 let score = 0;
 let count = 1;
 let multiplierBucketCount = 0;
@@ -59,8 +64,6 @@ let multiplierDivineCount = 0;
 let multiplierDivinePrice = 14000000000000;
 let multiplierAlienCount = 0;
 let multiplierAlienPrice = 170000000000000;
-
-
 
 
 btnClicker.addEventListener("keydown", event => {
@@ -109,7 +112,6 @@ btnClicker.addEventListener("mousedown", function () {
         }, 600);
     }
 });
-
 
 function checkNumber() {
     if (score >= 1000 && score <= 1000000) {
@@ -212,7 +214,12 @@ function multiplier1() {
         score = score - multiplierBucketPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierBucketPrice = multiplierBucketPrice * 2;
+        tooltipBucket.innerHTML = `Prix = ${multiplierBucketPrice}$`;
         multiplierBucketCounts.innerHTML = `${multiplierBucketCount}`;
+        if (!multiplierBucketCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierBucketCounts.classList.remove("bg-gray-800");
+            multiplierBucketCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierBucket.innerHTML = `Seau d'eau x ${multiplierBucketCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -265,7 +272,12 @@ function multiplier2() {
         score = score - multiplierFirefighterPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierFirefighterPrice = multiplierFirefighterPrice * 3;
+        tooltipFirefighter.innerHTML = `Prix = ${multiplierFirefighterPrice}$`;
         multiplierFirefighterCounts.innerHTML = `${multiplierFirefighterCount}`;
+        if (!multiplierFirefighterCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierFirefighter.classList.remove("bg-gray-800");
+            multiplierFirefighterCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierFirefighter.innerHTML = `Pompier x ${multiplierFirefighterCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -318,7 +330,12 @@ function multiplier3() {
         score = score - multiplierAircraftPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierAircraftPrice = multiplierAircraftPrice * 5;
+        tooltipAircraft.innerHTML = `Prix = ${multiplierAircraftPrice}$`;
         multiplierAircraftCounts.innerHTML = `${multiplierAircraftCount}`;
+        if (!multiplierAircraftCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierAircraft.classList.remove("bg-gray-800");
+            multiplierAircraftCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierAircraft.innerHTML = `Canadair x ${multiplierAircraftCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -371,7 +388,12 @@ function multiplier4() {
         score = score - multiplierKoalaPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierKoalaPrice = multiplierKoalaPrice * 8;
+        tooltipKoala.innerHTML = `Prix = ${multiplierKoalaPrice}$`;
         multiplierKoalaCounts.innerHTML = `${multiplierKoalaCount}`;
+        if (!multiplierKoalaCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierKoala.classList.remove("bg-gray-800");
+            multiplierKoalaCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierKoala.innerHTML = `Hopital à koala x ${multiplierKoalaCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -425,6 +447,10 @@ function multiplier5() {
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierZooPrice = multiplierZooPrice * 12;
         multiplierZooCounts.innerHTML = `${multiplierZooCount}`;
+        if (!multiplierFirefighterCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierZoo.classList.remove("bg-gray-800");
+            multiplierZooCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierZoo.innerHTML = `Zoo hospitalier x ${multiplierZooCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -478,6 +504,10 @@ function multiplier6() {
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierFundsPrice = multiplierFundsPrice * 13;
         multiplierFundsCounts.innerHTML = `${multiplierFundsCount}`;
+        if (!multiplierFundsCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierFunds.classList.remove("bg-gray-800");
+            multiplierFundsCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierFunds.innerHTML = `Collecte de fond x ${multiplierFundsCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -531,6 +561,10 @@ function multiplier7() {
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierRainPrice = multiplierRainPrice * 14;
         multiplierRainCounts.innerHTML = `${multiplierRainCount}`;
+        if (!multiplierRainCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierRain.classList.remove("bg-gray-800");
+            multiplierRainCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierRain.innerHTML = `Pluie miraculeuse x ${multiplierRainCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -584,6 +618,10 @@ function multiplier8() {
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierHousePrice = multiplierHousePrice * 15;
         multiplierHouseCounts.innerHTML = `${multiplierHouseCount}`;
+        if (!multiplierHouseCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierHouse.classList.remove("bg-gray-800");
+            multiplierHouseCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierHouse.innerHTML = `Reconstruction des maisons x ${multiplierHouseCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -637,6 +675,10 @@ function multiplier9() {
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierTreePrice = multiplierTreePrice * 16;
         multiplierTreeCounts.innerHTML = `${multiplierTreeCount}`;
+        if (!multiplierTreeCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierTree.classList.remove("bg-gray-800");
+            multiplierTreeCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierTree.innerHTML = `Plantation d'arbres x ${multiplierTreeCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -690,6 +732,10 @@ function multiplier10() {
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierAnimalsPrice = multiplierAnimalsPrice * 17;
         multiplierAnimalsCounts.innerHTML = `${multiplierAnimalsCount}`;
+        if (!multiplierAnimalsCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierAnimals.classList.remove("bg-gray-800");
+            multiplierAnimalsCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierAnimals.innerHTML = `Reproduction intensives des animaux x ${multiplierAnimalsCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -743,6 +789,10 @@ function multiplier11() {
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierInternationalPrice = multiplierInternationalPrice * 18;
         multiplierInternationalCounts.innerHTML = `${multiplierInternationalCount}`;
+        if (!multiplierInternationalCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierInternational.classList.remove("bg-gray-800");
+            multiplierInternationalCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierInternational.innerHTML = `Aide international x ${multiplierInternationalCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -797,6 +847,10 @@ function multiplier12() {
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierDivinePrice = multiplierDivinePrice * 19;
         multiplierDivineCounts.innerHTML = `${multiplierDivineCount}`;
+        if (!multiplierDivineCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierDivine.classList.remove("bg-gray-800");
+            multiplierDivine.classList.add("bg-australiandarkblue");
+        }
         multiplierDivine.innerHTML = `Aide divine x ${multiplierDivineCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -850,6 +904,10 @@ function multiplier13() {
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierAlienPrice = multiplierAlienPrice * 20;
         multiplierAlienCounts.innerHTML = `${multiplierAlienCount}`;
+        if (!multiplierAlienCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierAlien.classList.remove("bg-gray-800");
+            multiplierAlienCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierAlien.innerHTML = `extra-terreste x ${multiplierAlienCount + 1}`;
         checkNumber();
         if (score < multiplierBucketPrice) {
@@ -894,7 +952,15 @@ function multiplier13() {
     }
 }
 
-btnClicker.onclick = addScore;
+btnClicker.onmousedown = function () {
+    changeMap.src="img/australiamap.svg";
+    addScore();
+}
+
+btnClicker.onmouseup = function () {
+    changeMap.src="img/australiamapborder.svg";
+}
+
 multiplierBucket.onclick = multiplier1;
 multiplierFirefighter.onclick = multiplier2;
 multiplierAircraft.onclick = multiplier3;
