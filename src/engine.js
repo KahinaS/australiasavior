@@ -5,7 +5,9 @@ const plus4 = document.getElementById("plus4");
 const plus5 = document.getElementById("plus5");
 const changeMap = document.getElementById("changeMap");
 const btnClicker = document.getElementById("btnClicker");
+const autoClicker = document.getElementById("autoClicker");
 const display = document.getElementById("display");
+const displaySecond = document.getElementById("displaySecond");
 const multiplierBucket = document.getElementById("multiplierBucket");
 const multiplierBucketCounts = document.getElementById("multiplierBucketCounts");
 const multiplierFirefighter = document.getElementById("multiplierFirefighter");
@@ -47,6 +49,8 @@ const tooltipDivine = document.getElementById("tooltipDivine");
 const tooltipAlien = document.getElementById("tooltipAlien");
 let score = 0;
 let count = 1;
+let autoclickerPrice = 200;
+let autoclickerCount = 1;
 let multiplierBucketCount = 0;
 let multiplierBucketPrice = 15;
 let multiplierFirefighterCount = 0;
@@ -212,6 +216,11 @@ function addScore() {
     } else {
         multiplierAlien.disabled = true;
     }
+    if (score >= autoclickerPrice) {
+        autoClicker.disabled = false;
+    } else {
+        autoClicker.disabled = true;
+    }
 }
 
 function multiplier1() {
@@ -230,6 +239,9 @@ function multiplier1() {
         }
         multiplierBucket.innerHTML = `Seau d'eau x ${multiplierBucketCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -288,6 +300,9 @@ function multiplier2() {
         }
         multiplierFirefighter.innerHTML = `Pompier x ${multiplierFirefighterCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -346,6 +361,9 @@ function multiplier3() {
         }
         multiplierAircraft.innerHTML = `Canadair x ${multiplierAircraftCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -404,6 +422,9 @@ function multiplier4() {
         }
         multiplierKoala.innerHTML = `Hopital à koala x ${multiplierKoalaCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -462,6 +483,9 @@ function multiplier5() {
         }
         multiplierZoo.innerHTML = `Zoo hospitalier x ${multiplierZooCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -520,6 +544,9 @@ function multiplier6() {
         }
         multiplierFunds.innerHTML = `Collecte de fond x ${multiplierFundsCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -578,6 +605,9 @@ function multiplier7() {
         }
         multiplierRain.innerHTML = `Pluie miraculeuse x ${multiplierRainCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -636,6 +666,9 @@ function multiplier8() {
         }
         multiplierHouse.innerHTML = `Reconstruction des maisons x ${multiplierHouseCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -694,6 +727,9 @@ function multiplier9() {
         }
         multiplierTree.innerHTML = `Plantation d'arbres x ${multiplierTreeCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -752,6 +788,9 @@ function multiplier10() {
         }
         multiplierAnimals.innerHTML = `Reproduction intensives des animaux x ${multiplierAnimalsCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -810,6 +849,9 @@ function multiplier11() {
         }
         multiplierInternational.innerHTML = `Aide international x ${multiplierInternationalCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -869,6 +911,9 @@ function multiplier12() {
         }
         multiplierDivine.innerHTML = `Aide divine x ${multiplierDivineCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -927,6 +972,9 @@ function multiplier13() {
         }
         multiplierAlien.innerHTML = `extra-terreste x ${multiplierAlienCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -978,6 +1026,63 @@ btnClicker.onmouseup = function () {
     changeMap.src = "img/australiamapborder.svg";
 }
 
+function autoClickerBonus() {
+    if (score >= autoclickerPrice) {
+        autoclickerCount++;
+        score = score - Math.floor(autoclickerPrice);
+        setInterval(() => {
+            score = score + 1;
+            checkNumber();
+        }, 1000);
+        checkNumber();
+        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${autoclickerCount - 1}$</span>`;
+        autoclickerPrice = autoclickerPrice * 1.5;
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
+        if (score < multiplierBucketPrice) {
+            multiplierBucket.disabled = true;
+        }
+        if (score < multiplierFirefighterPrice) {
+            multiplierFirefighter.disabled = true;
+        }
+        if (score < multiplierAircraftPrice) {
+            multiplierAircraft.disabled = true;
+        }
+        if (score < multiplierKoalaPrice) {
+            multiplierKoala.disabled = true;
+        }
+        if (score < multiplierZooPrice) {
+            multiplierZoo.disabled = true;
+        }
+        if (score < multiplierFundsPrice) {
+            multiplierFunds.disabled = true;
+        }
+        if (score < multiplierRainPrice) {
+            multiplierRain.disabled = true;
+        }
+        if (score < multiplierHousePrice) {
+            multiplierTree.disabled = true;
+        }
+        if (score < multiplierTreePrice) {
+            multiplierTree.disabled = true;
+        }
+        if (score < multiplierAnimalsPrice) {
+            multiplierAnimals.disabled = true;
+        }
+        if (score < multiplierInternationalPrice) {
+            multiplierInternational.disabled = true;
+        }
+        if (score < multiplierDivinePrice) {
+            multiplierDivine.disabled = true;
+        }
+        if (score < multiplierAlienPrice) {
+            multiplierAlien.disabled = true;
+        }
+    }
+}
+
+autoClicker.onclick = autoClickerBonus;
 multiplierBucket.onclick = multiplier1;
 multiplierFirefighter.onclick = multiplier2;
 multiplierAircraft.onclick = multiplier3;

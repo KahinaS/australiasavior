@@ -293,7 +293,8 @@ body {
 #multiplierAnimals:disabled,
 #multiplierInternational:disabled,
 #multiplierDivine:disabled,
-#multiplierAlien:disabled {
+#multiplierAlien:disabled,
+#autoClicker:disabled {
     background-color: gray;
 }
 
