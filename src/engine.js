@@ -21,16 +21,16 @@ const multiplierRain = document.getElementById("multiplierRain");
 const multiplierRainCounts = document.getElementById("multiplierRainCounts");
 const multiplierHouse = document.getElementById("multiplierHouse");
 const multiplierHouseCounts = document.getElementById("multiplierHouseCounts");
-const multiplierTree = document.getElementById("multiplierRain");
-const multiplierTreeCounts = document.getElementById("multiplierRainCounts");
+const multiplierTree = document.getElementById("multiplierTree");
+const multiplierTreeCounts = document.getElementById("multiplierTreeCounts");
 const multiplierAnimals = document.getElementById("multiplierAnimals");
 const multiplierAnimalsCounts = document.getElementById("multiplierAnimalsCounts");
 const multiplierInternational = document.getElementById("multiplierInternational");
 const multiplierInternationalCounts = document.getElementById("multiplierInternationalCounts");
 const multiplierDivine = document.getElementById("multiplierDivine");
-const multiplierDivineCounts = document.getElementById("multiplierDivine");
-const multiplierAlien = document.getElementById("multiplierDivine");
-const multiplierAlienCounts = document.getElementById("multiplierDivine");
+const multiplierDivineCounts = document.getElementById("multiplierDivineCounts");
+const multiplierAlien = document.getElementById("multiplierAlien");
+const multiplierAlienCounts = document.getElementById("multiplierAlienCounts");
 let score = 0;
 let count = 1;
 let multiplierBucketCount = 0;
@@ -111,17 +111,23 @@ btnClicker.addEventListener("mousedown", function () {
 });
 
 
-function addScore() {
-    score = score + count;
+function checkNumber() {
     if (score >= 1000 && score <= 1000000) {
-        display.innerHTML = `<span>${(score / 1000).toFixed(2)}k de Dons</span>`;
+        display.innerHTML = `<span>${(score / 1000).toFixed(2)} k de Dons</span>`;
     } else if (score >= 1000000 && score <= 1000000000) {
-        display.innerHTML = `<span>${(score / 1000000).toFixed(2)}M de Dons</span>`;
-    } else if (score >= 1000000000) {
-        display.innerHTML = `<span>${(score / 1000000000).toFixed(2)}B de Dons</span>`;
+        display.innerHTML = `<span>${(score / 1000000).toFixed(2)} Million de Dons</span>`;
+    } else if (score >= 1000000000 && score <= 1000000000000) {
+        display.innerHTML = `<span>${(score / 1000000000).toFixed(2)} Billion de Dons</span>`;
+    } else if (score >= 1000000000000 && score <= 1000000000000000) {
+        display.innerHTML = `<span>${(score / 1000000000000).toFixed(2)} Trillion de Dons</span>`;
     } else {
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
     }
+}
+
+function addScore() {
+    score = score + count;
+    checkNumber();
     if (score >= multiplierBucketPrice) {
         multiplierBucket.disabled = false;
     } else {
@@ -175,6 +181,7 @@ function addScore() {
     } else {
         multiplierTree.disabled = true;
     }
+
     if (score >= multiplierAnimalsPrice) {
         multiplierAnimals.disabled = false;
     } else {
@@ -207,6 +214,7 @@ function multiplier1() {
         multiplierBucketPrice = multiplierBucketPrice * 2;
         multiplierBucketCounts.innerHTML = `${multiplierBucketCount}`;
         multiplierBucket.innerHTML = `Seau d'eau x ${multiplierBucketCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -259,6 +267,7 @@ function multiplier2() {
         multiplierFirefighterPrice = multiplierFirefighterPrice * 3;
         multiplierFirefighterCounts.innerHTML = `${multiplierFirefighterCount}`;
         multiplierFirefighter.innerHTML = `Pompier x ${multiplierFirefighterCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -311,6 +320,7 @@ function multiplier3() {
         multiplierAircraftPrice = multiplierAircraftPrice * 5;
         multiplierAircraftCounts.innerHTML = `${multiplierAircraftCount}`;
         multiplierAircraft.innerHTML = `Canadair x ${multiplierAircraftCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -356,13 +366,14 @@ function multiplier3() {
 function multiplier4() {
     if (score >= multiplierKoalaPrice) {
         multiplierKoala.innerHTML = `Hopital à koala x ${multiplierKoalaCount + 1}`;
-        count++;
         count += 1.3;
+        multiplierKoalaCount++;
         score = score - multiplierKoalaPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierKoalaPrice = multiplierKoalaPrice * 8;
         multiplierKoalaCounts.innerHTML = `${multiplierKoalaCount}`;
         multiplierKoala.innerHTML = `Hopital à koala x ${multiplierKoalaCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -415,6 +426,7 @@ function multiplier5() {
         multiplierZooPrice = multiplierZooPrice * 12;
         multiplierZooCounts.innerHTML = `${multiplierZooCount}`;
         multiplierZoo.innerHTML = `Zoo hospitalier x ${multiplierZooCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -467,6 +479,7 @@ function multiplier6() {
         multiplierFundsPrice = multiplierFundsPrice * 13;
         multiplierFundsCounts.innerHTML = `${multiplierFundsCount}`;
         multiplierFunds.innerHTML = `Collecte de fond x ${multiplierFundsCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -519,6 +532,7 @@ function multiplier7() {
         multiplierRainPrice = multiplierRainPrice * 14;
         multiplierRainCounts.innerHTML = `${multiplierRainCount}`;
         multiplierRain.innerHTML = `Pluie miraculeuse x ${multiplierRainCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -571,6 +585,7 @@ function multiplier8() {
         multiplierHousePrice = multiplierHousePrice * 15;
         multiplierHouseCounts.innerHTML = `${multiplierHouseCount}`;
         multiplierHouse.innerHTML = `Reconstruction des maisons x ${multiplierHouseCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -623,6 +638,7 @@ function multiplier9() {
         multiplierTreePrice = multiplierTreePrice * 16;
         multiplierTreeCounts.innerHTML = `${multiplierTreeCount}`;
         multiplierTree.innerHTML = `Plantation d'arbres x ${multiplierTreeCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -675,6 +691,7 @@ function multiplier10() {
         multiplierAnimalsPrice = multiplierAnimalsPrice * 17;
         multiplierAnimalsCounts.innerHTML = `${multiplierAnimalsCount}`;
         multiplierAnimals.innerHTML = `Reproduction intensives des animaux x ${multiplierAnimalsCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -727,6 +744,7 @@ function multiplier11() {
         multiplierInternationalPrice = multiplierInternationalPrice * 18;
         multiplierInternationalCounts.innerHTML = `${multiplierInternationalCount}`;
         multiplierInternational.innerHTML = `Aide international x ${multiplierInternationalCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -780,6 +798,7 @@ function multiplier12() {
         multiplierDivinePrice = multiplierDivinePrice * 19;
         multiplierDivineCounts.innerHTML = `${multiplierDivineCount}`;
         multiplierDivine.innerHTML = `Aide divine x ${multiplierDivineCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -832,6 +851,7 @@ function multiplier13() {
         multiplierAlienPrice = multiplierAlienPrice * 20;
         multiplierAlienCounts.innerHTML = `${multiplierAlienCount}`;
         multiplierAlien.innerHTML = `extra-terreste x ${multiplierAlienCount + 1}`;
+        checkNumber();
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
