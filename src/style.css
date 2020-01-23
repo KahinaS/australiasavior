@@ -8,9 +8,9 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-html, body {
+ html, body {
     overflow-y: hidden;
-}
+} 
 
 .btn {
     @apply rounded px-2 py-2 font-semibold;
