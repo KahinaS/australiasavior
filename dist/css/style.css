@@ -11587,6 +11587,18 @@ body {
   background-color: gray;
 }
 
+#btnClicker {
+  position: relative;
+}
+
+#elementCard {
+  position: absolute;
+}
+
+#bucket {
+  position: absolute;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
