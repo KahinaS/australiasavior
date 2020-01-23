@@ -36,6 +36,15 @@ const tooltipBucket = document.getElementById("tooltipBucket");
 const tooltipFirefighter = document.getElementById("tooltipFirefighter");
 const tooltipAircraft = document.getElementById("tooltipAircraft");
 const tooltipKoala = document.getElementById("tooltipKoala");
+const tooltipZoo = document.getElementById("tooltipZoo");
+const tooltipFunds = document.getElementById("tooltipFunds");
+const tooltipRain = document.getElementById("tooltipRain");
+const tooltipHouse = document.getElementById("tooltipHouse");
+const tooltipTree = document.getElementById("tooltipTree");
+const tooltipAnimals = document.getElementById("tooltipAnimals");
+const tooltipInternational = document.getElementById("tooltipInternational");
+const tooltipDivine = document.getElementById("tooltipDivine");
+const tooltipAlien = document.getElementById("tooltipAlien");
 let score = 0;
 let count = 1;
 let multiplierBucketCount = 0;
@@ -64,7 +73,6 @@ let multiplierDivineCount = 0;
 let multiplierDivinePrice = 14000000000000;
 let multiplierAlienCount = 0;
 let multiplierAlienPrice = 170000000000000;
-
 
 btnClicker.addEventListener("keydown", event => {
     if (event.keyCode === 13) {
@@ -446,6 +454,7 @@ function multiplier5() {
         score = score - multiplierZooPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierZooPrice = multiplierZooPrice * 12;
+        tooltipZoo.innerHTML = `Prix = ${multiplierZooPrice}$`;
         multiplierZooCounts.innerHTML = `${multiplierZooCount}`;
         if (!multiplierFirefighterCounts.classList.contains("bg-australiabdarkblue")) {
             multiplierZoo.classList.remove("bg-gray-800");
@@ -503,6 +512,7 @@ function multiplier6() {
         score = score - multiplierFundsPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierFundsPrice = multiplierFundsPrice * 13;
+        tooltipFunds.innerHTML = `Prix = ${multiplierFundsPrice}$`;
         multiplierFundsCounts.innerHTML = `${multiplierFundsCount}`;
         if (!multiplierFundsCounts.classList.contains("bg-australiabdarkblue")) {
             multiplierFunds.classList.remove("bg-gray-800");
@@ -560,6 +570,7 @@ function multiplier7() {
         score = score - multiplierRainPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierRainPrice = multiplierRainPrice * 14;
+        tooltipRain.innerHTML = `Prix = ${multiplierRainPrice}$`;
         multiplierRainCounts.innerHTML = `${multiplierRainCount}`;
         if (!multiplierRainCounts.classList.contains("bg-australiabdarkblue")) {
             multiplierRain.classList.remove("bg-gray-800");
@@ -617,6 +628,7 @@ function multiplier8() {
         score = score - multiplierHousePrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierHousePrice = multiplierHousePrice * 15;
+        tooltipHouse.innerHTML = `Prix = ${multiplierHousePrice}$`;
         multiplierHouseCounts.innerHTML = `${multiplierHouseCount}`;
         if (!multiplierHouseCounts.classList.contains("bg-australiabdarkblue")) {
             multiplierHouse.classList.remove("bg-gray-800");
@@ -674,6 +686,7 @@ function multiplier9() {
         score = score - multiplierTreePrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierTreePrice = multiplierTreePrice * 16;
+        tooltipTree.innerHTML = `Prix = ${multiplierTreePrice}$`;
         multiplierTreeCounts.innerHTML = `${multiplierTreeCount}`;
         if (!multiplierTreeCounts.classList.contains("bg-australiabdarkblue")) {
             multiplierTree.classList.remove("bg-gray-800");
@@ -731,6 +744,7 @@ function multiplier10() {
         score = score - multiplierAnimalsPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierAnimalsPrice = multiplierAnimalsPrice * 17;
+        tooltipAnimals.innerHTML = `Prix = ${multiplierAnimalsPrice}$`;
         multiplierAnimalsCounts.innerHTML = `${multiplierAnimalsCount}`;
         if (!multiplierAnimalsCounts.classList.contains("bg-australiabdarkblue")) {
             multiplierAnimals.classList.remove("bg-gray-800");
@@ -788,6 +802,7 @@ function multiplier11() {
         score = score - multiplierInternationalPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierInternationalPrice = multiplierInternationalPrice * 18;
+        tooltipInternational.innerHTML = `Prix = ${multiplierInternationalPrice}$`;
         multiplierInternationalCounts.innerHTML = `${multiplierInternationalCount}`;
         if (!multiplierInternationalCounts.classList.contains("bg-australiabdarkblue")) {
             multiplierInternational.classList.remove("bg-gray-800");
@@ -846,6 +861,7 @@ function multiplier12() {
         score = score - multiplierDivinePrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierDivinePrice = multiplierDivinePrice * 19;
+        tooltipDivine.innerHTML = `Prix = ${multiplierDivinePrice}$`;
         multiplierDivineCounts.innerHTML = `${multiplierDivineCount}`;
         if (!multiplierDivineCounts.classList.contains("bg-australiabdarkblue")) {
             multiplierDivine.classList.remove("bg-gray-800");
@@ -903,6 +919,7 @@ function multiplier13() {
         score = score - multiplierAlienPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierAlienPrice = multiplierAlienPrice * 20;
+        tooltipAlien.innerHTML = `Prix = ${multiplierAlienPrice}$`;
         multiplierAlienCounts.innerHTML = `${multiplierAlienCount}`;
         if (!multiplierAlienCounts.classList.contains("bg-australiabdarkblue")) {
             multiplierAlien.classList.remove("bg-gray-800");
@@ -953,12 +970,12 @@ function multiplier13() {
 }
 
 btnClicker.onmousedown = function () {
-    changeMap.src="img/australiamap.svg";
+    changeMap.src = "img/australiamap.svg";
     addScore();
 }
 
 btnClicker.onmouseup = function () {
-    changeMap.src="img/australiamapborder.svg";
+    changeMap.src = "img/australiamapborder.svg";
 }
 
 multiplierBucket.onclick = multiplier1;

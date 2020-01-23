@@ -11557,7 +11557,6 @@ video {
   font-family: 'Open Sans', sans-serif;
 }
 
-html,
 body {
   overflow-y: hidden;
   overflow-x: hidden;
@@ -11721,17 +11720,8 @@ body {
 }
 
 .australiaSize {
-  -webkit-transform: scale(3.2);
-          transform: scale(3.2);
-  line-height: 100%;
-}
-
-.donateCounter {
-  line-height: 100%;
-}
-
-.donateCounterSeconds {
-  line-height: 100%;
+  -webkit-transform: scale(2);
+          transform: scale(2);
 }
 
 .scrollable {
@@ -11771,6 +11761,7 @@ body {
   color: #fff;
   text-align: center;
   padding: 5px 0;
+  border: 1px solid white;
   border-radius: 6px;
   z-index: 10;
   opacity: 0;
@@ -11781,6 +11772,7 @@ body {
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+  pointer-events: none;
 }
 
 .tooltip-right {
@@ -11789,6 +11781,7 @@ body {
 }
 
 .tooltip-right::after {
+  z-index: 9999;
   content: "";
   position: absolute;
   top: 50%;
@@ -11797,6 +11790,23 @@ body {
   border-width: 5px;
   border-style: solid;
   border-color: transparent #555 transparent transparent;
+}
+
+.tooltip-bottom {
+  top: 70%;
+  left: 115%;
+  margin-left: -60px;
+}
+
+.tooltip-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #555 transparent;
 }
 
 @media (min-width: 640px) {
