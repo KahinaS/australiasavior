@@ -8,6 +8,81 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+ html, body {
+    overflow-y: hidden;
+} 
+
+.btn {
+    @apply rounded px-2 py-2 font-semibold;
+}
+
+.btn-blue {
+    @apply bg-australiandarkblue text-australianwhite;
+}
+
+.btn-yellow {
+    @apply bg-yellow-500 text-australianwhite;
+}
+
+.btn-border {
+    @apply border border-white border-2;
+}
+
+.bg-australianblue {
+background-color: #1831a2;
+}
+
+.bg-australiandarkblue {
+background-color: #10216d;
+}
+
+.bg-australianwhite {
+    background-color: #e8e8e8;
+}
+
+.border-australiandarkblue {
+    border-color: #10216d;
+}
+
+.text-australiandarkblue {
+color: #10216d;
+}
+
+.border-onlybottom {
+    @apply border-t-0 border-r-0 border-l-0;
+}
+
+.text-australianwhite {
+    color: #e8e8e8;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.bg-darkstyle {
+    background-color: rgb(51, 51, 51);
+}
+
+#donatebrand {
+    top: 2%;
+    left: 80%;
+}
+
+.scrollable {
+    overflow-y: scroll;
+=======
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 html,
 body {
     overflow-y: hidden;
