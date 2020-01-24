@@ -11755,6 +11755,7 @@ body {
 
 .theBucket , .fireman, .plane, .hospital, .zoo, .collectMoney, .raining, .homes, .trees, .animals, .mondials, .gods, .aliens {
   position: absolute;
+  pointer-events: none;
 }
 
 .tooltip {
