@@ -1010,55 +1010,9 @@ function autoClickerBonus() {
             checkNumber();
         }, 1000);
         checkNumber();
-<<<<<<< HEAD
-        autoclickerPrice = autoclickerPrice * 1.5;
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
-        
-=======
+
         checkDisabled();
         autoclickerPrice = autoclickerPrice * 1.5;
->>>>>>> eaa418c14d4e5cf53537a32d78c252a626c8f149
     }
 }
 
