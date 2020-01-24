@@ -47,7 +47,7 @@ const tooltipAnimals = document.getElementById("tooltipAnimals");
 const tooltipInternational = document.getElementById("tooltipInternational");
 const tooltipDivine = document.getElementById("tooltipDivine");
 const tooltipAlien = document.getElementById("tooltipAlien");
-let score = 0;
+let score = 99999999999;
 let count = 1;
 let autoclickerPrice = 200;
 let autoclickerCount = 1;
@@ -92,23 +92,14 @@ let god = "img/jesus.png";
 let alien = "img/alien.png";
 
 
-
-
-
-
-
-
-
-
-
 function randomImageBucket() {
     var elem = document.createElement("img");
-    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
     var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
     var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
     var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.children.length; i++) {
         let newClass = "theBucket"+i;
         elem.classList.add(newClass);
         elem.classList.add("theBucket");
@@ -122,8 +113,8 @@ function randomImageBucket() {
     }, 3000);
 }
     elem.src = bucketWater;
-    elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
-    elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+    elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+    elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
     elem.style.left = randomX;
     elem.style.top = randomY;
     container.appendChild(elem);
@@ -132,13 +123,12 @@ function randomImageBucket() {
 
 function randomImageFireman() {
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker");
+    var container = document.getElementById("displayRandomMap");
     var availW = container.offsetWidth - 60;
     var availH = container.offsetHeight - 60;
     var randomY = Math.round(Math.random() * availH) + 'px';
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "fireman"+i;
         elem.classList.add(newClass);
         elem.classList.add("fireman");
@@ -152,8 +142,8 @@ function randomImageFireman() {
     }, 3000);
 }
         elem.src = fireman;
-        elem.setAttribute("height", "60");
-        elem.setAttribute("width", "60");
+        elem.setAttribute("height", "30");
+        elem.setAttribute("width", "30");
         elem.style.left = randomX;
         elem.style.top = randomY;
         container.appendChild(elem);
@@ -162,15 +152,13 @@ function randomImageFireman() {
 
 
 function randomImageAircraft() {
-    let nb = document.getElementById("btnClicker").childElementCount;
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
     var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
     var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
     var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "plane"+i;
         elem.classList.add(newClass);
         elem.classList.add("plane");
@@ -184,8 +172,8 @@ function randomImageAircraft() {
     }, 3000);
 }
         elem.src = aircraft;
-        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
         elem.style.left = randomX;
         elem.style.top = randomY;
         container.appendChild(elem);
@@ -193,15 +181,13 @@ function randomImageAircraft() {
 }
 
 function randomImageHospital() {
-    let nb = document.getElementById("btnClicker").childElementCount;
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
     var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
     var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
     var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "hospital"+i;
         elem.classList.add(newClass);
         elem.classList.add("hospital");
@@ -224,15 +210,13 @@ function randomImageHospital() {
 }
 
 function randomImageZoo() {
-    let nb = document.getElementById("btnClicker").childElementCount;
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
     var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
     var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
     var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "zoo"+i;
         elem.classList.add(newClass);
         elem.classList.add("zoo");
@@ -246,8 +230,8 @@ function randomImageZoo() {
     }, 3000);
 }
         elem.src = zoo;
-        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
         elem.style.left = randomX;
         elem.style.top = randomY;
         container.appendChild(elem);
@@ -255,15 +239,13 @@ function randomImageZoo() {
 }
 
 function randomImageCollect() {
-    let nb = document.getElementById("btnClicker").childElementCount;
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
     var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
     var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
     var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "collectMoney"+i;
         elem.classList.add(newClass);
         elem.classList.add("collectMoney");
@@ -277,8 +259,8 @@ function randomImageCollect() {
     }, 3000);
 }
         elem.src = collect;
-        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
         elem.style.left = randomX;
         elem.style.top = randomY;
         container.appendChild(elem);
@@ -286,15 +268,13 @@ function randomImageCollect() {
 }
 
 function randomImageRain() {
-    let nb = document.getElementById("btnClicker").childElementCount;
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
     var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
     var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
     var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "raining"+i;
         elem.classList.add(newClass);
         elem.classList.add("raining");
@@ -308,8 +288,8 @@ function randomImageRain() {
     }, 3000);
 }
         elem.src = rain;
-        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
         elem.style.left = randomX;
         elem.style.top = randomY;
         container.appendChild(elem);
@@ -317,15 +297,13 @@ function randomImageRain() {
 }
 
 function randomImageHouse() {
-    let nb = document.getElementById("btnClicker").childElementCount;
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
     var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
     var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
     var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "homes"+i;
         elem.classList.add(newClass);
         elem.classList.add("homes");
@@ -339,8 +317,8 @@ function randomImageHouse() {
     }, 3000);
 }
         elem.src = house;
-        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
         elem.style.left = randomX;
         elem.style.top = randomY;
         container.appendChild(elem);
@@ -349,15 +327,13 @@ function randomImageHouse() {
 
 
 function randomTree() {
-    let nb = document.getElementById("btnClicker").childElementCount;
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
     var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
     var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
     var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "trees"+i;
         elem.classList.add(newClass);
         elem.classList.add("trees");
@@ -371,8 +347,8 @@ function randomTree() {
     }, 3000);
 }
         elem.src = tree;
-        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
         elem.style.left = randomX;
         elem.style.top = randomY;
         container.appendChild(elem);
@@ -381,15 +357,13 @@ function randomTree() {
 
 
 function randomImageAnimal() {
-    let nb = document.getElementById("btnClicker").childElementCount;
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
     var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
     var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
     var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "animals"+i;
         elem.classList.add(newClass);
         elem.classList.add("animals");
@@ -403,8 +377,8 @@ function randomImageAnimal() {
     }, 3000);
 }
         elem.src = animal;
-        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
         elem.style.left = randomX;
         elem.style.top = randomY;
         container.appendChild(elem);
@@ -413,15 +387,13 @@ function randomImageAnimal() {
 
 
 function randomImageMondial() {
-    let nb = document.getElementById("btnClicker").childElementCount;
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
     var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
     var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
     var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "mondials"+i;
         elem.classList.add(newClass);
         elem.classList.add("mondials");
@@ -435,8 +407,8 @@ function randomImageMondial() {
     }, 3000);
 }
         elem.src = mondial;
-        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
         elem.style.left = randomX;
         elem.style.top = randomY;
         container.appendChild(elem);
@@ -444,15 +416,13 @@ function randomImageMondial() {
 }
 
 function randomImageGod() {
-    let nb = document.getElementById("btnClicker").childElementCount;
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker");
+    var container = document.getElementById("displayRandomMap");
     var availW = container.offsetWidth - 60;
     var availH = container.offsetHeight - 60;
     var randomY = Math.round(Math.random() * availH) + 'px';
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "gods"+i;
         elem.classList.add(newClass);
         elem.classList.add("gods");
@@ -466,8 +436,8 @@ function randomImageGod() {
     }, 3000);
 }
         elem.src = god;
-        elem.setAttribute("height", "60");
-        elem.setAttribute("width", "60");
+        elem.setAttribute("height", "30");
+        elem.setAttribute("width", "30");
         elem.style.left = randomX;
         elem.style.top = randomY;
         container.appendChild(elem);
@@ -475,15 +445,13 @@ function randomImageGod() {
 }
 
 function randomImageAlien() {
-    let nb = document.getElementById("btnClicker").childElementCount;
     var elem = document.createElement("img");
-    elem.id = "elementCard";
-    var container = document.getElementById("btnClicker");
+    var container = document.getElementById("displayRandomMap");
     var availW = container.offsetWidth - 60;
     var availH = container.offsetHeight - 60;
     var randomY = Math.round(Math.random() * availH) + 'px';
     var randomX = Math.round(Math.random() * availW) + 'px';
-    for (let i = 0; i < btnClicker.childElementCount; i++) {
+    for (let i = 0; i < container.childElementCount; i++) {
         let newClass = "aliens"+i;
         elem.classList.add(newClass);
         elem.classList.add("aliens");
@@ -497,8 +465,8 @@ function randomImageAlien() {
     }, 3000);
 }
         elem.src = alien;
-        elem.setAttribute("height", "60");
-        elem.setAttribute("width", "60");
+        elem.setAttribute("height", "30");
+        elem.setAttribute("width", "30");
         elem.style.left = randomX;
         elem.style.top = randomY;
         container.appendChild(elem);
