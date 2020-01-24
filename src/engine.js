@@ -47,11 +47,7 @@ const tooltipAnimals = document.getElementById("tooltipAnimals");
 const tooltipInternational = document.getElementById("tooltipInternational");
 const tooltipDivine = document.getElementById("tooltipDivine");
 const tooltipAlien = document.getElementById("tooltipAlien");
-<<<<<<< HEAD
-let score = 9999999999;
-=======
 let score = 0;
->>>>>>> eaa418c14d4e5cf53537a32d78c252a626c8f149
 let count = 1;
 let autoclickerPrice = 200;
 let autoclickerCount = 1;
@@ -973,11 +969,7 @@ function autoClickerBonus() {
             if (autoclickerCount < 4) {
                 let score2 = ((autoclickerCount - 1) * 2);
                 score = score + score2;
-<<<<<<< HEAD
-                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes :${score2}$</span>`;
-=======
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
->>>>>>> eaa418c14d4e5cf53537a32d78c252a626c8f149
             }
             if ( autoclickerCount >= 4 ) {
                 let score8 = ((autoclickerCount - 1) * 8 );
