@@ -47,11 +47,7 @@ const tooltipAnimals = document.getElementById("tooltipAnimals");
 const tooltipInternational = document.getElementById("tooltipInternational");
 const tooltipDivine = document.getElementById("tooltipDivine");
 const tooltipAlien = document.getElementById("tooltipAlien");
-<<<<<<< HEAD
 let score = 0;
-=======
-let score = 9999999999;
->>>>>>> 431fc3d310bce3ce96ffbdafff794495356d0423
 let count = 1;
 let autoclickerPrice = 200;
 let autoclickerCount = 1;
@@ -95,6 +91,52 @@ let mondial = "img/earth.png";
 let god = "img/jesus.png";
 let alien = "img/alien.png";
 
+
+
+function checkDisabled() {
+    if (score < autoclickerPrice) {
+        autoClicker.disabled = true;
+    }
+    if (score < multiplierBucketPrice) {
+        multiplierBucket.disabled = true;
+    }
+    if (score < multiplierFirefighterPrice) {
+        multiplierFirefighter.disabled = true;
+    }
+    if (score < multiplierAircraftPrice) {
+        multiplierAircraft.disabled = true;
+    }
+    if (score < multiplierKoalaPrice) {
+        multiplierKoala.disabled = true;
+    }
+    if (score < multiplierZooPrice) {
+        multiplierZoo.disabled = true;
+    }
+    if (score < multiplierFundsPrice) {
+        multiplierFunds.disabled = true;
+    }
+    if (score < multiplierRainPrice) {
+        multiplierRain.disabled = true;
+    }
+    if (score < multiplierHousePrice) {
+        multiplierTree.disabled = true;
+    }
+    if (score < multiplierTreePrice) {
+        multiplierTree.disabled = true;
+    }
+    if (score < multiplierAnimalsPrice) {
+        multiplierAnimals.disabled = true;
+    }
+    if (score < multiplierInternationalPrice) {
+        multiplierInternational.disabled = true;
+    }
+    if (score < multiplierDivinePrice) {
+        multiplierDivine.disabled = true;
+    }
+    if (score < multiplierAlienPrice) {
+        multiplierAlien.disabled = true;
+    }
+}
 
 function randomImageBucket() {
     var elem = document.createElement("img");
@@ -652,49 +694,7 @@ function multiplier1() {
         }
         multiplierBucket.innerHTML = `Seau d'eau x ${multiplierBucketCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierHouse.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
-
+        checkDisabled();
         randomImageBucket();
     }
 }
@@ -715,48 +715,7 @@ function multiplier2() {
         }
         multiplierFirefighter.innerHTML = `Pompier x ${multiplierFirefighterCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierHouse.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
         randomImageFireman();
     }
 }
@@ -777,48 +736,7 @@ function multiplier3() {
         }
         multiplierAircraft.innerHTML = `Canadair x ${multiplierAircraftCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierHouse.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
         randomImageAircraft();
     }
 }
@@ -839,48 +757,7 @@ function multiplier4() {
         }
         multiplierKoala.innerHTML = `Hopital à koala x ${multiplierKoalaCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierHouse.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
         randomImageHospital();
     }
 }
@@ -901,48 +778,7 @@ function multiplier5() {
         }
         multiplierZoo.innerHTML = `Zoo hospitalier x ${multiplierZooCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierHouse.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
         randomImageZoo();
     }
 }
@@ -963,48 +799,7 @@ function multiplier6() {
         }
         multiplierFunds.innerHTML = `Collecte de fond x ${multiplierFundsCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierHouse.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
         randomImageCollect();
     }
 }
@@ -1025,48 +820,7 @@ function multiplier7() {
         }
         multiplierRain.innerHTML = `Pluie miraculeuse x ${multiplierRainCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierHouse.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
         randomImageRain();
     }
 }
@@ -1087,48 +841,7 @@ function multiplier8() {
         }
         multiplierHouse.innerHTML = `Reconstruction des maisons x ${multiplierHouseCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierHouse.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
         randomImageHouse();
     }
 }
@@ -1149,48 +862,7 @@ function multiplier9() {
         }
         multiplierTree.innerHTML = `Plantation d'arbres x ${multiplierTreeCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
         randomTree();
     }
 }
@@ -1211,48 +883,7 @@ function multiplier10() {
         }
         multiplierAnimals.innerHTML = `Reproduction intensives des animaux x ${multiplierAnimalsCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
         randomImageAnimal();
     }
 }
@@ -1273,48 +904,7 @@ function multiplier11() {
         }
         multiplierInternational.innerHTML = `Aide international x ${multiplierInternationalCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
         randomImageMondial();
     }
 }
@@ -1336,48 +926,7 @@ function multiplier12() {
         }
         multiplierDivine.innerHTML = `Aide divine x ${multiplierDivineCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
         randomImageGod();
     }
 }
@@ -1398,48 +947,8 @@ function multiplier13() {
         }
         multiplierAlien.innerHTML = `extra-terreste x ${multiplierAlienCount + 1}`;
         checkNumber();
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
+        checkDisabled();
+        randomImageAlien();
     }
 }
 
@@ -1460,7 +969,7 @@ function autoClickerBonus() {
             if (autoclickerCount < 4) {
                 let score2 = ((autoclickerCount - 1) * 2);
                 score = score + score2;
-                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes :${score2}$</span>`;
+                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
             }
             if ( autoclickerCount >= 4 ) {
                 let score8 = ((autoclickerCount - 1) * 8 );
@@ -1501,50 +1010,8 @@ function autoClickerBonus() {
             checkNumber();
         }, 1000);
         checkNumber();
+        checkDisabled();
         autoclickerPrice = autoclickerPrice * 1.5;
-        if (score < autoclickerPrice) {
-            autoClicker.disabled = true;
-        }
-        if (score < multiplierBucketPrice) {
-            multiplierBucket.disabled = true;
-        }
-        if (score < multiplierFirefighterPrice) {
-            multiplierFirefighter.disabled = true;
-        }
-        if (score < multiplierAircraftPrice) {
-            multiplierAircraft.disabled = true;
-        }
-        if (score < multiplierKoalaPrice) {
-            multiplierKoala.disabled = true;
-        }
-        if (score < multiplierZooPrice) {
-            multiplierZoo.disabled = true;
-        }
-        if (score < multiplierFundsPrice) {
-            multiplierFunds.disabled = true;
-        }
-        if (score < multiplierRainPrice) {
-            multiplierRain.disabled = true;
-        }
-        if (score < multiplierHousePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierTreePrice) {
-            multiplierTree.disabled = true;
-        }
-        if (score < multiplierAnimalsPrice) {
-            multiplierAnimals.disabled = true;
-        }
-        if (score < multiplierInternationalPrice) {
-            multiplierInternational.disabled = true;
-        }
-        if (score < multiplierDivinePrice) {
-            multiplierDivine.disabled = true;
-        }
-        if (score < multiplierAlienPrice) {
-            multiplierAlien.disabled = true;
-        }
-        
     }
 }
 
