@@ -4,13 +4,87 @@
 
 @tailwind utilities;
 
+.LightWaves {
+    animation: lightwaves 2s infinite;
+    position: relative;
+}
+
+@keyframes lightwaves {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(5px, 5px);
+        transform: scale(1.05);
+    }
+
+    50% {
+        transform: translate(25px, 5px);
+    }
+
+    75% {
+        transform: translate(12px, 10px);
+        transform: scale(1.05);
+    }
+}
+
+.DarkWaves {
+    animation: darkwaves 3.8s infinite;
+}
+
+@keyframes darkwaves {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(25px, 5px);
+        transform: scale(1.05);
+    }
+
+    50% {
+        transform: translate(12px, 10px);
+    }
+
+    75% {
+        transform: translate(5px, 5px);
+    }
+}
+
+.WhiteWaves {
+    animation: whitewaves 4s alternate ease infinite;
+}
+
+@keyframes whitewaves {
+    0% {
+        transform: translate(0, 25px);
+    }
+
+    100% {
+        transform: translate(25px, 35px);
+    }
+}
+
+.-z-10 {
+    z-index: -10;
+}
+
+.sea {
+    top: -130%;
+}
+
 * {
     font-family: 'Open Sans', sans-serif;
 }
 
-html,
 body {
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 @-webkit-keyframes moveplus {
@@ -195,8 +269,16 @@ body {
     left: 80%;
 }
 
+.australiaSize {
+    transform: scale(2);
+}
+
 .scrollable {
     overflow-y: scroll;
+}
+
+.text-shadow {
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
 }
 
 #multiplierBucket:disabled,
@@ -211,9 +293,11 @@ body {
 #multiplierAnimals:disabled,
 #multiplierInternational:disabled,
 #multiplierDivine:disabled,
-#multiplierAlien:disabled {
+#multiplierAlien:disabled,
+#autoClicker:disabled {
     background-color: gray;
 }
+
 
 #btnClicker {
     position: relative;
@@ -227,5 +311,75 @@ body {
 
 .theBucket , .fireman, .plane, .hospital, .zoo, .collectMoney, .raining, .homes, .trees, .animals, .mondials, .gods, .aliens {
     position: absolute;
+}
    
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border: 1px solid white;
+    border-radius: 6px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.tooltip-right {
+    top: 5px;
+    left: 100%;
+}
+
+.tooltip-right::after {
+    z-index: 9999;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #555 transparent transparent;
+}
+
+.tooltip-bottom {
+    top: 70%;
+    left: 115%;
+    margin-left: -60px;
+}
+
+.tooltip-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    user-drag: none;
 }

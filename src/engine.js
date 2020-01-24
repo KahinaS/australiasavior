@@ -3,8 +3,11 @@ const plus2 = document.getElementById("plus2");
 const plus3 = document.getElementById("plus3");
 const plus4 = document.getElementById("plus4");
 const plus5 = document.getElementById("plus5");
+const changeMap = document.getElementById("changeMap");
 const btnClicker = document.getElementById("btnClicker");
+const autoClicker = document.getElementById("autoClicker");
 const display = document.getElementById("display");
+const displaySecond = document.getElementById("displaySecond");
 const multiplierBucket = document.getElementById("multiplierBucket");
 const multiplierBucketCounts = document.getElementById("multiplierBucketCounts");
 const multiplierFirefighter = document.getElementById("multiplierFirefighter");
@@ -31,8 +34,23 @@ const multiplierDivine = document.getElementById("multiplierDivine");
 const multiplierDivineCounts = document.getElementById("multiplierDivineCounts");
 const multiplierAlien = document.getElementById("multiplierAlien");
 const multiplierAlienCounts = document.getElementById("multiplierAlienCounts");
-let score = 442244244444330;
+const tooltipBucket = document.getElementById("tooltipBucket");
+const tooltipFirefighter = document.getElementById("tooltipFirefighter");
+const tooltipAircraft = document.getElementById("tooltipAircraft");
+const tooltipKoala = document.getElementById("tooltipKoala");
+const tooltipZoo = document.getElementById("tooltipZoo");
+const tooltipFunds = document.getElementById("tooltipFunds");
+const tooltipRain = document.getElementById("tooltipRain");
+const tooltipHouse = document.getElementById("tooltipHouse");
+const tooltipTree = document.getElementById("tooltipTree");
+const tooltipAnimals = document.getElementById("tooltipAnimals");
+const tooltipInternational = document.getElementById("tooltipInternational");
+const tooltipDivine = document.getElementById("tooltipDivine");
+const tooltipAlien = document.getElementById("tooltipAlien");
+let score = 0;
 let count = 1;
+let autoclickerPrice = 200;
+let autoclickerCount = 1;
 let multiplierBucketCount = 0;
 let multiplierBucketPrice = 15;
 let multiplierFirefighterCount = 0;
@@ -488,9 +506,6 @@ function randomImageAlien() {
 }
 
 
-
-
-
 btnClicker.addEventListener("keydown", event => {
     if (event.keyCode === 13) {
         event.preventDefault();
@@ -537,7 +552,6 @@ btnClicker.addEventListener("mousedown", function () {
         }, 600);
     }
 });
-
 
 function checkNumber() {
     if (score >= 1000 && score <= 1000000) {
@@ -630,6 +644,11 @@ function addScore() {
     } else {
         multiplierAlien.disabled = true;
     }
+    if (score >= autoclickerPrice) {
+        autoClicker.disabled = false;
+    } else {
+        autoClicker.disabled = true;
+    }
 }
 
 function multiplier1() {
@@ -640,9 +659,17 @@ function multiplier1() {
         score = score - multiplierBucketPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierBucketPrice = multiplierBucketPrice * 2;
+        tooltipBucket.innerHTML = `Prix = ${multiplierBucketPrice}$`;
         multiplierBucketCounts.innerHTML = `${multiplierBucketCount}`;
+        if (!multiplierBucketCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierBucketCounts.classList.remove("bg-gray-800");
+            multiplierBucketCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierBucket.innerHTML = `Seau d'eau x ${multiplierBucketCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -695,9 +722,17 @@ function multiplier2() {
         score = score - multiplierFirefighterPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierFirefighterPrice = multiplierFirefighterPrice * 3;
+        tooltipFirefighter.innerHTML = `Prix = ${multiplierFirefighterPrice}$`;
         multiplierFirefighterCounts.innerHTML = `${multiplierFirefighterCount}`;
+        if (!multiplierFirefighterCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierFirefighter.classList.remove("bg-gray-800");
+            multiplierFirefighterCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierFirefighter.innerHTML = `Pompier x ${multiplierFirefighterCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -749,9 +784,17 @@ function multiplier3() {
         score = score - multiplierAircraftPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierAircraftPrice = multiplierAircraftPrice * 5;
+        tooltipAircraft.innerHTML = `Prix = ${multiplierAircraftPrice}$`;
         multiplierAircraftCounts.innerHTML = `${multiplierAircraftCount}`;
+        if (!multiplierAircraftCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierAircraft.classList.remove("bg-gray-800");
+            multiplierAircraftCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierAircraft.innerHTML = `Canadair x ${multiplierAircraftCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -803,9 +846,17 @@ function multiplier4() {
         score = score - multiplierKoalaPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierKoalaPrice = multiplierKoalaPrice * 8;
+        tooltipKoala.innerHTML = `Prix = ${multiplierKoalaPrice}$`;
         multiplierKoalaCounts.innerHTML = `${multiplierKoalaCount}`;
+        if (!multiplierKoalaCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierKoala.classList.remove("bg-gray-800");
+            multiplierKoalaCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierKoala.innerHTML = `Hopital à koala x ${multiplierKoalaCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -857,9 +908,17 @@ function multiplier5() {
         score = score - multiplierZooPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierZooPrice = multiplierZooPrice * 12;
+        tooltipZoo.innerHTML = `Prix = ${multiplierZooPrice}$`;
         multiplierZooCounts.innerHTML = `${multiplierZooCount}`;
+        if (!multiplierFirefighterCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierZoo.classList.remove("bg-gray-800");
+            multiplierZooCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierZoo.innerHTML = `Zoo hospitalier x ${multiplierZooCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -911,9 +970,17 @@ function multiplier6() {
         score = score - multiplierFundsPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierFundsPrice = multiplierFundsPrice * 13;
+        tooltipFunds.innerHTML = `Prix = ${multiplierFundsPrice}$`;
         multiplierFundsCounts.innerHTML = `${multiplierFundsCount}`;
+        if (!multiplierFundsCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierFunds.classList.remove("bg-gray-800");
+            multiplierFundsCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierFunds.innerHTML = `Collecte de fond x ${multiplierFundsCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -965,9 +1032,17 @@ function multiplier7() {
         score = score - multiplierRainPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierRainPrice = multiplierRainPrice * 14;
+        tooltipRain.innerHTML = `Prix = ${multiplierRainPrice}$`;
         multiplierRainCounts.innerHTML = `${multiplierRainCount}`;
+        if (!multiplierRainCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierRain.classList.remove("bg-gray-800");
+            multiplierRainCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierRain.innerHTML = `Pluie miraculeuse x ${multiplierRainCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -1019,9 +1094,17 @@ function multiplier8() {
         score = score - multiplierHousePrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierHousePrice = multiplierHousePrice * 15;
+        tooltipHouse.innerHTML = `Prix = ${multiplierHousePrice}$`;
         multiplierHouseCounts.innerHTML = `${multiplierHouseCount}`;
+        if (!multiplierHouseCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierHouse.classList.remove("bg-gray-800");
+            multiplierHouseCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierHouse.innerHTML = `Reconstruction des maisons x ${multiplierHouseCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -1073,9 +1156,17 @@ function multiplier9() {
         score = score - multiplierTreePrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierTreePrice = multiplierTreePrice * 16;
+        tooltipTree.innerHTML = `Prix = ${multiplierTreePrice}$`;
         multiplierTreeCounts.innerHTML = `${multiplierTreeCount}`;
+        if (!multiplierTreeCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierTree.classList.remove("bg-gray-800");
+            multiplierTreeCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierTree.innerHTML = `Plantation d'arbres x ${multiplierTreeCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -1127,9 +1218,17 @@ function multiplier10() {
         score = score - multiplierAnimalsPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierAnimalsPrice = multiplierAnimalsPrice * 17;
+        tooltipAnimals.innerHTML = `Prix = ${multiplierAnimalsPrice}$`;
         multiplierAnimalsCounts.innerHTML = `${multiplierAnimalsCount}`;
+        if (!multiplierAnimalsCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierAnimals.classList.remove("bg-gray-800");
+            multiplierAnimalsCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierAnimals.innerHTML = `Reproduction intensives des animaux x ${multiplierAnimalsCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -1181,9 +1280,17 @@ function multiplier11() {
         score = score - multiplierInternationalPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierInternationalPrice = multiplierInternationalPrice * 18;
+        tooltipInternational.innerHTML = `Prix = ${multiplierInternationalPrice}$`;
         multiplierInternationalCounts.innerHTML = `${multiplierInternationalCount}`;
+        if (!multiplierInternationalCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierInternational.classList.remove("bg-gray-800");
+            multiplierInternationalCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierInternational.innerHTML = `Aide international x ${multiplierInternationalCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -1236,9 +1343,17 @@ function multiplier12() {
         score = score - multiplierDivinePrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierDivinePrice = multiplierDivinePrice * 19;
+        tooltipDivine.innerHTML = `Prix = ${multiplierDivinePrice}$`;
         multiplierDivineCounts.innerHTML = `${multiplierDivineCount}`;
+        if (!multiplierDivineCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierDivine.classList.remove("bg-gray-800");
+            multiplierDivine.classList.add("bg-australiandarkblue");
+        }
         multiplierDivine.innerHTML = `Aide divine x ${multiplierDivineCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -1290,9 +1405,82 @@ function multiplier13() {
         score = score - multiplierAlienPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
         multiplierAlienPrice = multiplierAlienPrice * 20;
+        tooltipAlien.innerHTML = `Prix = ${multiplierAlienPrice}$`;
         multiplierAlienCounts.innerHTML = `${multiplierAlienCount}`;
+        if (!multiplierAlienCounts.classList.contains("bg-australiabdarkblue")) {
+            multiplierAlien.classList.remove("bg-gray-800");
+            multiplierAlienCounts.classList.add("bg-australiandarkblue");
+        }
         multiplierAlien.innerHTML = `extra-terreste x ${multiplierAlienCount + 1}`;
         checkNumber();
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
+        if (score < multiplierBucketPrice) {
+            multiplierBucket.disabled = true;
+        }
+        if (score < multiplierFirefighterPrice) {
+            multiplierFirefighter.disabled = true;
+        }
+        if (score < multiplierAircraftPrice) {
+            multiplierAircraft.disabled = true;
+        }
+        if (score < multiplierKoalaPrice) {
+            multiplierKoala.disabled = true;
+        }
+        if (score < multiplierZooPrice) {
+            multiplierZoo.disabled = true;
+        }
+        if (score < multiplierFundsPrice) {
+            multiplierFunds.disabled = true;
+        }
+        if (score < multiplierRainPrice) {
+            multiplierRain.disabled = true;
+        }
+        if (score < multiplierHousePrice) {
+            multiplierTree.disabled = true;
+        }
+        if (score < multiplierTreePrice) {
+            multiplierTree.disabled = true;
+        }
+        if (score < multiplierAnimalsPrice) {
+            multiplierAnimals.disabled = true;
+        }
+        if (score < multiplierInternationalPrice) {
+            multiplierInternational.disabled = true;
+        }
+        if (score < multiplierDivinePrice) {
+            multiplierDivine.disabled = true;
+        }
+        if (score < multiplierAlienPrice) {
+            multiplierAlien.disabled = true;
+        }
+    }
+}
+
+btnClicker.onmousedown = function () {
+    changeMap.src = "img/australiamap.svg";
+    addScore();
+}
+
+btnClicker.onmouseup = function () {
+    changeMap.src = "img/australiamapborder.svg";
+}
+
+function autoClickerBonus() {
+    if (score >= autoclickerPrice) {
+        autoclickerCount++;
+        score = score - Math.floor(autoclickerPrice);
+        setInterval(() => {
+            score = score + 1;
+            checkNumber();
+        }, 1000);
+        checkNumber();
+        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${autoclickerCount - 1}$</span>`;
+        autoclickerPrice = autoclickerPrice * 1.5;
+        if (score < autoclickerPrice) {
+            autoClicker.disabled = true;
+        }
         if (score < multiplierBucketPrice) {
             multiplierBucket.disabled = true;
         }
@@ -1336,7 +1524,7 @@ function multiplier13() {
     }
 }
 
-btnClicker.onclick = addScore;
+autoClicker.onclick = autoClickerBonus;
 multiplierBucket.onclick = multiplier1;
 multiplierFirefighter.onclick = multiplier2;
 multiplierAircraft.onclick = multiplier3;
