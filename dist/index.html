@@ -184,9 +184,9 @@
                             <span id="plus5" class="flex absolute z-10 text-orange-600 text-shadow-orange font-semibold hidden ml-12 noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
                         </div>
 
-                        <div id="displayRandomMap" usermap="#image-map" class="australiaSize noselect"><img id="changeMap" src="img/australiamapborder.svg" usemap="#image-map" class="noselect"></div>
+                        <div id="displayRandomMap" class="australiaSize noselect"><img id="changeMap" src="img/australiamapborder.svg" usemap="#image-map" class="noselect"></div>
                         <map name="image-map" class="noselect" id="btnClicker">
-                            <area target="_self"
+                            <area target="_self" class="area1"
                                 coords="1,96,16,84,34,76,48,70,54,58,60,46,70,43,86,24,106,31,118,9,125,11,128,3,146,9,160,10,160,18,155,27,152,33,175,47,185,51,192,41,195,16,201,2,207,13,210,26,216,30,221,36,222,45,225,54,228,65,241,75,244,85,251,93,255,98,260,108,265,118,267,136,265,153,261,167,248,185,238,201,231,215,220,216,210,222,194,218,176,211,170,194,156,195,159,176,149,187,137,165,117,162,100,167,83,172,72,181,54,184,41,192,30,195,22,186,24,175,13,153,4,139,1,121,0,105"
                                 shape="poly">
                             <area target="_self" coords="199,228,204,254,215,254,222,243,221,231" shape="poly">
@@ -199,21 +199,24 @@
             </div>
         </div>
         <div class="w-3/12 h-full noselect">
-            <div class="flex flex-col h-48"></div>
+            <div class="flex flex-col h-32"></div>
             <div class="flex flex-col content-end items-end justify-end">
                 <div class="w-5/6 bg-australianwhite py-8 rounded-lg justify-center content-center items-center">
                     <div class="flex justify-center w-full"><button id="autoClicker" class="rounded-lg w-6/12 text-white font-semibold px-2 py-2 btn-blue" disabled>Ajouter une association</button></div>
                     <ul class="flex justify-center mt-10">
-                        <li class="mr-3 "> <img src="img/asso1.svg" class="w-10"></li>
-                        <li class="mr-3 "> <img src="img/gofundme.svg" class="w-16"></li>
-                        <li class="mr-3"> <img src="img/wwf.svg" class="w-10"></li>
+                        <li id="asso1" class="mr-3 hidden"> <img src="img/asso1.svg" class="w-10"></li>
+                        <li id="asso2" class="mr-3 hidden"> <img src="img/gofundme.svg" class="w-16"></li>
+                        <li id="asso3" class="mr-3 hidden"> <img src="img/wwf.svg" class="w-10"></li>
                     </ul>
                     <ul class="flex justify-center mt-4">
-                        <li class="mr-3"><img src="img/croixrouge.svg" class="w-10"></li>
+                        <li id="asso4" class="mr-3 hidden"><img src="img/croixrouge.svg" class="w-10"></li>
 
-                        <li class="mr-3 "><img src="img/nsw.svg" class="w-10"></li>
+                        <li id="asso5" class="mr-3 hidden"><img src="img/nsw.svg" class="w-10"></li>
 
-                        <li class="mr-3"><img src="img/cfs.svg" class="w-16"></li>
+                        <li id="asso6" class="mr-3 hidden"><img src="img/cfs.svg" class="w-16"></li>
+                    </ul>
+                    <ul class="flex justify-center mt-4">
+                        <li id="assoPlus" class="mr-3 hidden"></li>
                     </ul>
                 </div>
                 <div class="w-5/6 bg-australianwhite py-10 rounded-lg mt-10">
