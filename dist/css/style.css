@@ -11799,7 +11799,7 @@ body {
 
 .tooltip-right {
   top: 5px;
-  left: 100%;
+  left: 70%;
 }
 
 .tooltip-right::after {
@@ -11818,17 +11818,6 @@ body {
   top: 70%;
   left: 115%;
   margin-left: -60px;
-}
-
-.tooltip-bottom::after {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent #555 transparent;
 }
 
 .noselect {

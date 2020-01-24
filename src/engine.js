@@ -61,7 +61,8 @@ const tooltipAnimals = document.getElementById("tooltipAnimals");
 const tooltipInternational = document.getElementById("tooltipInternational");
 const tooltipDivine = document.getElementById("tooltipDivine");
 const tooltipAlien = document.getElementById("tooltipAlien");
-let score = 0;
+const tooltipAutoclick = document.getElementById("tooltipAutoclick");
+let score = 9999999;
 let count = 1;
 let autoclickerPrice = 200;
 let autoclickerCount = 1;
@@ -183,8 +184,8 @@ container.style.height = `${heightH}px`;
 
 function randomImageBucket() {
     var elem = document.createElement("img");
-    var availW = widthW - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
-    var availH = heightH - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var availW = widthW - 28; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = heightH - 80; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
     var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.children.length; i++) {
@@ -222,8 +223,8 @@ function randomImageBucket() {
 
 function randomImageFireman() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px";
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -261,8 +262,8 @@ function randomImageFireman() {
 
 function randomImageAircraft() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -300,8 +301,8 @@ function randomImageAircraft() {
 
 function randomImageHospital() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -339,8 +340,8 @@ function randomImageHospital() {
 
 function randomImageZoo() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -378,8 +379,8 @@ function randomImageZoo() {
 
 function randomImageCollect() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -417,8 +418,8 @@ function randomImageCollect() {
 
 function randomImageRain() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -456,8 +457,8 @@ function randomImageRain() {
 
 function randomImageHouse() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -495,8 +496,8 @@ function randomImageHouse() {
 
 function randomTree() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -534,8 +535,8 @@ function randomTree() {
 
 function randomImageAnimal() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -573,8 +574,8 @@ function randomImageAnimal() {
 
 function randomImageMondial() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -612,8 +613,8 @@ function randomImageMondial() {
 
 function randomImageGod() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px";
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -651,8 +652,8 @@ function randomImageGod() {
 
 function randomImageAlien() {
     var elem = document.createElement("img");
-    var availW = widthW - 60;
-    var availH = heightH - 60;
+    var availW = widthW - 28;
+    var availH = heightH - 80;
     var randomY = Math.round(Math.random() * availH) + "px";
     var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
@@ -1153,7 +1154,7 @@ btnClicker.onmouseup = function () {
 function autoClickerBonus() {
     if (score >= autoclickerPrice) {
         autoclickerCount++;
-        console.log(autoclickerCount);
+        tooltipAutoclick.innerHTML = `Prix = ${autoclickerPrice.toFixed(2)}$`;
         if (autoclickerCount === 2) {
             document.getElementById("asso1").classList.remove("hidden");
         }
@@ -1222,9 +1223,9 @@ function autoClickerBonus() {
             checkNumber();
         }, 1000);
         checkNumber();
-
         checkDisabled();
         autoclickerPrice = autoclickerPrice * 1.5;
+        tooltipAutoclick.innerHTML = `Prix = ${autoclickerPrice.toFixed(2)}$`;
     }
 }
 

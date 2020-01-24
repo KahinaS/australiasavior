@@ -203,7 +203,12 @@
             <div class="flex flex-col content-end items-end justify-end">
                 <img src="img/croix.svg" alt="" class="cross absolute w-40 noselect">
                 <div class="w-5/6 bg-australianwhite py-8 rounded-lg justify-center content-center items-center">
-                    <div class="flex justify-center w-full"><button id="autoClicker" class="rounded-lg w-6/12 text-white font-semibold px-2 py-2 btn-blue" disabled>Ajouter une association</button></div>
+                    <div class="flex justify-center content-center items-center w-full">
+                        <div class="flex text-center tooltip w-full">
+                            <button id="autoClicker" class="rounded-lg w-6/12 text-white font-semibold px-2 py-2 btn-blue" disabled>Ajouter une association</button>
+                            <span id="tooltipAutoclick" class="tooltiptext tooltip-right">Prix = 200$</span>
+                        </div>
+                    </div>
                     <ul class="flex justify-center mt-10">
                         <li id="asso1" class="mr-3 hidden"> <img src="img/asso1.svg" class="w-10"></li>
                         <li id="asso2" class="mr-3 hidden"> <img src="img/gofundme.svg" class="w-16"></li>
