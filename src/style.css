@@ -302,11 +302,23 @@ body {
     position: relative;
 }
 
-.theBucket , .fireman, .plane, .hospital, .zoo, .collectMoney, .raining, .homes, .trees, .animals, .mondials, .gods, .aliens {
+.theBucket,
+.fireman,
+.plane,
+.hospital,
+.zoo,
+.collectMoney,
+.raining,
+.homes,
+.trees,
+.animals,
+.mondials,
+.gods,
+.aliens {
     position: absolute;
     pointer-events: none;
 }
-   
+
 .tooltip {
     position: relative;
     display: inline-block;
@@ -376,4 +388,9 @@ body {
     -ms-user-select: none;
     user-select: none;
     user-drag: none;
+}
+
+.cross {
+    top: 14%;
+    right: 15%;
 }
