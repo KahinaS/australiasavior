@@ -77,6 +77,434 @@ let multiplierDivineCount = 0;
 let multiplierDivinePrice = 14000000000000;
 let multiplierAlienCount = 0;
 let multiplierAlienPrice = 170000000000000;
+let bucketWater = "img/throw.png";
+let fireman = "img/fireman.png";
+let aircraft = "img/aircraft.png";
+let hospital = "img/hospital.png";
+let zoo = "img/zoo.png";
+let collect = "img/money.png";
+let rain = "img/thunderstorm.png";
+let house = "img/mansion.png";
+let tree = "img/forest.png";
+let animal = "img/stroller.png";
+let mondial = "img/earth.png";
+let god = "img/jesus.png";
+let alien = "img/alien.png";
+
+
+
+
+
+
+
+
+
+
+
+function randomImageBucket() {
+    var elem = document.createElement("img");
+    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "theBucket"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("theBucket");
+        if (elem.classList.contains("theBucket"+(i - 1))) {
+            elem.classList.remove("theBucket"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+    elem.src = bucketWater;
+    elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
+    elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
+ 
+}
+
+function randomImageFireman() {
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker");
+    var availW = container.offsetWidth - 60;
+    var availH = container.offsetHeight - 60;
+    var randomY = Math.round(Math.random() * availH) + 'px';
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "fireman"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("fireman");
+        if (elem.classList.contains("fireman"+(i - 1))) {
+            elem.classList.remove("fireman"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = fireman;
+        elem.setAttribute("height", "60");
+        elem.setAttribute("width", "60");
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    
+}
+
+
+function randomImageAircraft() {
+    let nb = document.getElementById("btnClicker").childElementCount;
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "plane"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("plane");
+        if (elem.classList.contains("plane"+(i - 1))) {
+            elem.classList.remove("plane"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = aircraft;
+        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    
+}
+
+function randomImageHospital() {
+    let nb = document.getElementById("btnClicker").childElementCount;
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "hospital"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("hospital");
+        if (elem.classList.contains("hospital"+(i - 1))) {
+            elem.classList.remove("hospital"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = hospital;
+        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    
+}
+
+function randomImageZoo() {
+    let nb = document.getElementById("btnClicker").childElementCount;
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "zoo"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("zoo");
+        if (elem.classList.contains("zoo"+(i - 1))) {
+            elem.classList.remove("zoo"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = zoo;
+        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    
+}
+
+function randomImageCollect() {
+    let nb = document.getElementById("btnClicker").childElementCount;
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "collectMoney"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("collectMoney");
+        if (elem.classList.contains("collectMoney"+(i - 1))) {
+            elem.classList.remove("collectMoney"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = collect;
+        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    
+}
+
+function randomImageRain() {
+    let nb = document.getElementById("btnClicker").childElementCount;
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "raining"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("raining");
+        if (elem.classList.contains("raining"+(i - 1))) {
+            elem.classList.remove("raining"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = rain;
+        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    
+}
+
+function randomImageHouse() {
+    let nb = document.getElementById("btnClicker").childElementCount;
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "homes"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("homes");
+        if (elem.classList.contains("homes"+(i - 1))) {
+            elem.classList.remove("homes"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = house;
+        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    
+}
+
+
+function randomTree() {
+    let nb = document.getElementById("btnClicker").childElementCount;
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "trees"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("trees");
+        if (elem.classList.contains("trees"+(i - 1))) {
+            elem.classList.remove("trees"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = tree;
+        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+   
+}
+
+
+function randomImageAnimal() {
+    let nb = document.getElementById("btnClicker").childElementCount;
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "animals"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("animals");
+        if (elem.classList.contains("animals"+(i - 1))) {
+            elem.classList.remove("animals"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = animal;
+        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    
+}
+
+
+function randomImageMondial() {
+    let nb = document.getElementById("btnClicker").childElementCount;
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker"); // DEFINIR NOTRE CONTAINER
+    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "mondials"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("mondials");
+        if (elem.classList.contains("mondials"+(i - 1))) {
+            elem.classList.remove("mondials"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = mondial;
+        elem.setAttribute("height", "60"); // TAILLE DE NOTRE IMAGE
+        elem.setAttribute("width", "60"); //LARGEUR DE NOTRE IMAGE
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    
+}
+
+function randomImageGod() {
+    let nb = document.getElementById("btnClicker").childElementCount;
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker");
+    var availW = container.offsetWidth - 60;
+    var availH = container.offsetHeight - 60;
+    var randomY = Math.round(Math.random() * availH) + 'px';
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "gods"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("gods");
+        if (elem.classList.contains("gods"+(i - 1))) {
+            elem.classList.remove("gods"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = god;
+        elem.setAttribute("height", "60");
+        elem.setAttribute("width", "60");
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    
+}
+
+function randomImageAlien() {
+    let nb = document.getElementById("btnClicker").childElementCount;
+    var elem = document.createElement("img");
+    elem.id = "elementCard";
+    var container = document.getElementById("btnClicker");
+    var availW = container.offsetWidth - 60;
+    var availH = container.offsetHeight - 60;
+    var randomY = Math.round(Math.random() * availH) + 'px';
+    var randomX = Math.round(Math.random() * availW) + 'px';
+    for (let i = 0; i < btnClicker.childElementCount; i++) {
+        let newClass = "aliens"+i;
+        elem.classList.add(newClass);
+        elem.classList.add("aliens");
+        if (elem.classList.contains("aliens"+(i - 1))) {
+            elem.classList.remove("aliens"+(i - 1));
+        }
+        elem.style.opacity = "1";
+    setTimeout (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0";
+    }, 3000);
+}
+        elem.src = alien;
+        elem.setAttribute("height", "60");
+        elem.setAttribute("width", "60");
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    
+}
+
 
 btnClicker.addEventListener("keydown", event => {
     if (event.keyCode === 13) {
@@ -281,6 +709,8 @@ function multiplier1() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+
+        randomImageBucket();
     }
 }
 
@@ -342,6 +772,7 @@ function multiplier2() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomImageFireman();
     }
 }
 
@@ -403,6 +834,7 @@ function multiplier3() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomImageAircraft();
     }
 }
 
@@ -464,6 +896,7 @@ function multiplier4() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomImageHospital();
     }
 }
 
@@ -525,6 +958,7 @@ function multiplier5() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomImageZoo();
     }
 }
 
@@ -586,6 +1020,7 @@ function multiplier6() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomImageCollect();
     }
 }
 
@@ -647,6 +1082,7 @@ function multiplier7() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomImageRain();
     }
 }
 
@@ -708,6 +1144,7 @@ function multiplier8() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomImageHouse();
     }
 }
 
@@ -769,6 +1206,7 @@ function multiplier9() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomTree();
     }
 }
 
@@ -830,6 +1268,7 @@ function multiplier10() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomImageAnimal();
     }
 }
 
@@ -891,6 +1330,7 @@ function multiplier11() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomImageMondial();
     }
 }
 
@@ -953,6 +1393,7 @@ function multiplier12() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomImageGod();
     }
 }
 
@@ -1079,6 +1520,7 @@ function autoClickerBonus() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
+        randomImageAlien();
     }
 }
 
