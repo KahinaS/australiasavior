@@ -47,7 +47,11 @@ const tooltipAnimals = document.getElementById("tooltipAnimals");
 const tooltipInternational = document.getElementById("tooltipInternational");
 const tooltipDivine = document.getElementById("tooltipDivine");
 const tooltipAlien = document.getElementById("tooltipAlien");
+<<<<<<< HEAD
 let score = 0;
+=======
+let score = 9999999999;
+>>>>>>> 431fc3d310bce3ce96ffbdafff794495356d0423
 let count = 1;
 let autoclickerPrice = 200;
 let autoclickerCount = 1;
@@ -103,6 +107,7 @@ function randomImageBucket() {
         let newClass = "theBucket"+i;
         elem.classList.add(newClass);
         elem.classList.add("theBucket");
+        elem.classList.add("noselect");
         if (elem.classList.contains("theBucket"+(i - 1))) {
             elem.classList.remove("theBucket"+(i - 1));
         }
@@ -132,6 +137,7 @@ function randomImageFireman() {
         let newClass = "fireman"+i;
         elem.classList.add(newClass);
         elem.classList.add("fireman");
+        elem.classList.add("noselect");
         if (elem.classList.contains("fireman"+(i - 1))) {
             elem.classList.remove("fireman"+(i - 1));
         }
@@ -162,6 +168,7 @@ function randomImageAircraft() {
         let newClass = "plane"+i;
         elem.classList.add(newClass);
         elem.classList.add("plane");
+        elem.classList.add("noselect");
         if (elem.classList.contains("plane"+(i - 1))) {
             elem.classList.remove("plane"+(i - 1));
         }
@@ -191,6 +198,7 @@ function randomImageHospital() {
         let newClass = "hospital"+i;
         elem.classList.add(newClass);
         elem.classList.add("hospital");
+        elem.classList.add("noselect");
         if (elem.classList.contains("hospital"+(i - 1))) {
             elem.classList.remove("hospital"+(i - 1));
         }
@@ -220,6 +228,7 @@ function randomImageZoo() {
         let newClass = "zoo"+i;
         elem.classList.add(newClass);
         elem.classList.add("zoo");
+        elem.classList.add("noselect");
         if (elem.classList.contains("zoo"+(i - 1))) {
             elem.classList.remove("zoo"+(i - 1));
         }
@@ -249,6 +258,7 @@ function randomImageCollect() {
         let newClass = "collectMoney"+i;
         elem.classList.add(newClass);
         elem.classList.add("collectMoney");
+        elem.classList.add("noselect");
         if (elem.classList.contains("collectMoney"+(i - 1))) {
             elem.classList.remove("collectMoney"+(i - 1));
         }
@@ -278,6 +288,7 @@ function randomImageRain() {
         let newClass = "raining"+i;
         elem.classList.add(newClass);
         elem.classList.add("raining");
+        elem.classList.add("noselect");
         if (elem.classList.contains("raining"+(i - 1))) {
             elem.classList.remove("raining"+(i - 1));
         }
@@ -307,6 +318,7 @@ function randomImageHouse() {
         let newClass = "homes"+i;
         elem.classList.add(newClass);
         elem.classList.add("homes");
+        elem.classList.add("noselect");
         if (elem.classList.contains("homes"+(i - 1))) {
             elem.classList.remove("homes"+(i - 1));
         }
@@ -337,6 +349,7 @@ function randomTree() {
         let newClass = "trees"+i;
         elem.classList.add(newClass);
         elem.classList.add("trees");
+        elem.classList.add("noselect");
         if (elem.classList.contains("trees"+(i - 1))) {
             elem.classList.remove("trees"+(i - 1));
         }
@@ -367,6 +380,7 @@ function randomImageAnimal() {
         let newClass = "animals"+i;
         elem.classList.add(newClass);
         elem.classList.add("animals");
+        elem.classList.add("noselect");
         if (elem.classList.contains("animals"+(i - 1))) {
             elem.classList.remove("animals"+(i - 1));
         }
@@ -397,6 +411,7 @@ function randomImageMondial() {
         let newClass = "mondials"+i;
         elem.classList.add(newClass);
         elem.classList.add("mondials");
+        elem.classList.add("noselect");
         if (elem.classList.contains("mondials"+(i - 1))) {
             elem.classList.remove("mondials"+(i - 1));
         }
@@ -426,6 +441,7 @@ function randomImageGod() {
         let newClass = "gods"+i;
         elem.classList.add(newClass);
         elem.classList.add("gods");
+        elem.classList.add("noselect");
         if (elem.classList.contains("gods"+(i - 1))) {
             elem.classList.remove("gods"+(i - 1));
         }
@@ -455,6 +471,7 @@ function randomImageAlien() {
         let newClass = "aliens"+i;
         elem.classList.add(newClass);
         elem.classList.add("aliens");
+        elem.classList.add("noselect");
         if (elem.classList.contains("aliens"+(i - 1))) {
             elem.classList.remove("aliens"+(i - 1));
         }
@@ -1440,11 +1457,50 @@ function autoClickerBonus() {
         autoclickerCount++;
         score = score - Math.floor(autoclickerPrice);
         setInterval(() => {
-            score = score + 1;
+            if (autoclickerCount < 4) {
+                let score2 = ((autoclickerCount - 1) * 2);
+                score = score + score2;
+                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes :${score2}$</span>`;
+            }
+            if ( autoclickerCount >= 4 ) {
+                let score8 = ((autoclickerCount - 1) * 8 );
+                score = score + score8;
+                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score8}$</span>`;
+            } 
+            if (autoclickerCount >= 9) {
+                let score16 = ((autoclickerCount - 1) * 16);
+                score = score + score16;
+                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score16}$</span>`;
+            } 
+            if (autoclickerCount >= 14) {
+                let score32 = ((autoclickerCount - 1) * 32);
+                score = score + score32;
+                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score32}$</span>`;
+            } 
+
+            if (autoclickerCount >= 19) {
+                let score64 = ((autoclickerCount - 1) * 64);
+                score = score + score64;
+                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score64}$</span>`;
+            }
+            if (autoclickerCount >= 24) {
+                let score128 = ((autoclickerCount - 1) * 128);
+                score = score + score128;
+                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score128}$</span>`;
+            } 
+            if (autoclickerCount >= 29) {
+                let score256 = ((autoclickerCount - 1) * 256);
+                score = score + score256;
+                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score256}$</span>`;
+            } 
+            if (autoclickerCount >= 34) {
+                let score512 = ((autoclickerCount - 1) * 512);
+                score = score + score512;
+                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
+            } 
             checkNumber();
         }, 1000);
         checkNumber();
-        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${autoclickerCount - 1}$</span>`;
         autoclickerPrice = autoclickerPrice * 1.5;
         if (score < autoclickerPrice) {
             autoClicker.disabled = true;
@@ -1488,7 +1544,7 @@ function autoClickerBonus() {
         if (score < multiplierAlienPrice) {
             multiplierAlien.disabled = true;
         }
-        randomImageAlien();
+        
     }
 }
 
