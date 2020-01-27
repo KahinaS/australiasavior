@@ -295,7 +295,7 @@ body {
 #multiplierDivine:disabled,
 #multiplierAlien:disabled,
 #autoClicker:disabled,
-#bonusBtn:disabled{
+#bonusBtn:disabled {
     background-color: gray;
 }
 
@@ -383,8 +383,8 @@ body {
 .fire {
     position: absolute;
     pointer-events: none;
-  
-   
+
+
 }
 
 .firefire0 {
@@ -394,7 +394,7 @@ body {
     width: 35px;
 }
 
-.firefire1{
+.firefire1 {
     top: 140px;
     left: 20px;
     height: 40px;
@@ -407,38 +407,41 @@ body {
     height: 40px;
     width: 35px;
 }
- .firefire3 {
+
+.firefire3 {
     top: 220px;
     left: 195px;
     height: 40px;
     width: 35px;
- }
+}
 
- .firefire4 {
+.firefire4 {
     top: 180px;
     left: 195px;
     height: 40px;
     width: 35px;
- }
+}
 
- .firefire5 {
+.firefire5 {
     top: 100px;
     left: 95px;
     height: 40px;
     width: 35px;
- }
+}
 
- .firefire6 {
+.firefire6 {
     top: 10px;
     left: 125px;
     height: 40px;
     width: 35px;
-   
- }
+
+}
+
 .cross {
     top: 14%;
     right: 15%;
 }
+
 .fire {
     position: absolute;
     pointer-events: none;
@@ -451,7 +454,7 @@ body {
     left: 50px;
 }
 
-.firefire1{
+.firefire1 {
     top: 140px;
     left: 20px;
 }
@@ -460,25 +463,26 @@ body {
     top: 80px;
     left: 200px;
 }
- .firefire3 {
+
+.firefire3 {
     top: 220px;
     left: 195px;
- }
+}
 
- .firefire4 {
+.firefire4 {
     top: 180px;
     left: 195px;
- }
+}
 
- .firefire5 {
+.firefire5 {
     top: 100px;
     left: 95px;
- }
+}
 
- .firefire6 {
+.firefire6 {
     top: 10px;
     left: 125px;
- }
+}
 
 .modal {
     position: fixed;
@@ -492,6 +496,7 @@ body {
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
+
 .modal-content {
     position: absolute;
     top: 50%;
@@ -502,6 +507,7 @@ body {
     width: 600px;
     border-radius: 0.5rem;
 }
+
 .close-button {
     float: right;
     width: 1.5rem;
@@ -512,10 +518,12 @@ body {
     background-color: white;
     display: none;
 }
+
 .close-button:hover {
     background-color: white;
     display: none;
 }
+
 .show-modal {
     opacity: 1;
     visibility: visible;
@@ -535,6 +543,7 @@ body {
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
+
 .modal-content2 {
     position: absolute;
     top: 50%;
@@ -545,6 +554,7 @@ body {
     width: 600px;
     border-radius: 0.5rem;
 }
+
 .close-button2 {
     float: right;
     width: 1.5rem;
@@ -555,10 +565,12 @@ body {
     background-color: white;
     display: none;
 }
+
 .close-button2:hover {
     background-color: white;
     display: none;
 }
+
 .show-modal2 {
     opacity: 1;
     visibility: visible;
@@ -568,4 +580,19 @@ body {
 
 .trigger {
     height: 90px;
+}
+
+#image {
+    height: 256px;
+    width: 256px;
+    background:
+        url('../dist/img/zoo.png') 0px 0px;
+}
+
+#help {
+
+    position: absolute;
+    top: 40px;
+    left: 80px;
+    height: 40px;
 }

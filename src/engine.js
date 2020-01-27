@@ -107,6 +107,7 @@ let mondial = "img/earth.png";
 let god = "img/jesus.png";
 let alien = "img/alien.png";
 let fireAustralia = "img/firefire.svg";
+let helping = "img/parcel.png";
 
 let bonusTimer = 5000; //Milliseconds (10 minutes)
 let bonusActive = 3000; //Milliseconds (5 minutes)
@@ -166,6 +167,8 @@ function myHandler(e) {
 
 }
 
+
+
 function checkDisabled() {
     if (score < autoclickerPrice) {
         autoClicker.disabled = true;
@@ -211,6 +214,40 @@ function checkDisabled() {
     }
 }
 
+
+function help() {
+    for (let i = 0; i < 2; i++) {
+        var elem = document.createElement("img");
+        elem.id = "help";
+        var container = document.getElementById("displayRandomMap");
+        elem.src = helping;
+
+
+
+        let newClass = "help" + i;
+        elem.classList.add(newClass);
+        elem.classList.add("noselect");
+        elem.classList.add("helpi");
+
+        container.appendChild(elem);
+
+        var bloc = document.getElementById("help");
+var vitesse = 1; // Valeur du déplacement en pixels
+
+/* // Déplace le bloc sur sa gauche
+function deplacerBloc() {
+    // Conversion en nombre de la position gauche du bloc (valeur de la forme "XXpx")
+    var xBloc = parseFloat(getComputedStyle(bloc).left);
+    // Déplacement du bloc
+    bloc.style.left = (xBloc + vitesse) + "px";
+    bloc.style.top = (xBloc + vitesse) + "px";
+    // Demande au navigateur d'appeler deplacerBloc dès que possible
+    requestAnimationFrame(deplacerBloc);
+}
+requestAnimationFrame(deplacerBloc); // Début de l'animation*/
+    } 
+}
+help();
 
 function Fire() {
     for (let i = 0; i < 7; i++) {
