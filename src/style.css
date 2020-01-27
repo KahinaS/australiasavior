@@ -383,3 +383,43 @@ body {
     top: 14%;
     right: 15%;
 }
+.fire {
+    position: absolute;
+    pointer-events: none;
+    height: 40px;
+    width: 35px;
+}
+
+.firefire0 {
+    top: 30px;
+    left: 50px;
+}
+
+.firefire1{
+    top: 140px;
+    left: 20px;
+}
+
+.firefire2 {
+    top: 80px;
+    left: 200px;
+}
+ .firefire3 {
+    top: 220px;
+    left: 195px;
+ }
+
+ .firefire4 {
+    top: 180px;
+    left: 195px;
+ }
+
+ .firefire5 {
+    top: 100px;
+    left: 95px;
+ }
+
+ .firefire6 {
+    top: 10px;
+    left: 125px;
+ }

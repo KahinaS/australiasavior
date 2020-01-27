@@ -62,7 +62,7 @@ const tooltipInternational = document.getElementById("tooltipInternational");
 const tooltipDivine = document.getElementById("tooltipDivine");
 const tooltipAlien = document.getElementById("tooltipAlien");
 const tooltipAutoclick = document.getElementById("tooltipAutoclick");
-let score = 9999999;
+let score = 0;
 let count = 1;
 let autoclickerPrice = 200;
 let autoclickerCount = 1;
@@ -105,6 +105,8 @@ let animal = "img/stroller.png";
 let mondial = "img/earth.png";
 let god = "img/jesus.png";
 let alien = "img/alien.png";
+let fireAustralia = "img/firefire.svg";
+
 
 function checkDisabled() {
     if (score < autoclickerPrice) {
@@ -181,6 +183,23 @@ let heightH = maxY - minY;
 var container = document.getElementById("displayRandomMap");
 container.style.width = `${widthW}px`;
 container.style.height = `${heightH}px`;
+
+
+function Fire() {
+    for (let i = 0; i < 7; i++) {
+        var elem = document.createElement("img");
+        let newId = "fire" + i;
+        elem.id = newId;
+        var container = document.getElementById("displayRandomMap");
+        elem.src = fireAustralia;
+        let newClass = "firefire" + i;
+        elem.classList.add(newClass);
+        elem.classList.add("noselect");
+        elem.classList.add("fire");
+        container.appendChild(elem);
+    }
+}
+Fire();
 
 function randomImageBucket() {
     var elem = document.createElement("img");
@@ -769,6 +788,7 @@ function checkNumber() {
 function addScore() {
     score = score + count;
     checkNumber();
+    checkDisabled();
     if (score >= multiplierBucketPrice) {
         multiplierBucket.disabled = false;
     } else {
@@ -1145,10 +1165,14 @@ function multiplier13() {
 btnClicker.onmousedown = function () {
     changeMap.src = "img/australiamap.svg";
     addScore();
+    checkNumber();
+    checkDisabled();
 };
 
 btnClicker.onmouseup = function () {
     changeMap.src = "img/australiamapborder.svg";
+    checkNumber();
+    checkDisabled();
 };
 
 function autoClickerBonus() {
@@ -1178,54 +1202,75 @@ function autoClickerBonus() {
             document.getElementById("assoPlus").innerHTML = `<span class="font-semibold text-4xl text-australiandarkblue">+${autoclickerCount - 7}</span>`;
         }
         score = score - Math.floor(autoclickerPrice);
+        checkNumber();
+        checkDisabled();
         setInterval(() => {
+            checkNumber();
+            checkDisabled();
             if (autoclickerCount < 4) {
                 let score2 = (autoclickerCount - 1) * 2;
                 score = score + score2;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
+                checkNumber();
+                checkDisabled();
             }
             if (autoclickerCount >= 4) {
                 let score8 = (autoclickerCount - 1) * 8;
                 score = score + score8;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score8}$</span>`;
+                checkNumber();
+                checkDisabled();
             }
             if (autoclickerCount >= 9) {
                 let score16 = (autoclickerCount - 1) * 16;
                 score = score + score16;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score16}$</span>`;
+                checkNumber();
+                checkDisabled();
             }
             if (autoclickerCount >= 14) {
                 let score32 = (autoclickerCount - 1) * 32;
                 score = score + score32;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score32}$</span>`;
+                checkNumber();
+                checkDisabled();
             }
 
             if (autoclickerCount >= 19) {
                 let score64 = (autoclickerCount - 1) * 64;
                 score = score + score64;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score64}$</span>`;
+                checkNumber();
+                checkDisabled();
             }
             if (autoclickerCount >= 24) {
                 let score128 = (autoclickerCount - 1) * 128;
                 score = score + score128;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score128}$</span>`;
+                checkNumber();
+                checkDisabled();
             }
             if (autoclickerCount >= 29) {
                 let score256 = (autoclickerCount - 1) * 256;
                 score = score + score256;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score256}$</span>`;
+                checkNumber();
+                checkDisabled();
             }
             if (autoclickerCount >= 34) {
                 let score512 = (autoclickerCount - 1) * 512;
                 score = score + score512;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
+                checkNumber();
+                checkDisabled();
             }
             checkNumber();
+            checkDisabled();
         }, 1000);
-        checkNumber();
-        checkDisabled();
         autoclickerPrice = autoclickerPrice * 1.5;
         tooltipAutoclick.innerHTML = `Prix = ${autoclickerPrice.toFixed(2)}$`;
+        checkNumber();
+        checkDisabled();
     }
 }
 
@@ -1243,3 +1288,5 @@ multiplierAnimals.onclick = multiplier10;
 multiplierInternational.onclick = multiplier11;
 multiplierDivine.onclick = multiplier12;
 multiplierAlien.onclick = multiplier13;
+checkNumber();
+checkDisabled();
