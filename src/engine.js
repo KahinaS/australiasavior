@@ -9,11 +9,17 @@ const autoClicker = document.getElementById("autoClicker");
 const display = document.getElementById("display");
 const displaySecond = document.getElementById("displaySecond");
 const multiplierBucket = document.getElementById("multiplierBucket");
-const multiplierBucketCounts = document.getElementById("multiplierBucketCounts");
+const multiplierBucketCounts = document.getElementById(
+    "multiplierBucketCounts"
+);
 const multiplierFirefighter = document.getElementById("multiplierFirefighter");
-const multiplierFirefighterCounts = document.getElementById("multiplierFirefighterCounts");
+const multiplierFirefighterCounts = document.getElementById(
+    "multiplierFirefighterCounts"
+);
 const multiplierAircraft = document.getElementById("multiplierAircraft");
-const multiplierAircraftCounts = document.getElementById("multiplierAircraftCounts");
+const multiplierAircraftCounts = document.getElementById(
+    "multiplierAircraftCounts"
+);
 const multiplierKoala = document.getElementById("multiplierKoala");
 const multiplierKoalaCounts = document.getElementById("multiplierKoalaCounts");
 const multiplierZoo = document.getElementById("multiplierZoo");
@@ -27,11 +33,19 @@ const multiplierHouseCounts = document.getElementById("multiplierHouseCounts");
 const multiplierTree = document.getElementById("multiplierTree");
 const multiplierTreeCounts = document.getElementById("multiplierTreeCounts");
 const multiplierAnimals = document.getElementById("multiplierAnimals");
-const multiplierAnimalsCounts = document.getElementById("multiplierAnimalsCounts");
-const multiplierInternational = document.getElementById("multiplierInternational");
-const multiplierInternationalCounts = document.getElementById("multiplierInternationalCounts");
+const multiplierAnimalsCounts = document.getElementById(
+    "multiplierAnimalsCounts"
+);
+const multiplierInternational = document.getElementById(
+    "multiplierInternational"
+);
+const multiplierInternationalCounts = document.getElementById(
+    "multiplierInternationalCounts"
+);
 const multiplierDivine = document.getElementById("multiplierDivine");
-const multiplierDivineCounts = document.getElementById("multiplierDivineCounts");
+const multiplierDivineCounts = document.getElementById(
+    "multiplierDivineCounts"
+);
 const multiplierAlien = document.getElementById("multiplierAlien");
 const multiplierAlienCounts = document.getElementById("multiplierAlienCounts");
 const tooltipBucket = document.getElementById("tooltipBucket");
@@ -47,7 +61,8 @@ const tooltipAnimals = document.getElementById("tooltipAnimals");
 const tooltipInternational = document.getElementById("tooltipInternational");
 const tooltipDivine = document.getElementById("tooltipDivine");
 const tooltipAlien = document.getElementById("tooltipAlien");
-let score = 0;
+const tooltipAutoclick = document.getElementById("tooltipAutoclick");
+let score = 9999999;
 let count = 1;
 let autoclickerPrice = 200;
 let autoclickerCount = 1;
@@ -91,8 +106,6 @@ let mondial = "img/earth.png";
 let god = "img/jesus.png";
 let alien = "img/alien.png";
 let fireAustralia = "img/firefire.svg";
-
-
 
 
 
@@ -172,402 +185,543 @@ function Fire() {
   
 }
 Fire();
+let x = [];
+let y = [];
+// On récupère les valeurs dans les coordonnées de la map
+let coord = document.getElementsByClassName("area1")[0].getAttribute("coords");
+// On les split en différentes valeurs
+let values = coord.split(",");
+let length = values.length;
+// On rempli nos tableaux X et Y
+for (let i = 0; i < length; i++) {
+    // On push dans le tableau X avec une incrémentation de 1 (pour prendre les valeurs X)
+    x.push(values[i++]);
+    // On push le reste dans le tableau Y
+    y.push(values[i]);
+}
+
+// On prend les valeurs min et max des axes de X  :
+let minX = Math.min.apply(null, x),
+    maxX = Math.max.apply(null, x);
+
+// On prend les valeurs min et max des axes de Y:
+let minY = Math.min.apply(null, y),
+    maxY = Math.max.apply(null, y);
+
+// On met le résultat dans deux valeurs (X pour width et Y pour height)
+let widthW = maxX - minX;
+let heightH = maxY - minY;
+
+var container = document.getElementById("displayRandomMap");
+container.style.width = `${widthW}px`;
+container.style.height = `${heightH}px`;
 
 function randomImageBucket() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
-    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
-    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
-    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
+    var availH = heightH - 80; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
+    var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.children.length; i++) {
-        let newClass = "theBucket"+i;
+        let newClass = "theBucket" + i;
         elem.classList.add(newClass);
         elem.classList.add("theBucket");
         elem.classList.add("noselect");
-        if (elem.classList.contains("theBucket"+(i - 1))) {
-            elem.classList.remove("theBucket"+(i - 1));
+        if (elem.classList.contains("theBucket" + (i - 1))) {
+            elem.classList.remove("theBucket" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
-}
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
     elem.src = bucketWater;
     elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
     elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
     elem.style.left = randomX;
     elem.style.top = randomY;
     container.appendChild(elem);
-    
- 
 }
 
 function randomImageFireman() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap");
-    var availW = container.offsetWidth - 60;
-    var availH = container.offsetHeight - 60;
-    var randomY = Math.round(Math.random() * availH) + 'px';
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px";
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "fireman"+i;
+        let newClass = "fireman" + i;
         elem.classList.add(newClass);
         elem.classList.add("fireman");
         elem.classList.add("noselect");
-        if (elem.classList.contains("fireman"+(i - 1))) {
-            elem.classList.remove("fireman"+(i - 1));
+        if (elem.classList.contains("fireman" + (i - 1))) {
+            elem.classList.remove("fireman" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = fireman;
+    elem.setAttribute("height", "30");
+    elem.setAttribute("width", "30");
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
-        elem.src = fireman;
-        elem.setAttribute("height", "30");
-        elem.setAttribute("width", "30");
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-    
-}
-
 
 function randomImageAircraft() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
-    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
-    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
-    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "plane"+i;
+        let newClass = "plane" + i;
         elem.classList.add(newClass);
         elem.classList.add("plane");
         elem.classList.add("noselect");
-        if (elem.classList.contains("plane"+(i - 1))) {
-            elem.classList.remove("plane"+(i - 1));
+        if (elem.classList.contains("plane" + (i - 1))) {
+            elem.classList.remove("plane" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
-}
-        elem.src = aircraft;
-        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-    
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = aircraft;
+    elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+    elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
 
 function randomImageHospital() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
-    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
-    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
-    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "hospital"+i;
+        let newClass = "hospital" + i;
         elem.classList.add(newClass);
         elem.classList.add("hospital");
         elem.classList.add("noselect");
-        if (elem.classList.contains("hospital"+(i - 1))) {
-            elem.classList.remove("hospital"+(i - 1));
+        if (elem.classList.contains("hospital" + (i - 1))) {
+            elem.classList.remove("hospital" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
-}
-        elem.src = hospital;
-        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-    
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = hospital;
+    elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+    elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
 
 function randomImageZoo() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
-    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
-    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
-    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "zoo"+i;
+        let newClass = "zoo" + i;
         elem.classList.add(newClass);
         elem.classList.add("zoo");
         elem.classList.add("noselect");
-        if (elem.classList.contains("zoo"+(i - 1))) {
-            elem.classList.remove("zoo"+(i - 1));
+        if (elem.classList.contains("zoo" + (i - 1))) {
+            elem.classList.remove("zoo" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
-}
-        elem.src = zoo;
-        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-    
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = zoo;
+    elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+    elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
 
 function randomImageCollect() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
-    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
-    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
-    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "collectMoney"+i;
+        let newClass = "collectMoney" + i;
         elem.classList.add(newClass);
         elem.classList.add("collectMoney");
         elem.classList.add("noselect");
-        if (elem.classList.contains("collectMoney"+(i - 1))) {
-            elem.classList.remove("collectMoney"+(i - 1));
+        if (elem.classList.contains("collectMoney" + (i - 1))) {
+            elem.classList.remove("collectMoney" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
-}
-        elem.src = collect;
-        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-    
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = collect;
+    elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+    elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
 
 function randomImageRain() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
-    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
-    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
-    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "raining"+i;
+        let newClass = "raining" + i;
         elem.classList.add(newClass);
         elem.classList.add("raining");
         elem.classList.add("noselect");
-        if (elem.classList.contains("raining"+(i - 1))) {
-            elem.classList.remove("raining"+(i - 1));
+        if (elem.classList.contains("raining" + (i - 1))) {
+            elem.classList.remove("raining" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
-}
-        elem.src = rain;
-        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-    
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = rain;
+    elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+    elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
 
 function randomImageHouse() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
-    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
-    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
-    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "homes"+i;
+        let newClass = "homes" + i;
         elem.classList.add(newClass);
         elem.classList.add("homes");
         elem.classList.add("noselect");
-        if (elem.classList.contains("homes"+(i - 1))) {
-            elem.classList.remove("homes"+(i - 1));
+        if (elem.classList.contains("homes" + (i - 1))) {
+            elem.classList.remove("homes" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = house;
+    elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+    elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
-        elem.src = house;
-        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-    
-}
-
 
 function randomTree() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
-    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
-    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
-    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "trees"+i;
+        let newClass = "trees" + i;
         elem.classList.add(newClass);
         elem.classList.add("trees");
         elem.classList.add("noselect");
-        if (elem.classList.contains("trees"+(i - 1))) {
-            elem.classList.remove("trees"+(i - 1));
+        if (elem.classList.contains("trees" + (i - 1))) {
+            elem.classList.remove("trees" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = tree;
+    elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+    elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
-        elem.src = tree;
-        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-   
-}
-
 
 function randomImageAnimal() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
-    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
-    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
-    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "animals"+i;
+        let newClass = "animals" + i;
         elem.classList.add(newClass);
         elem.classList.add("animals");
         elem.classList.add("noselect");
-        if (elem.classList.contains("animals"+(i - 1))) {
-            elem.classList.remove("animals"+(i - 1));
+        if (elem.classList.contains("animals" + (i - 1))) {
+            elem.classList.remove("animals" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = animal;
+    elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+    elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
-        elem.src = animal;
-        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-    
-}
-
 
 function randomImageMondial() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
-    var availW = container.offsetWidth - 60; // BORDURE DE NOTRE CONTAINER EN LARGEUR - 60 POUR PAS QUE CA DEPASSE
-    var availH = container.offsetHeight - 60; // BORDURE DE NOTRE CONTAINER EN HAUTEUR - 60 POUR PAS QUE CA DEPASSE
-    var randomY = Math.round(Math.random() * availH) + 'px'; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px"; // MATH RANDOM x LARGEUR POUR QU'IL SE PLACE NIMPORTE OU SUR LE CONTAINER
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "mondials"+i;
+        let newClass = "mondials" + i;
         elem.classList.add(newClass);
         elem.classList.add("mondials");
         elem.classList.add("noselect");
-        if (elem.classList.contains("mondials"+(i - 1))) {
-            elem.classList.remove("mondials"+(i - 1));
+        if (elem.classList.contains("mondials" + (i - 1))) {
+            elem.classList.remove("mondials" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
-}
-        elem.src = mondial;
-        elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
-        elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-    
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = mondial;
+    elem.setAttribute("height", "30"); // TAILLE DE NOTRE IMAGE
+    elem.setAttribute("width", "30"); //LARGEUR DE NOTRE IMAGE
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
 
 function randomImageGod() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap");
-    var availW = container.offsetWidth - 60;
-    var availH = container.offsetHeight - 60;
-    var randomY = Math.round(Math.random() * availH) + 'px';
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px";
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "gods"+i;
+        let newClass = "gods" + i;
         elem.classList.add(newClass);
         elem.classList.add("gods");
         elem.classList.add("noselect");
-        if (elem.classList.contains("gods"+(i - 1))) {
-            elem.classList.remove("gods"+(i - 1));
+        if (elem.classList.contains("gods" + (i - 1))) {
+            elem.classList.remove("gods" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
-}
-        elem.src = god;
-        elem.setAttribute("height", "30");
-        elem.setAttribute("width", "30");
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-    
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = god;
+    elem.setAttribute("height", "30");
+    elem.setAttribute("width", "30");
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
 
 function randomImageAlien() {
     var elem = document.createElement("img");
-    var container = document.getElementById("displayRandomMap");
-    var availW = container.offsetWidth - 60;
-    var availH = container.offsetHeight - 60;
-    var randomY = Math.round(Math.random() * availH) + 'px';
-    var randomX = Math.round(Math.random() * availW) + 'px';
+    var availW = widthW - 28;
+    var availH = heightH - 80;
+    var randomY = Math.round(Math.random() * availH) + "px";
+    var randomX = Math.round(Math.random() * availW) + "px";
     for (let i = 0; i < container.childElementCount; i++) {
-        let newClass = "aliens"+i;
+        let newClass = "aliens" + i;
         elem.classList.add(newClass);
         elem.classList.add("aliens");
         elem.classList.add("noselect");
-        if (elem.classList.contains("aliens"+(i - 1))) {
-            elem.classList.remove("aliens"+(i - 1));
+        if (elem.classList.contains("aliens" + (i - 1))) {
+            elem.classList.remove("aliens" + (i - 1));
         }
-        elem.style.opacity = "1";
-    setTimeout (function () {
-        elem.style.transition = "opacity 0.5s ease";
         elem.style.opacity = "0";
-    }, 3000);
+        elem.style.width = "1px";
+        elem.style.height = "1px";
+        elem.style.transition = "all 0.3s ease";
+        setTimeout(() => {
+            elem.style.width = "30px";
+            elem.style.height = "30px";
+            elem.style.opacity = "1";
+        }, 50);
+        setTimeout(function () {
+            elem.style.transition = "opacity 0.5s ease";
+            elem.style.opacity = "0";
+        }, 3000);
+        setTimeout(function () {
+            elem.style.display = "none";
+        }, 3500);
+    }
+    elem.src = alien;
+    elem.setAttribute("height", "30");
+    elem.setAttribute("width", "30");
+    elem.style.left = randomX;
+    elem.style.top = randomY;
+    container.appendChild(elem);
 }
-        elem.src = alien;
-        elem.setAttribute("height", "30");
-        elem.setAttribute("width", "30");
-        elem.style.left = randomX;
-        elem.style.top = randomY;
-        container.appendChild(elem);
-    
-}
-
 
 btnClicker.addEventListener("keydown", event => {
     if (event.keyCode === 13) {
@@ -578,21 +732,27 @@ btnClicker.addEventListener("keydown", event => {
 btnClicker.addEventListener("mousedown", function () {
     let random = Math.floor(Math.random() * 5);
     if (random === 0) {
-        plus1.innerHTML = `+${count.toFixed(2)}<img src="img/cash.svg" class="ml-2 w-10">`;
+        plus1.innerHTML = `+${count.toFixed(
+      2
+    )}<img src="img/cash.svg" class="ml-2 w-10">`;
         plus1.classList.remove("hidden");
         setTimeout(() => {
             plus1.classList.add("hidden");
         }, 600);
     }
     if (random === 1) {
-        plus2.innerHTML = `+${count.toFixed(2)}<img src="img/cash.svg" class="ml-2 w-10">`;
+        plus2.innerHTML = `+${count.toFixed(
+      2
+    )}<img src="img/cash.svg" class="ml-2 w-10">`;
         plus2.classList.remove("hidden");
         setTimeout(() => {
             plus2.classList.add("hidden");
         }, 600);
     }
     if (random === 2) {
-        plus3.innerHTML = `+${count.toFixed(2)}<img src="img/cash.svg" class="ml-2 w-10">`;
+        plus3.innerHTML = `+${count.toFixed(
+      2
+    )}<img src="img/cash.svg" class="ml-2 w-10">`;
         plus3.classList.remove("hidden");
         setTimeout(() => {
             plus3.classList.add("hidden");
@@ -600,7 +760,9 @@ btnClicker.addEventListener("mousedown", function () {
     }
 
     if (random === 3) {
-        plus4.innerHTML = `+${count.toFixed(2)}<img src="img/cash.svg" class="ml-2 w-10">`;
+        plus4.innerHTML = `+${count.toFixed(
+      2
+    )}<img src="img/cash.svg" class="ml-2 w-10">`;
         plus4.classList.remove("hidden");
         setTimeout(() => {
             plus4.classList.add("hidden");
@@ -608,7 +770,9 @@ btnClicker.addEventListener("mousedown", function () {
     }
 
     if (random === 4) {
-        plus5.innerHTML = `+${count.toFixed(2)}<img src="img/cash.svg" class="ml-2 w-10">`;
+        plus5.innerHTML = `+${count.toFixed(
+      2
+    )}<img src="img/cash.svg" class="ml-2 w-10">`;
         plus5.classList.remove("hidden");
         setTimeout(() => {
             plus5.classList.add("hidden");
@@ -620,11 +784,17 @@ function checkNumber() {
     if (score >= 1000 && score <= 1000000) {
         display.innerHTML = `<span>${(score / 1000).toFixed(2)} k de Dons</span>`;
     } else if (score >= 1000000 && score <= 1000000000) {
-        display.innerHTML = `<span>${(score / 1000000).toFixed(2)} Million de Dons</span>`;
+        display.innerHTML = `<span>${(score / 1000000).toFixed(
+      2
+    )} Million de Dons</span>`;
     } else if (score >= 1000000000 && score <= 1000000000000) {
-        display.innerHTML = `<span>${(score / 1000000000).toFixed(2)} Billion de Dons</span>`;
+        display.innerHTML = `<span>${(score / 1000000000).toFixed(
+      2
+    )} Billion de Dons</span>`;
     } else if (score >= 1000000000000 && score <= 1000000000000000) {
-        display.innerHTML = `<span>${(score / 1000000000000).toFixed(2)} Trillion de Dons</span>`;
+        display.innerHTML = `<span>${(score / 1000000000000).toFixed(
+      2
+    )} Trillion de Dons</span>`;
     } else {
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
     }
@@ -737,7 +907,8 @@ function multiplier1() {
 
 function multiplier2() {
     if (score >= multiplierFirefighterPrice) {
-        multiplierFirefighter.innerHTML = `Pompier x ${multiplierFirefighterCount + 1}`;
+        multiplierFirefighter.innerHTML = `Pompier x ${multiplierFirefighterCount +
+      1}`;
         count += 1.1;
         multiplierFirefighterCount++;
         score = score - multiplierFirefighterPrice;
@@ -745,11 +916,14 @@ function multiplier2() {
         multiplierFirefighterPrice = multiplierFirefighterPrice * 3;
         tooltipFirefighter.innerHTML = `Prix = ${multiplierFirefighterPrice}$`;
         multiplierFirefighterCounts.innerHTML = `${multiplierFirefighterCount}`;
-        if (!multiplierFirefighterCounts.classList.contains("bg-australiabdarkblue")) {
+        if (
+            !multiplierFirefighterCounts.classList.contains("bg-australiabdarkblue")
+        ) {
             multiplierFirefighter.classList.remove("bg-gray-800");
             multiplierFirefighterCounts.classList.add("bg-australiandarkblue");
         }
-        multiplierFirefighter.innerHTML = `Pompier x ${multiplierFirefighterCount + 1}`;
+        multiplierFirefighter.innerHTML = `Pompier x ${multiplierFirefighterCount +
+      1}`;
         checkNumber();
         checkDisabled();
         randomImageFireman();
@@ -808,7 +982,9 @@ function multiplier5() {
         multiplierZooPrice = multiplierZooPrice * 12;
         tooltipZoo.innerHTML = `Prix = ${multiplierZooPrice}$`;
         multiplierZooCounts.innerHTML = `${multiplierZooCount}`;
-        if (!multiplierFirefighterCounts.classList.contains("bg-australiabdarkblue")) {
+        if (
+            !multiplierFirefighterCounts.classList.contains("bg-australiabdarkblue")
+        ) {
             multiplierZoo.classList.remove("bg-gray-800");
             multiplierZooCounts.classList.add("bg-australiandarkblue");
         }
@@ -821,7 +997,8 @@ function multiplier5() {
 
 function multiplier6() {
     if (score >= multiplierFundsPrice) {
-        multiplierFunds.innerHTML = `Collecte de fond x ${multiplierFundsCount + 1}`;
+        multiplierFunds.innerHTML = `Collecte de fond x ${multiplierFundsCount +
+      1}`;
         count += 1.5;
         multiplierFundsCount++;
         score = score - multiplierFundsPrice;
@@ -833,7 +1010,8 @@ function multiplier6() {
             multiplierFunds.classList.remove("bg-gray-800");
             multiplierFundsCounts.classList.add("bg-australiandarkblue");
         }
-        multiplierFunds.innerHTML = `Collecte de fond x ${multiplierFundsCount + 1}`;
+        multiplierFunds.innerHTML = `Collecte de fond x ${multiplierFundsCount +
+      1}`;
         checkNumber();
         checkDisabled();
         randomImageCollect();
@@ -863,7 +1041,8 @@ function multiplier7() {
 
 function multiplier8() {
     if (score >= multiplierHousePrice) {
-        multiplierHouse.innerHTML = `Reconstruction des maisons x ${multiplierHouseCount + 1}`;
+        multiplierHouse.innerHTML = `Reconstruction des maisons x ${multiplierHouseCount +
+      1}`;
         count += 1.7;
         multiplierHouseCount++;
         score = score - multiplierHousePrice;
@@ -875,7 +1054,8 @@ function multiplier8() {
             multiplierHouse.classList.remove("bg-gray-800");
             multiplierHouseCounts.classList.add("bg-australiandarkblue");
         }
-        multiplierHouse.innerHTML = `Reconstruction des maisons x ${multiplierHouseCount + 1}`;
+        multiplierHouse.innerHTML = `Reconstruction des maisons x ${multiplierHouseCount +
+      1}`;
         checkNumber();
         checkDisabled();
         randomImageHouse();
@@ -884,7 +1064,8 @@ function multiplier8() {
 
 function multiplier9() {
     if (score >= multiplierTreePrice) {
-        multiplierTree.innerHTML = `Plantation d'arbres x ${multiplierTreeCount + 1}`;
+        multiplierTree.innerHTML = `Plantation d'arbres x ${multiplierTreeCount +
+      1}`;
         count += 1.8;
         multiplierTreeCount++;
         score = score - multiplierTreePrice;
@@ -896,7 +1077,8 @@ function multiplier9() {
             multiplierTree.classList.remove("bg-gray-800");
             multiplierTreeCounts.classList.add("bg-australiandarkblue");
         }
-        multiplierTree.innerHTML = `Plantation d'arbres x ${multiplierTreeCount + 1}`;
+        multiplierTree.innerHTML = `Plantation d'arbres x ${multiplierTreeCount +
+      1}`;
         checkNumber();
         checkDisabled();
         randomTree();
@@ -905,7 +1087,8 @@ function multiplier9() {
 
 function multiplier10() {
     if (score >= multiplierAnimalsPrice) {
-        multiplierAnimals.innerHTML = `Reproduction intensives des animaux x ${multiplierAnimalsCount + 1}`;
+        multiplierAnimals.innerHTML = `Reproduction intensives des animaux x ${multiplierAnimalsCount +
+      1}`;
         count += 1.9;
         multiplierAnimalsCount++;
         score = score - multiplierAnimalsPrice;
@@ -917,7 +1100,8 @@ function multiplier10() {
             multiplierAnimals.classList.remove("bg-gray-800");
             multiplierAnimalsCounts.classList.add("bg-australiandarkblue");
         }
-        multiplierAnimals.innerHTML = `Reproduction intensives des animaux x ${multiplierAnimalsCount + 1}`;
+        multiplierAnimals.innerHTML = `Reproduction intensives des animaux x ${multiplierAnimalsCount +
+      1}`;
         checkNumber();
         checkDisabled();
         randomImageAnimal();
@@ -926,7 +1110,8 @@ function multiplier10() {
 
 function multiplier11() {
     if (score >= multiplierInternationalPrice) {
-        multiplierInternational.innerHTML = `Aide international x ${multiplierInternationalCount + 1}`;
+        multiplierInternational.innerHTML = `Aide international x ${multiplierInternationalCount +
+      1}`;
         count += 2;
         multiplierInternationalCount++;
         score = score - multiplierInternationalPrice;
@@ -934,17 +1119,19 @@ function multiplier11() {
         multiplierInternationalPrice = multiplierInternationalPrice * 18;
         tooltipInternational.innerHTML = `Prix = ${multiplierInternationalPrice}$`;
         multiplierInternationalCounts.innerHTML = `${multiplierInternationalCount}`;
-        if (!multiplierInternationalCounts.classList.contains("bg-australiabdarkblue")) {
+        if (
+            !multiplierInternationalCounts.classList.contains("bg-australiabdarkblue")
+        ) {
             multiplierInternational.classList.remove("bg-gray-800");
             multiplierInternationalCounts.classList.add("bg-australiandarkblue");
         }
-        multiplierInternational.innerHTML = `Aide international x ${multiplierInternationalCount + 1}`;
+        multiplierInternational.innerHTML = `Aide international x ${multiplierInternationalCount +
+      1}`;
         checkNumber();
         checkDisabled();
         randomImageMondial();
     }
 }
-
 
 function multiplier12() {
     if (score >= multiplierDivinePrice) {
@@ -969,7 +1156,8 @@ function multiplier12() {
 
 function multiplier13() {
     if (score >= multiplierAlienPrice) {
-        multiplierAlien.innerHTML = `Aide extra-terreste x ${multiplierAlienCount + 1}`;
+        multiplierAlien.innerHTML = `Aide extra-terreste x ${multiplierAlienCount +
+      1}`;
         count += 2.2;
         multiplierAlienCount++;
         score = score - multiplierAlienPrice;
@@ -991,65 +1179,88 @@ function multiplier13() {
 btnClicker.onmousedown = function () {
     changeMap.src = "img/australiamap.svg";
     addScore();
-}
+};
 
 btnClicker.onmouseup = function () {
     changeMap.src = "img/australiamapborder.svg";
-}
+};
 
 function autoClickerBonus() {
     if (score >= autoclickerPrice) {
         autoclickerCount++;
+        tooltipAutoclick.innerHTML = `Prix = ${autoclickerPrice.toFixed(2)}$`;
+        if (autoclickerCount === 2) {
+            document.getElementById("asso1").classList.remove("hidden");
+        }
+        if (autoclickerCount === 3) {
+            document.getElementById("asso2").classList.remove("hidden");
+        }
+        if (autoclickerCount === 4) {
+            document.getElementById("asso3").classList.remove("hidden");
+        }
+        if (autoclickerCount === 5) {
+            document.getElementById("asso4").classList.remove("hidden");
+        }
+        if (autoclickerCount === 6) {
+            document.getElementById("asso5").classList.remove("hidden");
+        }
+        if (autoclickerCount === 7) {
+            document.getElementById("asso6").classList.remove("hidden");
+        }
+        if (autoclickerCount > 7) {
+            document.getElementById("assoPlus").classList.remove("hidden");
+            document.getElementById("assoPlus").innerHTML = `<span class="font-semibold text-4xl text-australiandarkblue">+${autoclickerCount - 7}</span>`;
+        }
         score = score - Math.floor(autoclickerPrice);
         setInterval(() => {
             if (autoclickerCount < 4) {
-                let score2 = ((autoclickerCount - 1) * 2);
+                let score2 = (autoclickerCount - 1) * 2;
                 score = score + score2;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
             }
-            if ( autoclickerCount >= 4 ) {
-                let score8 = ((autoclickerCount - 1) * 8 );
+            if (autoclickerCount >= 4) {
+                let score8 = (autoclickerCount - 1) * 8;
                 score = score + score8;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score8}$</span>`;
-            } 
+            }
             if (autoclickerCount >= 9) {
-                let score16 = ((autoclickerCount - 1) * 16);
+                let score16 = (autoclickerCount - 1) * 16;
                 score = score + score16;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score16}$</span>`;
-            } 
+            }
             if (autoclickerCount >= 14) {
-                let score32 = ((autoclickerCount - 1) * 32);
+                let score32 = (autoclickerCount - 1) * 32;
                 score = score + score32;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score32}$</span>`;
-            } 
+            }
 
             if (autoclickerCount >= 19) {
-                let score64 = ((autoclickerCount - 1) * 64);
+                let score64 = (autoclickerCount - 1) * 64;
                 score = score + score64;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score64}$</span>`;
             }
             if (autoclickerCount >= 24) {
-                let score128 = ((autoclickerCount - 1) * 128);
+                let score128 = (autoclickerCount - 1) * 128;
                 score = score + score128;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score128}$</span>`;
-            } 
+            }
             if (autoclickerCount >= 29) {
-                let score256 = ((autoclickerCount - 1) * 256);
+                let score256 = (autoclickerCount - 1) * 256;
                 score = score + score256;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score256}$</span>`;
-            } 
+            }
             if (autoclickerCount >= 34) {
-                let score512 = ((autoclickerCount - 1) * 512);
+                let score512 = (autoclickerCount - 1) * 512;
                 score = score + score512;
                 displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
-            } 
+            }
             checkNumber();
         }, 1000);
         checkNumber();
-
         checkDisabled();
         autoclickerPrice = autoclickerPrice * 1.5;
-    }
+        tooltipAutoclick.innerHTML = `Prix = ${autoclickerPrice.toFixed(2)}$`;
+git    }
 }
 
 autoClicker.onclick = autoClickerBonus;

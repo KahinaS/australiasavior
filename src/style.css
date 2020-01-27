@@ -302,11 +302,23 @@ body {
     position: relative;
 }
 
-.theBucket , .fireman, .plane, .hospital, .zoo, .collectMoney, .raining, .homes, .trees, .animals, .mondials, .gods, .aliens {
+.theBucket,
+.fireman,
+.plane,
+.hospital,
+.zoo,
+.collectMoney,
+.raining,
+.homes,
+.trees,
+.animals,
+.mondials,
+.gods,
+.aliens {
     position: absolute;
     pointer-events: none;
 }
-   
+
 .tooltip {
     position: relative;
     display: inline-block;
@@ -335,7 +347,7 @@ body {
 
 .tooltip-right {
     top: 5px;
-    left: 100%;
+    left: 70%;
 }
 
 .tooltip-right::after {
@@ -356,17 +368,6 @@ body {
     margin-left: -60px;
 }
 
-.tooltip-bottom::after {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent #555 transparent;
-}
-
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -378,6 +379,7 @@ body {
     user-drag: none;
 }
 
+<<<<<<< HEAD
 .fire {
     position: absolute;
     pointer-events: none;
@@ -433,3 +435,9 @@ body {
     width: 35px;
    
  }
+=======
+.cross {
+    top: 14%;
+    right: 15%;
+}
+>>>>>>> 3a03924c435b6d0403cf9460d3bd9156da2a3285
