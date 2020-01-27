@@ -109,6 +109,34 @@ let fireAustralia = "img/firefire.svg";
 
 
 
+var modal = document.querySelector(".modal");
+    var trigger = document.querySelector(".trigger");
+    var closeButton = document.querySelector(".close-button");
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+
+    
+    trigger.addEventListener("click", toggleModal);
+    closeButton.addEventListener("click", toggleModal);
+
+    function playVideo() {
+          
+             document.getElementById("myVideo").play();
+       
+
+    }
+    
+
+    document.getElementById('myVideo').addEventListener('ended',myHandler,false);
+    function myHandler(e) {
+        if(!e) { e = window.event; } {
+            toggleModal();
+        }
+     
+    }
+
 
 
 
@@ -1277,3 +1305,4 @@ multiplierAnimals.onclick = multiplier10;
 multiplierInternational.onclick = multiplier11;
 multiplierDivine.onclick = multiplier12;
 multiplierAlien.onclick = multiplier13;
+trigger.onclick = playVideo;
