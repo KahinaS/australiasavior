@@ -108,6 +108,38 @@ let alien = "img/alien.png";
 let fireAustralia = "img/firefire.svg";
 
 
+
+var modal = document.querySelector(".modal");
+    var trigger = document.querySelector(".trigger");
+    var closeButton = document.querySelector(".close-button");
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+
+    
+    trigger.addEventListener("click", toggleModal);
+    closeButton.addEventListener("click", toggleModal);
+
+    function playVideo() {
+          
+             document.getElementById("myVideo").play();
+       
+
+    }
+    
+
+    document.getElementById('myVideo').addEventListener('ended',myHandler,false);
+    function myHandler(e) {
+        if(!e) { e = window.event; } {
+            toggleModal();
+        }
+     
+    }
+
+
+
+
 function checkDisabled() {
     if (score < autoclickerPrice) {
         autoClicker.disabled = true;
@@ -153,6 +185,34 @@ function checkDisabled() {
     }
 }
 
+
+
+
+
+
+
+
+function Fire() {
+    for (let i = 0; i < 7; i++) {
+    var elem = document.createElement("img");
+        elem.id = "OUI";
+    var container = document.getElementById("displayRandomMap");
+ elem.src = fireAustralia;
+       
+       
+       
+            let newClass = "firefire"+i;
+            elem.classList.add(newClass);
+            elem.classList.add("noselect");
+            elem.classList.add("fire");
+            
+                 container.appendChild(elem);
+            }
+       
+        
+  
+}
+Fire();
 let x = [];
 let y = [];
 // On récupère les valeurs dans les coordonnées de la map
@@ -1269,9 +1329,13 @@ function autoClickerBonus() {
         }, 1000);
         autoclickerPrice = autoclickerPrice * 1.5;
         tooltipAutoclick.innerHTML = `Prix = ${autoclickerPrice.toFixed(2)}$`;
+<<<<<<< HEAD
         checkNumber();
         checkDisabled();
     }
+=======
+git    }
+>>>>>>> devmansour
 }
 
 autoClicker.onclick = autoClickerBonus;
@@ -1288,5 +1352,6 @@ multiplierAnimals.onclick = multiplier10;
 multiplierInternational.onclick = multiplier11;
 multiplierDivine.onclick = multiplier12;
 multiplierAlien.onclick = multiplier13;
+trigger.onclick = playVideo;
 checkNumber();
 checkDisabled();
