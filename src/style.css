@@ -436,7 +436,7 @@ body {
    
  }
 .cross {
-    top: 14%;
+    top: 8%;
     right: 15%;
 }
 .fire {
@@ -568,4 +568,12 @@ body {
 
 .trigger {
     height: 90px;
+}
+
+#assoCard {
+    height: 375px;
+}
+
+#bonusCard {
+    height: 300px;
 }

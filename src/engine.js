@@ -63,10 +63,11 @@ const tooltipDivine = document.getElementById("tooltipDivine");
 const tooltipAlien = document.getElementById("tooltipAlien");
 const tooltipAutoclick = document.getElementById("tooltipAutoclick");
 const bonusBtn = document.getElementById("bonusBtn");
-let score = 0;
+let score = 999999;
 let count = 1;
 let autoclickerPrice = 200;
 let autoclickerCount = 1;
+let bonusCount = 0;
 let multiplierBucketCount = 0;
 let multiplierBucketPrice = 15;
 let multiplierFirefighterCount = 0;
@@ -108,8 +109,8 @@ let god = "img/jesus.png";
 let alien = "img/alien.png";
 let fireAustralia = "img/firefire.svg";
 
-let bonusTimer = 5000; //Milliseconds (10 minutes)
-let bonusActive = 3000; //Milliseconds (5 minutes)
+let bonusTimer = 5000; //Milliseconds (5 secondes) (Temps avant ré-activation du bonus)
+let bonusActive = 3000; //Milliseconds (3 secondes) (Temps d'activité du bonus)
 let bonusActivated = false;
 
 var modal = document.querySelector(".modal");
@@ -119,9 +120,11 @@ var closeButton = document.querySelector(".close-button");
 var modal2 = document.querySelector(".modal2");
 var trigger2 = document.querySelector(".rules");
 var closeButton2 = document.querySelector(".close-button2");
+
 function toggleModal2() {
     modal2.classList.toggle("show-modal2");
 }
+
 function windowOnClick(event) {
     if (event.target === modal2) {
         toggleModal2();
@@ -139,6 +142,17 @@ function toggleModal() {
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
 
+bonusBtn.disabled = true;
+trigger.setAttribute("src", "img/playdisabled.svg");
+
+setInterval(() => {
+    if (bonusCount === 1) {
+        bonusBtn.disabled = false;
+        trigger.setAttribute("src", "img/play.svg");
+        bonusCount++
+    }
+}, 1);
+
 function playVideo() {
     document.getElementById("myVideo").play();
     bonusBtn.disabled = true;
@@ -154,7 +168,6 @@ function myHandler(e) {
     } {
         toggleModal();
         bonusActivated = true;
-        console.log(bonusActivated);
         trigger.style.pointerEvents = "none";
         setTimeout(() => {
             trigger.setAttribute("src", "img/play.svg");
@@ -210,26 +223,6 @@ function checkDisabled() {
         multiplierAlien.disabled = true;
     }
 }
-
-
-function Fire() {
-    for (let i = 0; i < 7; i++) {
-        var elem = document.createElement("img");
-        elem.id = "OUI";
-        var container = document.getElementById("displayRandomMap");
-        elem.src = fireAustralia;
-
-
-
-        let newClass = "firefire" + i;
-        elem.classList.add(newClass);
-        elem.classList.add("noselect");
-        elem.classList.add("fire");
-
-        container.appendChild(elem);
-    }
-}
-Fire();
 
 let x = [];
 let y = [];
@@ -1233,7 +1226,7 @@ function multiplier13() {
             multiplierAlien.classList.remove("bg-gray-800");
             multiplierAlienCounts.classList.add("bg-australiandarkblue");
         }
-        multiplierAlien.innerHTML = `extra-terreste x ${multiplierAlienCount + 1}`;
+        multiplierAlien.innerHTML = `Aide extra-terreste x ${multiplierAlienCount + 1}`;
         checkNumber();
         checkDisabled();
         randomImageAlien();
@@ -1256,6 +1249,7 @@ btnClicker.onmouseup = function () {
 function autoClickerBonus() {
     if (score >= autoclickerPrice) {
         autoclickerCount++;
+        bonusCount++;
         tooltipAutoclick.innerHTML = `Prix = ${autoclickerPrice.toFixed(2)}$`;
         if (autoclickerCount === 2) {
             document.getElementById("asso1").classList.remove("hidden");
