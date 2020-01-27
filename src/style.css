@@ -438,7 +438,6 @@ body {
     top: 14%;
     right: 15%;
 }
-<<<<<<< HEAD
 .fire {
     position: absolute;
     pointer-events: none;
@@ -479,7 +478,6 @@ body {
     top: 10px;
     left: 125px;
  }
-=======
 
 .modal {
     position: fixed;
@@ -527,4 +525,3 @@ body {
 .trigger {
     height: 90px ;
 }
->>>>>>> devmansour

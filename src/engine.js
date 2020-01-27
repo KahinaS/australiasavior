@@ -1329,13 +1329,9 @@ function autoClickerBonus() {
         }, 1000);
         autoclickerPrice = autoclickerPrice * 1.5;
         tooltipAutoclick.innerHTML = `Prix = ${autoclickerPrice.toFixed(2)}$`;
-<<<<<<< HEAD
         checkNumber();
         checkDisabled();
     }
-=======
-git    }
->>>>>>> devmansour
 }
 
 autoClicker.onclick = autoClickerBonus;
