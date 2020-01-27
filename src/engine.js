@@ -90,6 +90,12 @@ let animal = "img/stroller.png";
 let mondial = "img/earth.png";
 let god = "img/jesus.png";
 let alien = "img/alien.png";
+let fireAustralia = "img/firefire.svg";
+
+
+
+
+
 
 
 
@@ -138,6 +144,35 @@ function checkDisabled() {
     }
 }
 
+
+
+
+
+
+
+
+function Fire() {
+    for (let i = 0; i < 7; i++) {
+    var elem = document.createElement("img");
+        elem.id = "OUI";
+    var container = document.getElementById("displayRandomMap");
+ elem.src = fireAustralia;
+       
+       
+       
+            let newClass = "firefire"+i;
+            elem.classList.add(newClass);
+            elem.classList.add("noselect");
+            elem.classList.add("fire");
+            
+                 container.appendChild(elem);
+            }
+       
+        
+  
+}
+Fire();
+
 function randomImageBucket() {
     var elem = document.createElement("img");
     var container = document.getElementById("displayRandomMap"); // DEFINIR NOTRE CONTAINER
@@ -165,6 +200,7 @@ function randomImageBucket() {
     elem.style.left = randomX;
     elem.style.top = randomY;
     container.appendChild(elem);
+    
  
 }
 
