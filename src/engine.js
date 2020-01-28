@@ -62,10 +62,12 @@ const tooltipInternational = document.getElementById("tooltipInternational");
 const tooltipDivine = document.getElementById("tooltipDivine");
 const tooltipAlien = document.getElementById("tooltipAlien");
 const tooltipAutoclick = document.getElementById("tooltipAutoclick");
-let score = 0;
+const bonusBtn = document.getElementById("bonusBtn");
+let score = 999999;
 let count = 1;
 let autoclickerPrice = 200;
 let autoclickerCount = 1;
+let bonusCount = 0;
 let multiplierBucketCount = 0;
 let multiplierBucketPrice = 15;
 let multiplierFirefighterCount = 0;
@@ -107,38 +109,75 @@ let god = "img/jesus.png";
 let alien = "img/alien.png";
 let fireAustralia = "img/firefire.svg";
 
-
+let bonusTimer = 5000; //Milliseconds (5 secondes) (Temps avant ré-activation du bonus)
+let bonusActive = 3000; //Milliseconds (3 secondes) (Temps d'activité du bonus)
+let bonusActivated = false;
 
 var modal = document.querySelector(".modal");
-    var trigger = document.querySelector(".trigger");
-    var closeButton = document.querySelector(".close-button");
+var trigger = document.querySelector(".trigger");
+var closeButton = document.querySelector(".close-button");
 
-    function toggleModal() {
-        modal.classList.toggle("show-modal");
+var modal2 = document.querySelector(".modal2");
+var trigger2 = document.querySelector(".rules");
+var closeButton2 = document.querySelector(".close-button2");
+
+function toggleModal2() {
+    modal2.classList.toggle("show-modal2");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal2) {
+        toggleModal2();
+    }
+}
+trigger2.addEventListener("click", toggleModal2);
+closeButton2.addEventListener("click", toggleModal2);
+window.addEventListener("click", windowOnClick);
+
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+
+bonusBtn.disabled = true;
+trigger.setAttribute("src", "img/playdisabled.svg");
+
+setInterval(() => {
+    if (bonusCount === 1) {
+        bonusBtn.disabled = false;
+        trigger.setAttribute("src", "img/play.svg");
+        bonusCount++
+    }
+}, 1);
+
+function playVideo() {
+    document.getElementById("myVideo").play();
+    bonusBtn.disabled = true;
+    trigger.setAttribute("src", "img/playdisabled.svg");
+}
+
+
+document.getElementById('myVideo').addEventListener('ended', myHandler, false);
+
+function myHandler(e) {
+    if (!e) {
+        e = window.event;
+    } {
+        toggleModal();
+        bonusActivated = true;
+        trigger.style.pointerEvents = "none";
+        setTimeout(() => {
+            trigger.setAttribute("src", "img/play.svg");
+            bonusBtn.disabled = false;
+            trigger.style.pointerEvents = "auto";
+            bonusActivated = false;
+        }, bonusTimer);
     }
 
-    
-    trigger.addEventListener("click", toggleModal);
-    closeButton.addEventListener("click", toggleModal);
-
-    function playVideo() {
-          
-             document.getElementById("myVideo").play();
-       
-
-    }
-    
-
-    document.getElementById('myVideo').addEventListener('ended',myHandler,false);
-    function myHandler(e) {
-        if(!e) { e = window.event; } {
-            toggleModal();
-        }
-     
-    }
-
-
-
+}
 
 function checkDisabled() {
     if (score < autoclickerPrice) {
@@ -185,34 +224,6 @@ function checkDisabled() {
     }
 }
 
-
-
-
-
-
-
-
-function Fire() {
-    for (let i = 0; i < 7; i++) {
-    var elem = document.createElement("img");
-        elem.id = "OUI";
-    var container = document.getElementById("displayRandomMap");
- elem.src = fireAustralia;
-       
-       
-       
-            let newClass = "firefire"+i;
-            elem.classList.add(newClass);
-            elem.classList.add("noselect");
-            elem.classList.add("fire");
-            
-                 container.appendChild(elem);
-            }
-       
-        
-  
-}
-Fire();
 let x = [];
 let y = [];
 // On récupère les valeurs dans les coordonnées de la map
@@ -1215,7 +1226,7 @@ function multiplier13() {
             multiplierAlien.classList.remove("bg-gray-800");
             multiplierAlienCounts.classList.add("bg-australiandarkblue");
         }
-        multiplierAlien.innerHTML = `extra-terreste x ${multiplierAlienCount + 1}`;
+        multiplierAlien.innerHTML = `Aide extra-terreste x ${multiplierAlienCount + 1}`;
         checkNumber();
         checkDisabled();
         randomImageAlien();
@@ -1238,6 +1249,7 @@ btnClicker.onmouseup = function () {
 function autoClickerBonus() {
     if (score >= autoclickerPrice) {
         autoclickerCount++;
+        bonusCount++;
         tooltipAutoclick.innerHTML = `Prix = ${autoclickerPrice.toFixed(2)}$`;
         if (autoclickerCount === 2) {
             document.getElementById("asso1").classList.remove("hidden");
@@ -1269,58 +1281,154 @@ function autoClickerBonus() {
             checkDisabled();
             if (autoclickerCount < 4) {
                 let score2 = (autoclickerCount - 1) * 2;
-                score = score + score2;
-                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
+                if (bonusActivated === true) {
+                    score2 = ((autoclickerCount - 1) * 2) * 2;
+                    score = score + score2;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
+                    setTimeout(() => {
+                        score2 = (autoclickerCount - 1) * 2;
+                        score = score + score2;
+                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
+                    }, bonusActive);
+                } else if (bonusActivated === false) {
+                    score2 = (autoclickerCount - 1) * 2;
+                    score = score + score2;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
+                }
                 checkNumber();
                 checkDisabled();
             }
             if (autoclickerCount >= 4) {
                 let score8 = (autoclickerCount - 1) * 8;
-                score = score + score8;
-                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score8}$</span>`;
+                if (bonusActivated === true) {
+                    score8 = ((autoclickerCount - 1) * 8) * 2;
+                    score = score + score8;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score8}$</span>`;
+                    setTimeout(() => {
+                        score8 = (autoclickerCount - 1) * 8;
+                        score = score + score8;
+                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score8}$</span>`;
+                    }, bonusActive);
+                } else if (bonusActivated === false) {
+                    score8 = (autoclickerCount - 1) * 8;
+                    score = score + score8;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score8}$</span>`;
+                }
                 checkNumber();
                 checkDisabled();
             }
             if (autoclickerCount >= 9) {
                 let score16 = (autoclickerCount - 1) * 16;
-                score = score + score16;
-                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score16}$</span>`;
+                if (bonusActivated === true) {
+                    score16 = ((autoclickerCount - 1) * 16) * 2;
+                    score = score + score16;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score16}$</span>`;
+                    setTimeout(() => {
+                        score16 = (autoclickerCount - 1) * 16;
+                        score = score + score16;
+                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score16}$</span>`;
+                    }, bonusActive);
+                } else if (bonusActivated === false) {
+                    score16 = (autoclickerCount - 1) * 16;
+                    score = score + score16;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score16}$</span>`;
+                }
                 checkNumber();
                 checkDisabled();
             }
             if (autoclickerCount >= 14) {
                 let score32 = (autoclickerCount - 1) * 32;
-                score = score + score32;
-                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score32}$</span>`;
+                if (bonusActivated === true) {
+                    score32 = ((autoclickerCount - 1) * 32) * 2;
+                    score = score + score32;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score32}$</span>`;
+                    setTimeout(() => {
+                        score32 = (autoclickerCount - 1) * 32;
+                        score = score + score32;
+                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score32}$</span>`;
+                    }, bonusActive);
+                } else if (bonusActivated === false) {
+                    score32 = (autoclickerCount - 1) * 32;
+                    score = score + score32;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score32}$</span>`;
+                }
                 checkNumber();
                 checkDisabled();
             }
 
             if (autoclickerCount >= 19) {
                 let score64 = (autoclickerCount - 1) * 64;
-                score = score + score64;
-                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score64}$</span>`;
+                if (bonusActivated === true) {
+                    score64 = ((autoclickerCount - 1) * 64) * 2;
+                    score = score + score64;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score64}$</span>`;
+                    setTimeout(() => {
+                        score32 = (autoclickerCount - 1) * 64;
+                        score = score + score64;
+                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score64}$</span>`;
+                    }, bonusActive);
+                } else if (bonusActivated === false) {
+                    score64 = (autoclickerCount - 1) * 64;
+                    score = score + score64;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score64}$</span>`;
+                }
                 checkNumber();
                 checkDisabled();
             }
             if (autoclickerCount >= 24) {
                 let score128 = (autoclickerCount - 1) * 128;
-                score = score + score128;
-                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score128}$</span>`;
+                if (bonusActivated === true) {
+                    score128 = ((autoclickerCount - 1) * 128) * 2;
+                    score = score + score128;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score128}$</span>`;
+                    setTimeout(() => {
+                        score128 = (autoclickerCount - 1) * 128;
+                        score = score + score128;
+                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score128}$</span>`;
+                    }, bonusActive);
+                } else if (bonusActivated === false) {
+                    score128 = (autoclickerCount - 1) * 128;
+                    score = score + score128;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score128}$</span>`;
+                }
                 checkNumber();
                 checkDisabled();
             }
             if (autoclickerCount >= 29) {
                 let score256 = (autoclickerCount - 1) * 256;
-                score = score + score256;
-                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score256}$</span>`;
+                if (bonusActivated === true) {
+                    score256 = ((autoclickerCount - 1) * 256) * 2;
+                    score = score + score256;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score256}$</span>`;
+                    setTimeout(() => {
+                        score256 = (autoclickerCount - 1) * 256;
+                        score = score + score256;
+                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score256}$</span>`;
+                    }, bonusActive);
+                } else if (bonusActivated === false) {
+                    score256 = (autoclickerCount - 1) * 256;
+                    score = score + score256;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score256}$</span>`;
+                }
                 checkNumber();
                 checkDisabled();
             }
             if (autoclickerCount >= 34) {
                 let score512 = (autoclickerCount - 1) * 512;
-                score = score + score512;
-                displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
+                if (bonusActivated === true) {
+                    score512 = ((autoclickerCount - 1) * 512) * 2;
+                    score = score + score512;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
+                    setTimeout(() => {
+                        score512 = (autoclickerCount - 1) * 512;
+                        score = score + score512;
+                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
+                    }, bonusActive);
+                } else if (bonusActivated === false) {
+                    score512 = (autoclickerCount - 1) * 512;
+                    score = score + score512;
+                    displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
+                }
                 checkNumber();
                 checkDisabled();
             }
