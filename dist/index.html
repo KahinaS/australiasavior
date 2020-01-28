@@ -11,7 +11,7 @@
 </head>
 
 <body class="bg-australiandarkblue h-full">
-    <nav class="flex bg-australianblue py-2 w-full noselect">
+<nav class="flex bg-australianblue py-2 w-full noselect">
         <img src="img/logo.svg" class="w-16 ml-3 mt-1" alt="">
         <div class="w-5/12"><span class="text-australianwhite font-semibold text-5xl ml-5"><a href="#">Australia
                     Savior</a></span></div>
@@ -312,10 +312,25 @@
                     </div>
                 </div>
 
-                <div class="modal2">
-                    <div class="modal-content2">
+                <div class="modal2 h-full top-0 left-0">
+                    <div class="modal2-overlay fixed w-full h-full bg-gray-900 opacity-75"></div>
+                    <div class="modal-content2 mt-20 px-6">
                         <span class="close-button2">&times;</span>
-                        <h1 class="text-center text-white font-semibold uppercase">Comment ça marche</h1>
+                        
+                       
+                <!--ModalTitle-->
+                <div class="paragraphe  text-center">
+                    <h1 id="title2"class=" text-5xl font-semibold uppercase">Comment ça marche?</h1>
+                <p id="text1" class="text-lg">En jouant, vous nous aidez à récolter des dons que nous fournissons à des
+                    associations qui permettent de sauver l'Australie des violents incendies récents.</p>
+                <span id="textbold" class="font-bold text-lg ">Nous avons plusieurs manières de récolter des dons de votre
+                    part :</span>
+                <li id="text2" class="text-black text-lg text-left"> En achetant des graines, qui permettent d'accéder à des bonus dans
+                    le jeu (acheter des "dons" (clics), augmenter le niveau maximum d'un multiplicateur...)</li>
+                <li id="text3" class="text-black text-lg text-left">En regardant des vidéos qui vous permettent de débloquer des bonus
+                    (graines, bonus ...)</li>
+                </ul>
+            
                     </div>
                 </div>
 
@@ -398,7 +413,6 @@
         </svg></div>
 
     <script src="../src/engine.js"></script>
-
 </body>
 
 </html>

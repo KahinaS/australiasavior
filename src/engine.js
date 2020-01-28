@@ -121,8 +121,10 @@ var closeButton = document.querySelector(".close-button");
 var modal2 = document.querySelector(".modal2");
 var trigger2 = document.querySelector(".rules");
 var closeButton2 = document.querySelector(".close-button2");
+const overlay = document.querySelector('.modal2-overlay');
 
 function toggleModal2() {
+    const body = document.querySelector('body');
     modal2.classList.toggle("show-modal2");
 }
 
@@ -131,10 +133,11 @@ function windowOnClick(event) {
         toggleModal2();
     }
 }
+
 trigger2.addEventListener("click", toggleModal2);
 closeButton2.addEventListener("click", toggleModal2);
 window.addEventListener("click", windowOnClick);
-
+overlay.addEventListener('click', toggleModal2)
 
 function toggleModal() {
     modal.classList.toggle("show-modal");
