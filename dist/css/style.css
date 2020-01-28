@@ -11746,7 +11746,7 @@ body {
 #multiplierDivine:disabled,
 #multiplierAlien:disabled,
 #autoClicker:disabled,
-#bonusBtn:disabled{
+#bonusBtn:disabled {
   background-color: gray;
 }
 
@@ -11843,7 +11843,7 @@ body {
   width: 35px;
 }
 
-.firefire1{
+.firefire1 {
   top: 140px;
   left: 20px;
   height: 40px;
@@ -11902,7 +11902,7 @@ body {
   left: 50px;
 }
 
-.firefire1{
+.firefire1 {
   top: 140px;
   left: 20px;
 }
@@ -12048,17 +12048,10 @@ body {
   height: 90px;
 }
 
-#image {
-  height: 256px;
-  width: 256px;
-  background: 
-  url('../dist/img/zoo.png') 0px 0px;
-}
-
-#help {
+#help{
   position: absolute;
   top: 40px;
-  left: 80px;
+  right: 0px;
   height: 40px;
 }
 
