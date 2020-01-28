@@ -7,9 +7,10 @@ const changeMap = document.getElementById("changeMap");
 const btnClicker = document.getElementById("btnClicker");
 const autoClicker = document.getElementById("autoClicker");
 const display = document.getElementById("display");
+const chronoDisplay = document.getElementById("chronoDisplay");
 const displaySecond = document.getElementById("displaySecond");
-const multiplierBucket = document.getElementById("multiplierBucket");
-const multiplierBucketCounts = document.getElementById(
+let multiplierBucket = document.getElementById("multiplierBucket");
+let multiplierBucketCounts = document.getElementById(
     "multiplierBucketCounts"
 );
 const multiplierFirefighter = document.getElementById("multiplierFirefighter");
@@ -63,9 +64,10 @@ const tooltipDivine = document.getElementById("tooltipDivine");
 const tooltipAlien = document.getElementById("tooltipAlien");
 const tooltipAutoclick = document.getElementById("tooltipAutoclick");
 const bonusBtn = document.getElementById("bonusBtn");
-let score = 999999;
+const resetSave = document.getElementById("resetSave");
+let score = 0;
 let count = 1;
-let autoclickerPrice = 200;
+let autoclickerPrice = 1000;
 let autoclickerCount = 1;
 let bonusCount = 0;
 let multiplierBucketCount = 0;
@@ -110,9 +112,43 @@ let alien = "img/alien.png";
 let fireAustralia = "img/firefire.svg";
 let helping = "img/parcel.png";
 
-let bonusTimer = 5000; //Milliseconds (5 secondes) (Temps avant ré-activation du bonus)
-let bonusActive = 3000; //Milliseconds (3 secondes) (Temps d'activité du bonus)
+let bonusTimer = 600000; //Milliseconds (10 minutes) (Temps avant ré-activation du bonus)
+let bonusActive = 60000; //Milliseconds (1 minute) (Temps d'activité du bonus)
 let bonusActivated = false;
+let sec = 59;
+let min = 0;
+let hour = 0;
+
+
+function startBonusChrono() {
+    setInterval(() => {
+        sec--
+        if (sec === 0) {
+            sec = 59;
+            min--;
+        }
+        if ((min < 10) && (sec < 10)) {
+            chronoDisplay.innerHTML = `${hour}:0${min}:0${sec}`;
+        } else if ((min < 10) && (sec > 10)) {
+            chronoDisplay.innerHTML = `${hour}:0${min}:${sec}`;
+        } else if ((min > 10) && (sec < 10)) {
+            chronoDisplay.innerHTML = `${hour}:${min}:0${sec}`;
+        } else if ((sec === 10) && (min < 10)) {
+            chronoDisplay.innerHTML = `${hour}:0${min}:${sec}`;
+        } else if ((sec > 10) && (min === 10)) {
+            chronoDisplay.innerHTML = `${hour}:${min}:0${sec}`;
+        } else {
+            chronoDisplay.innerHTML = `${hour}:${min}:${sec}`;
+        }
+        if ((sec < 1) && (min < 1)) {
+            clearInterval();
+            chronoDisplay.style.display = "none";
+        }
+    }, 1000);
+}
+
+
+
 
 var modal = document.querySelector(".modal");
 var trigger = document.querySelector(".trigger");
@@ -124,7 +160,6 @@ var closeButton2 = document.querySelector(".close-button2");
 const overlay = document.querySelector('.modal2-overlay');
 
 function toggleModal2() {
-    const body = document.querySelector('body');
     modal2.classList.toggle("show-modal2");
 }
 
@@ -173,6 +208,7 @@ function myHandler(e) {
         toggleModal();
         bonusActivated = true;
         trigger.style.pointerEvents = "none";
+        startBonusChrono();
         setTimeout(() => {
             trigger.setAttribute("src", "img/play.svg");
             bonusBtn.disabled = false;
@@ -182,7 +218,6 @@ function myHandler(e) {
     }
 
 }
-
 
 
 function checkDisabled() {
@@ -841,51 +876,102 @@ btnClicker.addEventListener("keydown", event => {
 btnClicker.addEventListener("mousedown", function () {
     let random = Math.floor(Math.random() * 5);
     if (random === 0) {
-        plus1.innerHTML = `+${count.toFixed(
-      2
-    )}<img src="img/cash.svg" class="ml-2 w-10">`;
-        plus1.classList.remove("hidden");
-        setTimeout(() => {
-            plus1.classList.add("hidden");
-        }, 600);
+        if (bonusActivated === true) {
+            plus1.innerHTML = `+${(count * 2).toFixed(
+                2
+              )}<img src="img/cash.svg" class="ml-2 w-10">`;
+            plus1.classList.remove("hidden");
+            setTimeout(() => {
+                plus1.classList.add("hidden");
+            }, 600);
+        } else {
+            plus1.innerHTML = `+${count.toFixed(
+                2
+              )}<img src="img/cash.svg" class="ml-2 w-10">`;
+            plus1.classList.remove("hidden");
+            setTimeout(() => {
+                plus1.classList.add("hidden");
+            }, 600);
+        }
     }
     if (random === 1) {
-        plus2.innerHTML = `+${count.toFixed(
-      2
-    )}<img src="img/cash.svg" class="ml-2 w-10">`;
-        plus2.classList.remove("hidden");
-        setTimeout(() => {
-            plus2.classList.add("hidden");
-        }, 600);
+        if (bonusActivated === true) {
+            plus2.innerHTML = `+${(count * 2).toFixed(
+                2
+              )}<img src="img/cash.svg" class="ml-2 w-10">`;
+            plus2.classList.remove("hidden");
+            setTimeout(() => {
+                plus2.classList.add("hidden");
+            }, 600);
+        } else {
+            plus2.innerHTML = `+${count.toFixed(
+                2
+              )}<img src="img/cash.svg" class="ml-2 w-10">`;
+            plus2.classList.remove("hidden");
+            setTimeout(() => {
+                plus2.classList.add("hidden");
+            }, 600);
+        }
     }
+
     if (random === 2) {
-        plus3.innerHTML = `+${count.toFixed(
-      2
-    )}<img src="img/cash.svg" class="ml-2 w-10">`;
-        plus3.classList.remove("hidden");
-        setTimeout(() => {
-            plus3.classList.add("hidden");
-        }, 600);
+        if (bonusActivated === true) {
+            plus3.innerHTML = `+${(count * 2).toFixed(
+                2
+              )}<img src="img/cash.svg" class="ml-2 w-10">`;
+            plus3.classList.remove("hidden");
+            setTimeout(() => {
+                plus3.classList.add("hidden");
+            }, 600);
+        } else {
+            plus3.innerHTML = `+${count.toFixed(
+                2
+              )}<img src="img/cash.svg" class="ml-2 w-10">`;
+            plus3.classList.remove("hidden");
+            setTimeout(() => {
+                plus3.classList.add("hidden");
+            }, 600);
+        }
     }
 
     if (random === 3) {
-        plus4.innerHTML = `+${count.toFixed(
-      2
-    )}<img src="img/cash.svg" class="ml-2 w-10">`;
-        plus4.classList.remove("hidden");
-        setTimeout(() => {
-            plus4.classList.add("hidden");
-        }, 600);
+        if (bonusActivated === true) {
+            plus4.innerHTML = `+${(count * 2).toFixed(
+                2
+              )}<img src="img/cash.svg" class="ml-2 w-10">`;
+            plus4.classList.remove("hidden");
+            setTimeout(() => {
+                plus4.classList.add("hidden");
+            }, 600);
+        } else {
+            plus4.innerHTML = `+${count.toFixed(
+                2
+              )}<img src="img/cash.svg" class="ml-2 w-10">`;
+            plus4.classList.remove("hidden");
+            setTimeout(() => {
+                plus4.classList.add("hidden");
+            }, 600);
+        }
     }
 
     if (random === 4) {
-        plus5.innerHTML = `+${count.toFixed(
-      2
-    )}<img src="img/cash.svg" class="ml-2 w-10">`;
-        plus5.classList.remove("hidden");
-        setTimeout(() => {
-            plus5.classList.add("hidden");
-        }, 600);
+        if (bonusActivated === true) {
+            plus5.innerHTML = `+${(count * 2).toFixed(
+                2
+              )}<img src="img/cash.svg" class="ml-2 w-10">`;
+            plus5.classList.remove("hidden");
+            setTimeout(() => {
+                plus5.classList.add("hidden");
+            }, 600);
+        } else {
+            plus5.innerHTML = `+${count.toFixed(
+                2
+              )}<img src="img/cash.svg" class="ml-2 w-10">`;
+            plus5.classList.remove("hidden");
+            setTimeout(() => {
+                plus5.classList.add("hidden");
+            }, 600);
+        }
     }
 });
 
@@ -909,10 +995,7 @@ function checkNumber() {
     }
 }
 
-function addScore() {
-    score = score + count;
-    checkNumber();
-    checkDisabled();
+function checkDisabledScore() {
     if (score >= multiplierBucketPrice) {
         multiplierBucket.disabled = false;
     } else {
@@ -992,12 +1075,37 @@ function addScore() {
     } else {
         autoClicker.disabled = true;
     }
+
+}
+
+function reset() {
+    window.localStorage.clear();
+    score = 0;
+    checkNumber();
+    checkDisabled();
+    checkDisabledScore();
+}
+
+
+/* AJOUT DU SCORE */
+function addScore() {
+    if (bonusActivated === true) {
+        score = score + (count * 2);
+        checkNumber();
+        checkDisabled();
+        checkDisabledScore();
+    } else if (bonusActivated == false) {
+        score = score + count;
+    }
+    checkNumber();
+    checkDisabled();
+    checkDisabledScore();
 }
 
 function multiplier1() {
     if (score >= multiplierBucketPrice) {
         multiplierBucket.innerHTML = `Seau d'eau x ${multiplierBucketCount + 1}`;
-        count++;
+        count += 2;
         multiplierBucketCount++;
         score = score - multiplierBucketPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1019,7 +1127,7 @@ function multiplier2() {
     if (score >= multiplierFirefighterPrice) {
         multiplierFirefighter.innerHTML = `Pompier x ${multiplierFirefighterCount +
       1}`;
-        count += 1.1;
+        count += 5;
         multiplierFirefighterCount++;
         score = score - multiplierFirefighterPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1043,7 +1151,7 @@ function multiplier2() {
 function multiplier3() {
     if (score >= multiplierAircraftPrice) {
         multiplierAircraft.innerHTML = `Canadair x ${multiplierAircraftCount + 1}`;
-        count += 1.2;
+        count += 10;
         multiplierAircraftCount++;
         score = score - multiplierAircraftPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1064,7 +1172,7 @@ function multiplier3() {
 function multiplier4() {
     if (score >= multiplierKoalaPrice) {
         multiplierKoala.innerHTML = `Hopital à koala x ${multiplierKoalaCount + 1}`;
-        count += 1.3;
+        count += 30;
         multiplierKoalaCount++;
         score = score - multiplierKoalaPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1085,7 +1193,7 @@ function multiplier4() {
 function multiplier5() {
     if (score >= multiplierZooPrice) {
         multiplierZoo.innerHTML = `Zoo hospitalier x ${multiplierZooCount + 1}`;
-        count += 1.4;
+        count += 50;
         multiplierZooCount++;
         score = score - multiplierZooPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1109,7 +1217,7 @@ function multiplier6() {
     if (score >= multiplierFundsPrice) {
         multiplierFunds.innerHTML = `Collecte de fond x ${multiplierFundsCount +
       1}`;
-        count += 1.5;
+        count += 100;
         multiplierFundsCount++;
         score = score - multiplierFundsPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1131,7 +1239,7 @@ function multiplier6() {
 function multiplier7() {
     if (score >= multiplierRainPrice) {
         multiplierRain.innerHTML = `Pluie miraculeuse x ${multiplierRainCount + 1}`;
-        count += 1.6;
+        count += 200;
         multiplierRainCount++;
         score = score - multiplierRainPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1153,7 +1261,7 @@ function multiplier8() {
     if (score >= multiplierHousePrice) {
         multiplierHouse.innerHTML = `Reconstruction des maisons x ${multiplierHouseCount +
       1}`;
-        count += 1.7;
+        count += 300;
         multiplierHouseCount++;
         score = score - multiplierHousePrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1176,7 +1284,7 @@ function multiplier9() {
     if (score >= multiplierTreePrice) {
         multiplierTree.innerHTML = `Plantation d'arbres x ${multiplierTreeCount +
       1}`;
-        count += 1.8;
+        count += 400;
         multiplierTreeCount++;
         score = score - multiplierTreePrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1199,7 +1307,7 @@ function multiplier10() {
     if (score >= multiplierAnimalsPrice) {
         multiplierAnimals.innerHTML = `Reproduction intensives des animaux x ${multiplierAnimalsCount +
       1}`;
-        count += 1.9;
+        count += 500;
         multiplierAnimalsCount++;
         score = score - multiplierAnimalsPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1222,7 +1330,7 @@ function multiplier11() {
     if (score >= multiplierInternationalPrice) {
         multiplierInternational.innerHTML = `Aide international x ${multiplierInternationalCount +
       1}`;
-        count += 2;
+        count += 600;
         multiplierInternationalCount++;
         score = score - multiplierInternationalPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1246,7 +1354,7 @@ function multiplier11() {
 function multiplier12() {
     if (score >= multiplierDivinePrice) {
         multiplierDivine.innerHTML = `Aide divine x ${multiplierDivineCount + 1}`;
-        count += 2.1;
+        count += 700;
         multiplierDivineCount++;
         score = score - multiplierDivinePrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1268,7 +1376,7 @@ function multiplier13() {
     if (score >= multiplierAlienPrice) {
         multiplierAlien.innerHTML = `Aide extra-terreste x ${multiplierAlienCount +
       1}`;
-        count += 2.2;
+        count += 800;
         multiplierAlienCount++;
         score = score - multiplierAlienPrice;
         display.innerHTML = `<span>${score.toFixed(2)}$ de Dons</span>`;
@@ -1333,11 +1441,8 @@ function autoClickerBonus() {
                 help();
             }, 3000);
         };
-
         checkDisabled();
         setInterval(() => {
-            checkNumber();
-            checkDisabled();
             if (autoclickerCount < 4) {
                 let score2 = (autoclickerCount - 1) * 2;
                 if (bonusActivated === true) {
@@ -1354,8 +1459,6 @@ function autoClickerBonus() {
                     score = score + score2;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
                 }
-                checkNumber();
-                checkDisabled();
             }
             if (autoclickerCount >= 4) {
                 let score8 = (autoclickerCount - 1) * 8;
@@ -1373,8 +1476,6 @@ function autoClickerBonus() {
                     score = score + score8;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score8}$</span>`;
                 }
-                checkNumber();
-                checkDisabled();
             }
             if (autoclickerCount >= 9) {
                 let score16 = (autoclickerCount - 1) * 16;
@@ -1392,8 +1493,6 @@ function autoClickerBonus() {
                     score = score + score16;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score16}$</span>`;
                 }
-                checkNumber();
-                checkDisabled();
             }
             if (autoclickerCount >= 14) {
                 let score32 = (autoclickerCount - 1) * 32;
@@ -1411,8 +1510,6 @@ function autoClickerBonus() {
                     score = score + score32;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score32}$</span>`;
                 }
-                checkNumber();
-                checkDisabled();
             }
 
             if (autoclickerCount >= 19) {
@@ -1431,8 +1528,6 @@ function autoClickerBonus() {
                     score = score + score64;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score64}$</span>`;
                 }
-                checkNumber();
-                checkDisabled();
             }
             if (autoclickerCount >= 24) {
                 let score128 = (autoclickerCount - 1) * 128;
@@ -1450,8 +1545,6 @@ function autoClickerBonus() {
                     score = score + score128;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score128}$</span>`;
                 }
-                checkNumber();
-                checkDisabled();
             }
             if (autoclickerCount >= 29) {
                 let score256 = (autoclickerCount - 1) * 256;
@@ -1469,8 +1562,6 @@ function autoClickerBonus() {
                     score = score + score256;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score256}$</span>`;
                 }
-                checkNumber();
-                checkDisabled();
             }
             if (autoclickerCount >= 34) {
                 let score512 = (autoclickerCount - 1) * 512;
@@ -1488,13 +1579,9 @@ function autoClickerBonus() {
                     score = score + score512;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
                 }
-                checkNumber();
-                checkDisabled();
             }
-            checkNumber();
-            checkDisabled();
         }, 1000);
-        autoclickerPrice = autoclickerPrice * 1.5;
+        autoclickerPrice = autoclickerPrice * 6;
         tooltipAutoclick.innerHTML = `Prix = ${autoclickerPrice.toFixed(2)}$`;
         checkNumber();
         checkDisabled();
@@ -1516,5 +1603,6 @@ multiplierInternational.onclick = multiplier11;
 multiplierDivine.onclick = multiplier12;
 multiplierAlien.onclick = multiplier13;
 trigger.onclick = playVideo;
+resetSave.onclick = reset;
 checkNumber();
 checkDisabled();
