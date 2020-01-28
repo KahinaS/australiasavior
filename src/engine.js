@@ -108,6 +108,7 @@ let mondial = "img/earth.png";
 let god = "img/jesus.png";
 let alien = "img/alien.png";
 let fireAustralia = "img/firefire.svg";
+let helping = "img/parcel.png";
 
 let bonusTimer = 5000; //Milliseconds (5 secondes) (Temps avant ré-activation du bonus)
 let bonusActive = 3000; //Milliseconds (3 secondes) (Temps d'activité du bonus)
@@ -179,6 +180,8 @@ function myHandler(e) {
 
 }
 
+
+
 function checkDisabled() {
     if (score < autoclickerPrice) {
         autoClicker.disabled = true;
@@ -223,6 +226,53 @@ function checkDisabled() {
         multiplierAlien.disabled = true;
     }
 }
+
+function help() {
+
+    var elem = document.createElement("img");
+    var container = document.getElementById("assoAnim");
+    elem.src = helping;
+    elem.id = "help";
+    container.appendChild(elem);
+
+    var bloc = document.getElementById("help");
+    var cadre = document.getElementById("assoAnim");
+    var vitesse = 2; // Valeur du déplacement en pixels
+    // Conversion en nombre du diamètre du bloc (valeur de la forme "XXpx")
+    var largeurBloc = parseFloat(getComputedStyle(bloc).width);
+    var animationId = null; // Identifiant de l'animation
+
+    // Déplace le bloc sur sa gauche jusqu'au bord du cadre
+    function deplacerBloc() {
+        // Conversion en nombre de la position gauche du bloc (valeur de la forme "XXpx")
+        var xBloc = parseFloat(getComputedStyle(bloc).right);
+        // Conversion en nombre de la largeur du cadre (valeur de la forme "XXpx")
+        var xMax = parseFloat(getComputedStyle(cadre).width) - 130;
+        if (xBloc + largeurBloc <= xMax) { // Si le bloc n'est pas encore au bout du cadre
+            // Déplacement du bloc
+            setTimeout => (function () {
+                elem.style.transition = "opacity 0.5s ease";
+                elem.style.opacity = "0";
+            }, 3000);
+            setTimeout(function () {
+                elem.style.display = "none";
+            }, 3000);
+            bloc.style.right = (xBloc + vitesse) + "px";
+            // Demande au navigateur d'appeler deplacerBloc dès que possible
+            animationId = requestAnimationFrame(deplacerBloc);
+        } else {
+            // Annulation de l'animation
+            cancelAnimationFrame(animationId);
+        }
+    }
+    animationId = requestAnimationFrame(deplacerBloc); // Début de l'animation     
+
+
+    setTimeout(() => {
+        assoAnim.innerHTML = "";
+    }, 5000);
+}
+
 
 let x = [];
 let y = [];
@@ -1275,6 +1325,12 @@ function autoClickerBonus() {
         }
         score = score - Math.floor(autoclickerPrice);
         checkNumber();
+        if (autoclickerCount === 2) {
+            setInterval(() => {
+                help();
+            }, 3000);
+        };
+
         checkDisabled();
         setInterval(() => {
             checkNumber();
