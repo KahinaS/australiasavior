@@ -124,18 +124,14 @@ let bonusTimer = 600000; //Milliseconds (10 minutes) (Temps avant ré-activation
 let bonusActive = 60000; //Milliseconds (1 minute) (Temps d'activité du bonus)
 let bonusActivated = false;
 let sec = 59;
-let min = 0;
-let hour = 0;
+
+
 function startBonusChrono() {
     sec = 59;
     chronoDisplay.classList.remove("hidden");
     setInterval(() => {
         sec--;
-        if ((min < 10) && (sec < 10)) {
-            chronoDisplay.innerHTML = `${sec}`;
-        } else if ((min < 10) && (sec > 10)) {
-            chronoDisplay.innerHTML = `${sec}`;
-        }
+        chronoDisplay.innerHTML = `${sec}`;
     }, 1000);
     setInterval(() => {
         if (sec === 0) {
