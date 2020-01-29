@@ -111,6 +111,7 @@ let god = "img/jesus.png";
 let alien = "img/alien.png";
 let fireAustralia = "img/firefire.svg";
 let helping = "img/parcel.png";
+<<<<<<< HEAD
 let score2;
 let score8;
 let score16;
@@ -119,6 +120,10 @@ let score64;
 let score128;
 let score256;
 let score512;
+=======
+let truck = "img/delivery.svg";
+
+>>>>>>> devmansour
 let bonusTimer = 600000; //Milliseconds (10 minutes) (Temps avant ré-activation du bonus)
 let bonusActive = 60000; //Milliseconds (1 minute) (Temps d'activité du bonus)
 let bonusActivated = false;
@@ -268,7 +273,7 @@ function help() {
 
     var elem = document.createElement("img");
     var container = document.getElementById("assoAnim");
-    elem.src = helping;
+    elem.src = truck;
     elem.id = "help";
     container.appendChild(elem);
 
