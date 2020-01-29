@@ -126,7 +126,6 @@ let bonusActivated = false;
 let sec = 59;
 let min = 0;
 let hour = 0;
-
 function startBonusChrono() {
     sec = 59;
     chronoDisplay.classList.remove("hidden");
