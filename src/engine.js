@@ -1331,7 +1331,7 @@ function autoClickerBonus() {
         if (autoclickerCount === 2) {
             setInterval(() => {
                 help();
-            }, 3000);
+            }, 10000);
         };
 
         checkDisabled();
