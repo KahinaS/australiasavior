@@ -136,9 +136,6 @@ function startBonusChrono() {
     }, 1);
 }
 
-
-
-
 var modal = document.querySelector(".modal");
 var trigger = document.querySelector(".trigger");
 var closeButton = document.querySelector(".close-button");
@@ -210,8 +207,6 @@ function myHandler(e) {
     }
 
 }
-
-
 
 function checkDisabled() {
     if (score < autoclickerPrice) {
