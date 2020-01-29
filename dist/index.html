@@ -13,25 +13,29 @@
 <body class="bg-australiandarkblue h-full">
     <nav class="flex bg-australianblue py-2 w-full noselect">
         <img src="img/logo.svg" class="w-16 ml-3 mt-1" alt="">
-        <div class="w-5/12"><span class="text-australianwhite font-semibold text-5xl ml-5"><a href="#">Australia
+        <div class="w-4/12"><span class="text-australianwhite font-semibold text-5xl ml-5"><a href="#">Australia
                     Savior</a></span></div>
-        <div class="w-5/12">
+        <div class="w-6/12">
             <ul class="uppercase text-australianwhite mt-4">
                 <li class="inline-block btn btn-blue mr-5"><a href="#">S'identifier</a></li>
                 <li class="inline-block btn btn-blue mr-5"><a href="#">Classement</a></li>
                 <li class="inline-block btn btn-blue"><a href="#" class="rules">Comment ça marche ?</a></li>
-                <a href="https://www.redcross.org.au/" target="_blank"><li class="inline-block btn bg-yellow-500 text-black ml-12">Faire un don
-                </li></a>
+                <a href="https://www.redcross.org.au/" target="_blank">
+                    <li class="inline-block btn bg-yellow-500 text-black ml-12">Faire un don
+                    </li>
+                </a>
             </ul>
         </div>
-        <div class="w-2/12 mt-4"><button id="resetSave" class="btn btn-blue mr-40 uppercase">Réinitialiser</button></div>
+        <div class="w-2/12 mt-4"><button id="resetSave" class="btn btn-blue mr-40 uppercase">Réinitialiser</button>
+        </div>
     </nav>
     <div class="flex h-screen">
         <div class="scrollable w-1/5 px-10 py-10 bg-australianwhite">
             <ul class="mb-10 noselect">
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierBucketCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierBucketCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
                             <button id="multiplierBucket" class="btn btn-blue btn-border mb-5 mr-2" disabled>Seau
@@ -44,10 +48,12 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierFirefighterCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierFirefighterCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
-                            <button id="multiplierFirefighter" class="btn btn-blue btn-border mb-5 mr-2" disabled>Pompier</button>
+                            <button id="multiplierFirefighter" class="btn btn-blue btn-border mb-5 mr-2"
+                                disabled>Pompier</button>
                             <span id="tooltipFirefighter" class="tooltiptext tooltip-bottom">Prix = 100$</span>
                         </div>
                     </div>
@@ -56,10 +62,12 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierAircraftCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierAircraftCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
-                            <button id="multiplierAircraft" class="btn btn-blue btn-border mb-5 mr-2" disabled>Canadair</button>
+                            <button id="multiplierAircraft" class="btn btn-blue btn-border mb-5 mr-2"
+                                disabled>Canadair</button>
                             <span id="tooltipAircraft" class="tooltiptext tooltip-bottom">Prix = 1100$</span>
                         </div>
                     </div>
@@ -68,7 +76,8 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierKoalaCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierKoalaCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
                             <button id="multiplierKoala" class="btn btn-blue btn-border mb-5 mr-2" disabled>Hopital à
@@ -81,7 +90,8 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierZooCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierZooCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
                             <button id="multiplierZoo" class="btn btn-blue btn-border mb-5 mr-2" disabled>Zoo
@@ -94,7 +104,8 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierFundsCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierFundsCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
                             <button id="multiplierFunds" class="btn btn-blue btn-border mb-5 mr-2" disabled>Collecte de
@@ -107,7 +118,8 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierRainCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierRainCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
                             <button id="multiplierRain" class="btn btn-blue btn-border mb-5 mr-2" disabled>Pluie
@@ -120,10 +132,12 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierHouseCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierHouseCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
-                            <button id="multiplierHouse" class="btn btn-blue btn-border mb-5 mr-2" disabled>Reconstruction des maisons</button>
+                            <button id="multiplierHouse" class="btn btn-blue btn-border mb-5 mr-2"
+                                disabled>Reconstruction des maisons</button>
                             <span id="tooltipHouse" class="tooltiptext tooltip-bottom">Prix = 330000000$</span>
                         </div>
                     </div>
@@ -132,7 +146,8 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierTreeCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierTreeCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
                             <button id="multiplierTree" class="btn btn-blue btn-border mb-5 mr-2" disabled>Plantation
@@ -145,10 +160,12 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierAnimalsCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierAnimalsCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
-                            <button id="multiplierAnimals" class="btn btn-blue btn-border mb-5 mr-2" disabled>Reproduction intensive des animaux</button>
+                            <button id="multiplierAnimals" class="btn btn-blue btn-border mb-5 mr-2"
+                                disabled>Reproduction intensive des animaux</button>
                             <span id="tooltipAnimals" class="tooltiptext tooltip-bottom">Prix = 75000000000$</span>
                         </div>
                     </div>
@@ -157,12 +174,13 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierInternationalCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierInternationalCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
                             <button id="multiplierInternational" class="btn btn-blue btn-border mb-5 mr-2" disabled>Aide
                                 internationale</button>
-                            <span id="tootltipInternational" class="tooltiptext tooltip-bottom">Prix =
+                            <span id="tooltipInternational" class="tooltiptext tooltip-bottom">Prix =
                                 1000000000000$</span>
                         </div>
                     </div>
@@ -171,7 +189,8 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierDivineCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierDivineCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
                             <button id="multiplierDivine" class="btn btn-blue btn-border mb-5 mr-2" disabled>Aide
@@ -184,7 +203,8 @@
 
                 <li class="flex w-auto">
                     <div class="flex justify-center content-center items-center">
-                        <div id="multiplierAlienCounts" class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
+                        <div id="multiplierAlienCounts"
+                            class="mr-3 rounded-full bg-gray-800 text-australianwhite font-semibold px-4 py-2 mb-5">0
                         </div>
                         <div class="tooltip">
                             <button id="multiplierAlien" class="btn btn-blue btn-border mb-5 mr-2" disabled>Aide
@@ -205,15 +225,26 @@
                     </li>
                     <li class="flex justify-center">
                         <div id="plus" class="noselect">
-                            <span id="plus1" class="flex absolute z-10 text-red-600 text-shadow-red font-semibold ml-8 hidden noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
-                            <span id="plus2" class="flex absolute z-10 text-purple-600 text-shadow-purple font-semibold ml-16 hidden noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
-                            <span id="plus3" class="flex absolute z-10 text-teal-600 text-shadow-teal font-semibold hidden noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
-                            <span id="plus4" class="flex absolute z-10 text-yellow-600 text-shadow-green font-semibold hidden ml-20 noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
-                            <span id="plus5" class="flex absolute z-10 text-orange-600 text-shadow-orange font-semibold hidden ml-12 noselect text-2xl"><img src="img/cash.svg" class="ml-2 w-10"></span>
+                            <span id="plus1"
+                                class="flex absolute z-10 text-red-600 text-shadow-red font-semibold ml-8 hidden noselect text-2xl"><img
+                                    src="img/cash.svg" class="ml-2 w-10"></span>
+                            <span id="plus2"
+                                class="flex absolute z-10 text-purple-600 text-shadow-purple font-semibold ml-16 hidden noselect text-2xl"><img
+                                    src="img/cash.svg" class="ml-2 w-10"></span>
+                            <span id="plus3"
+                                class="flex absolute z-10 text-teal-600 text-shadow-teal font-semibold hidden noselect text-2xl"><img
+                                    src="img/cash.svg" class="ml-2 w-10"></span>
+                            <span id="plus4"
+                                class="flex absolute z-10 text-yellow-600 text-shadow-green font-semibold hidden ml-20 noselect text-2xl"><img
+                                    src="img/cash.svg" class="ml-2 w-10"></span>
+                            <span id="plus5"
+                                class="flex absolute z-10 text-orange-600 text-shadow-orange font-semibold hidden ml-12 noselect text-2xl"><img
+                                    src="img/cash.svg" class="ml-2 w-10"></span>
                         </div>
 
                         <div id="displayRandomMap" class="australiaSize noselect">
-                            <div id="assoAnim"></div><img id="changeMap" src="img/australiamapborder.svg" usemap="#image-map" class="noselect">
+                            <div id="assoAnim"></div><img id="changeMap" src="img/australiamapborder.svg"
+                                usemap="#image-map" class="noselect">
                         </div>
                         <map name="image-map" class="noselect" id="btnClicker">
                             <area target="_self" class="area1"
@@ -234,7 +265,8 @@
             <div class="flex flex-col"></div>
             <div class="flex flex-col content-end items-end justify-end">
                 <img src="img/croix.svg" alt="" class="cross absolute w-40 noselect">
-                <div id="assoCard" class="w-5/6 bg-australianwhite py-8 rounded-lg justify-center content-center items-center mt-20">
+                <div id="assoCard"
+                    class="w-5/6 bg-australianwhite py-8 rounded-lg justify-center content-center items-center mt-20">
                     <div class="flex justify-center content-center items-center w-full">
                         <div class="flex text-center tooltip w-full">
                             <div id="demo">
@@ -242,7 +274,8 @@
 
                                 </p>
                             </div>
-                            <button id="autoClicker" class="rounded-lg w-6/12 text-white font-semibold px-2 py-2 btn-blue" disabled>Ajouter
+                            <button id="autoClicker"
+                                class="rounded-lg w-6/12 text-white font-semibold px-2 py-2 btn-blue" disabled>Ajouter
                                 une association</button>
                             <span id="tooltipAutoclick" class="tooltiptext tooltip-right">Prix = 1000$</span>
                         </div>
@@ -264,7 +297,8 @@
                     </ul>
                 </div>
                 <div id="bonusCard" class="w-5/6 bg-australianwhite py-10 rounded-lg mt-10">
-                    <div class="flex justify-center w-full"><button id="bonusBtn" class="rounded-lg px-8 py-2 btn-yellow text-4xl font-bold">BONUS X2</button></div>
+                    <div class="flex justify-center w-full"><button id="bonusBtn"
+                            class="rounded-lg px-8 py-2 btn-yellow text-4xl font-bold">BONUS X2</button></div>
                     <div class="flex justify-center">
                         <div class="flex w-2/3 flex-wrap text-center my-5">Regardez une vidéo pour sauver 1 Koala !
                         </div>
@@ -293,13 +327,18 @@
                         <!--ModalTitle-->
                         <div class="paragraphe  text-center">
                             <h1 id="title2" class=" text-5xl font-semibold uppercase">Comment ça marche?</h1>
-                            <p id="text1" class="text-lg">En jouant, vous nous aidez à récolter des dons que nous fournissons à des
+                            <p id="text1" class="text-lg">En jouant, vous nous aidez à récolter des dons que nous
+                                fournissons à des
                                 associations qui permettent de sauver l'Australie des violents incendies récents.</p>
-                            <span id="textbold" class="font-bold text-lg ">Nous avons plusieurs manières de récolter des dons de votre
+                            <span id="textbold" class="font-bold text-lg ">Nous avons plusieurs manières de récolter des
+                                dons de votre
                                 part :</span>
-                            <li id="text2" class="text-black text-lg text-left"> En achetant des graines, qui permettent d'accéder à des bonus dans
-                                le jeu (acheter des "dons" (clics), augmenter le niveau maximum d'un multiplicateur...)</li>
-                            <li id="text3" class="text-black text-lg text-left">En regardant des vidéos qui vous permettent de débloquer des bonus
+                            <li id="text2" class="text-black text-lg text-left"> En achetant des graines, qui permettent
+                                d'accéder à des bonus dans
+                                le jeu (acheter des "dons" (clics), augmenter le niveau maximum d'un multiplicateur...)
+                            </li>
+                            <li id="text3" class="text-black text-lg text-left">En regardant des vidéos qui vous
+                                permettent de débloquer des bonus
                                 (graines, bonus ...)</li>
                             </ul>
 
@@ -309,8 +348,9 @@
                 </div>
             </div>
         </div>
-        <div class="sea absolute -z-10"><svg class="sea" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="2500px" height="2500px" viewBox="0 0 800 350"
-                style="enable-background:new 0 0 800 400;" xml:space="preserve">
+        <div class="sea absolute -z-10"><svg class="sea" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="2500px" height="2500px"
+                viewBox="0 0 800 350" style="enable-background:new 0 0 800 400;" xml:space="preserve">
                 <style type="text/css">
                     <![CDATA[
                     .st0 {
@@ -339,7 +379,8 @@
                 </style>
                 <g id="DarkWaves" class="DarkWaves">
                     <g>
-                        <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="400.0005" y1="602" x2="400.0005" y2="202.3545">
+                        <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="400.0005" y1="602"
+                            x2="400.0005" y2="202.3545">
                             <stop offset="0" style="stop-color:#0000FF" />
                             <stop offset="0.1789" style="stop-color:#0020EC" />
                             <stop offset="0.4149" style="stop-color:#0043D7" />
@@ -347,7 +388,8 @@
                             <stop offset="0.8386" style="stop-color:#006CBF" />
                             <stop offset="1" style="stop-color:#0071BC" />
                         </linearGradient>
-                        <path class="st2" d="M761.8,202.4c-24.7,0-36.7,7.2-49.5,14.7c-13.2,7.8-26.8,15.9-53.8,15.9c-27,0-40.6-8.1-53.8-15.9
+                        <path class="st2"
+                            d="M761.8,202.4c-24.7,0-36.7,7.2-49.5,14.7c-13.2,7.8-26.8,15.9-53.8,15.9c-27,0-40.6-8.1-53.8-15.9
                c-12.8-7.6-24.9-14.7-49.6-14.7c-24.7,0-36.8,7.2-49.6,14.7c-13.2,7.8-26.8,15.9-53.8,15.9c-27,0-40.7-8.1-53.8-15.9
                c-12.8-7.6-24.9-14.7-49.6-14.7c-24.7,0-36.8,7.2-49.6,14.7c-13.2,7.8-26.8,15.9-53.8,15.9c-27,0-40.7-8.1-53.8-15.9
                c-12.8-7.6-24.9-14.7-49.6-14.7c-24.7,0-36.8,7.2-49.6,14.7C78.7,224.9,65,232.9,38,232.9c-27,0-40.4-8.1-53.6-15.9
@@ -356,7 +398,8 @@
                 </g>
                 <g id="LightWaves" class="LightWaves">
                     <g>
-                        <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="400.0005" y1="600" x2="400.0005" y2="214.3545">
+                        <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="400.0005" y1="600"
+                            x2="400.0005" y2="214.3545">
                             <stop offset="0" style="stop-color:#0000FF" />
                             <stop offset="0.1643" style="stop-color:#0B2CF7" />
                             <stop offset="0.3574" style="stop-color:#1559F0" />
