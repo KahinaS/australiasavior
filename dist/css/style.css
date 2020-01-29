@@ -12101,6 +12101,11 @@ nav .btn-blue:hover {
   font-size: 14px;
 }
 
+#bonusBtn {
+  cursor: pointer;
+  pointer-events: none;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

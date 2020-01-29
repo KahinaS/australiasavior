@@ -635,3 +635,7 @@ nav .btn-blue:hover {
     position: relative;
     font-size: 14px;
 }
+#bonusBtn {
+    cursor: pointer;
+    pointer-events: none;
+}
