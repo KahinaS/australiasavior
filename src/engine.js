@@ -119,7 +119,39 @@ let sec = 59;
 let min = 0;
 let hour = 0;
 
+var no = 100;var delai = 100;
+var dx = new Array(), xp = new Array(), yp = new Array();
+var am = new Array(), stx = new Array(), sty = new Array();
+var i;
+let larg_fenetre = (document.body.offsetWidth<window.innerWidth)? window.innerWidth:document.body.offsetWidth;
+let haut_fenetre = (document.body.offsetHeight<window.innerHeight)? window.innerHeight:document.body.offsetHeight;
 
+for (i = 0; i < no; i++) { 
+    dx[i] = 0;
+    xp[i] = Math.random()*(larg_fenetre-30);
+    yp[i] = Math.random()*haut_fenetre;
+    am[i] = Math.random()*10;
+    stx[i] = 0 + Math.random()/70;
+    sty[i] = 0 + Math.random();
+    
+    obj = document.getElementsByTagName('body')[0];
+    para = document.createElement("img");
+    para.setAttribute("src","img/waterdrop.gif");
+    para.setAttribute("id","dot" + i);
+    para.style.position = "absolute";
+    para.style.zIndex = "2";
+    obj.appendChild(para);
+}
+       setTimeout(() => {
+            trigger.setAttribute("src", "img/play.svg");
+            bonusBtn.disabled = false;
+            trigger.style.pointerEvents = "auto";
+        }, bonusTimer);
+        setTimeout(() => {
+            bonusActivated = false;
+        }, bonusActive);
+    
+       
 function startBonusChrono() {
     setInterval(() => {
         sec--;
@@ -129,12 +161,43 @@ function startBonusChrono() {
             chronoDisplay.innerHTML = `${sec}`;
         } 
     }, 1000);
+    
+   
     setInterval(() => {
         if (sec === 0) {
             chronoDisplay.style.display = 'none';
-        }
-    }, 1);
+           
+        } neige()
+    }, 1); 
+   
 }
+    function neige() {
+        if (bonusActivated === true) {
+            para.style.display = "block";
+            for (i = 0; i < no; i++) {
+                dx[i] += stx[i];
+                yp[i] += sty[i];
+                if (yp[i] > haut_fenetre-40) {
+                    xp[i] = Math.random()*(larg_fenetre-am[i]-20);
+                    yp[i] = 0;
+                }
+                document.getElementById("dot"+i).style.top = yp[i] + "px";
+                document.getElementById("dot"+i).style.left = xp[i] + am[i]*Math.sin(dx[i]) + "px";
+            }
+            setTimeout("neige()", delai);
+        } 
+        setInterval(() => {
+            if (bonusActivated === false) {
+                para.style.display = "none";
+            }
+        }, 1);
+    }
+   
+
+    
+ 
+    
+  
 
 var modal = document.querySelector(".modal");
 var trigger = document.querySelector(".trigger");
@@ -194,9 +257,10 @@ function myHandler(e) {
         toggleModal();
         bonusActivated = true;
         trigger.style.pointerEvents = "none";
+        neige();
+       startBonusChrono();
        
-        startBonusChrono();
-        setTimeout(() => {
+       setTimeout(() => {
             trigger.setAttribute("src", "img/play.svg");
             bonusBtn.disabled = false;
             trigger.style.pointerEvents = "auto";
@@ -207,6 +271,7 @@ function myHandler(e) {
     }
 
 }
+
 
 function checkDisabled() {
     if (score < autoclickerPrice) {
