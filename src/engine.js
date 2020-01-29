@@ -1518,3 +1518,5 @@ multiplierAlien.onclick = multiplier13;
 trigger.onclick = playVideo;
 checkNumber();
 checkDisabled();
+
+
