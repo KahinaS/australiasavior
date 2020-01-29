@@ -111,13 +111,19 @@ let god = "img/jesus.png";
 let alien = "img/alien.png";
 let fireAustralia = "img/firefire.svg";
 let helping = "img/parcel.png";
-
+let score2;
+let score8;
+let score16;
+let score32;
+let score64;
+let score128;
+let score256;
+let score512;
+let truck = "img/delivery.svg";
 let bonusTimer = 600000; //Milliseconds (10 minutes) (Temps avant ré-activation du bonus)
 let bonusActive = 60000; //Milliseconds (1 minute) (Temps d'activité du bonus)
 let bonusActivated = false;
 let sec = 59;
-let min = 0;
-let hour = 0;
 
 var no = 100;var delai = 100;
 var dx = new Array(), xp = new Array(), yp = new Array();
@@ -153,23 +159,21 @@ for (i = 0; i < no; i++) {
     
        
 function startBonusChrono() {
+    sec = 59;
+    chronoDisplay.classList.remove("hidden");
     setInterval(() => {
         sec--;
-        if ((min < 10) && (sec < 10)) {
-            chronoDisplay.innerHTML = `${sec}`;
-        } else if ((min < 10) && (sec > 10)) {
-            chronoDisplay.innerHTML = `${sec}`;
-        } 
+        chronoDisplay.innerHTML = `${sec}`;
     }, 1000);
     
    
     setInterval(() => {
         if (sec === 0) {
-            chronoDisplay.style.display = 'none';
-           
-        } neige()
-    }, 1); 
-   
+            chronoDisplay.classList.add("hidden");
+            sec = 59;  
+        }
+        neige();
+    }, 1);
 }
     function neige() {
         if (bonusActivated === true) {
@@ -229,14 +233,15 @@ function toggleModal() {
 
 trigger.addEventListener("click", toggleModal);
 closeButton.addEventListener("click", toggleModal);
-
 bonusBtn.disabled = true;
 trigger.setAttribute("src", "img/playdisabled.svg");
+trigger.style.pointerEvents = "none";
 
 setInterval(() => {
     if (bonusCount === 1) {
         bonusBtn.disabled = false;
         trigger.setAttribute("src", "img/play.svg");
+        trigger.style.pointerEvents = "auto";
         bonusCount++
     }
 }, 1);
@@ -245,6 +250,7 @@ function playVideo() {
     document.getElementById("myVideo").play();
     bonusBtn.disabled = true;
     trigger.setAttribute("src", "img/playdisabled.svg");
+    trigger.style.pointerEvents = "none";
 }
 
 
@@ -322,7 +328,7 @@ function help() {
 
     var elem = document.createElement("img");
     var container = document.getElementById("assoAnim");
-    elem.src = helping;
+    elem.src = truck;
     elem.id = "help";
     container.appendChild(elem);
 
@@ -1391,7 +1397,7 @@ function multiplier11() {
         tooltipInternational.innerHTML = `Prix = ${multiplierInternationalPrice}$`;
         multiplierInternationalCounts.innerHTML = `${multiplierInternationalCount}`;
         if (
-            !multiplierInternationalCounts.classList.contains("bg-australiabdarkblue")
+            !multiplierInternationalCounts.classList.contains("bg-australiandarkblue")
         ) {
             multiplierInternational.classList.remove("bg-gray-800");
             multiplierInternationalCounts.classList.add("bg-australiandarkblue");
@@ -1414,7 +1420,7 @@ function multiplier12() {
         multiplierDivinePrice = multiplierDivinePrice * 19;
         tooltipDivine.innerHTML = `Prix = ${multiplierDivinePrice}$`;
         multiplierDivineCounts.innerHTML = `${multiplierDivineCount}`;
-        if (!multiplierDivineCounts.classList.contains("bg-australiabdarkblue")) {
+        if (!multiplierDivineCounts.classList.contains("bg-australiandarkblue")) {
             multiplierDivine.classList.remove("bg-gray-800");
             multiplierDivine.classList.add("bg-australiandarkblue");
         }
@@ -1436,7 +1442,7 @@ function multiplier13() {
         multiplierAlienPrice = multiplierAlienPrice * 20;
         tooltipAlien.innerHTML = `Prix = ${multiplierAlienPrice}$`;
         multiplierAlienCounts.innerHTML = `${multiplierAlienCount}`;
-        if (!multiplierAlienCounts.classList.contains("bg-australiabdarkblue")) {
+        if (!multiplierAlienCounts.classList.contains("bg-australiandarkblue")) {
             multiplierAlien.classList.remove("bg-gray-800");
             multiplierAlienCounts.classList.add("bg-australiandarkblue");
         }
@@ -1497,14 +1503,10 @@ function autoClickerBonus() {
         };
         setInterval(() => {
             if (autoclickerCount < 4) {
-                let score2;
                 if (bonusActivated === true) {
                     score2 = ((autoclickerCount - 1) * 2) * 2;
                     score = score + score2;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
-                    setTimeout(() => {
-                        clearInterval();
-                    }, bonusActive);
                 }
                 if (bonusActivated === false) {
                     score2 = (autoclickerCount - 1) * 2;
@@ -1513,14 +1515,10 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 4) {
-                let score8;
                 if (bonusActivated === true) {
                     score8 = ((autoclickerCount - 1) * 8) * 2;
                     score = score + score8;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score8}$</span>`;
-                    setTimeout(() => {
-                        clearInterval();
-                    }, bonusActive);
                 }
                 if (bonusActivated === false) {
                     score8 = (autoclickerCount - 1) * 8;
@@ -1529,14 +1527,10 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 9) {
-                let score16;
                 if (bonusActivated === true) {
                     score16 = ((autoclickerCount - 1) * 16) * 2;
                     score = score + score16;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score16}$</span>`;
-                    setTimeout(() => {
-                        clearInterval();
-                    }, bonusActive);
                 }
                 if (bonusActivated === false) {
                     score16 = (autoclickerCount - 1) * 16;
@@ -1545,14 +1539,10 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 14) {
-                let score32;
                 if (bonusActivated === true) {
                     score32 = ((autoclickerCount - 1) * 32) * 2;
                     score = score + score32;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score32}$</span>`;
-                    setTimeout(() => {
-                        clearInterval();
-                    }, bonusActive);
                 }
                 if (bonusActivated === false) {
                     score32 = (autoclickerCount - 1) * 32;
@@ -1562,14 +1552,10 @@ function autoClickerBonus() {
             }
 
             if (autoclickerCount >= 19) {
-                let score64;
                 if (bonusActivated === true) {
                     score64 = ((autoclickerCount - 1) * 64) * 2;
                     score = score + score64;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score64}$</span>`;
-                    setTimeout(() => {
-                        clearInterval();
-                    }, bonusActive);
                 }
                 if (bonusActivated === false) {
                     score64 = (autoclickerCount - 1) * 64;
@@ -1578,14 +1564,10 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 24) {
-                let score128;
                 if (bonusActivated === true) {
                     score128 = ((autoclickerCount - 1) * 128) * 2;
                     score = score + score128;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score128}$</span>`;
-                    setTimeout(() => {
-                        clearInterval();
-                    }, bonusActive);
                 }
                 if (bonusActivated === false) {
                     score128 = (autoclickerCount - 1) * 128;
@@ -1594,14 +1576,10 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 29) {
-                let score256;
                 if (bonusActivated === true) {
                     score256 = ((autoclickerCount - 1) * 256) * 2;
                     score = score + score256;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score256}$</span>`;
-                    setTimeout(() => {
-                        clearInterval();
-                    }, bonusActive);
                 }
                 if (bonusActivated === false) {
                     score256 = (autoclickerCount - 1) * 256;
@@ -1610,14 +1588,10 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 34) {
-                let score512;
                 if (bonusActivated === true) {
                     score512 = ((autoclickerCount - 1) * 512) * 2;
                     score = score + score512;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
-                    setTimeout(() => {
-                        clearInterval();
-                    }, bonusActive);
                 }
                 if (bonusActivated === false) {
                     score512 = (autoclickerCount - 1) * 512;
@@ -1625,6 +1599,8 @@ function autoClickerBonus() {
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
                 }
             }
+        }, 1000);
+        setInterval(() => {
             checkNumber();
             checkDisabled();
         }, 1000);
@@ -1651,5 +1627,3 @@ trigger.onclick = playVideo;
 resetSave.onclick = reset;
 checkNumber();
 checkDisabled();
-
-
