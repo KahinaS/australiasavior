@@ -1328,7 +1328,7 @@ function multiplier11() {
         tooltipInternational.innerHTML = `Prix = ${multiplierInternationalPrice}$`;
         multiplierInternationalCounts.innerHTML = `${multiplierInternationalCount}`;
         if (
-            !multiplierInternationalCounts.classList.contains("bg-australiabdarkblue")
+            !multiplierInternationalCounts.classList.contains("bg-australiandarkblue")
         ) {
             multiplierInternational.classList.remove("bg-gray-800");
             multiplierInternationalCounts.classList.add("bg-australiandarkblue");
@@ -1351,7 +1351,7 @@ function multiplier12() {
         multiplierDivinePrice = multiplierDivinePrice * 19;
         tooltipDivine.innerHTML = `Prix = ${multiplierDivinePrice}$`;
         multiplierDivineCounts.innerHTML = `${multiplierDivineCount}`;
-        if (!multiplierDivineCounts.classList.contains("bg-australiabdarkblue")) {
+        if (!multiplierDivineCounts.classList.contains("bg-australiandarkblue")) {
             multiplierDivine.classList.remove("bg-gray-800");
             multiplierDivine.classList.add("bg-australiandarkblue");
         }
@@ -1373,7 +1373,7 @@ function multiplier13() {
         multiplierAlienPrice = multiplierAlienPrice * 20;
         tooltipAlien.innerHTML = `Prix = ${multiplierAlienPrice}$`;
         multiplierAlienCounts.innerHTML = `${multiplierAlienCount}`;
-        if (!multiplierAlienCounts.classList.contains("bg-australiabdarkblue")) {
+        if (!multiplierAlienCounts.classList.contains("bg-australiandarkblue")) {
             multiplierAlien.classList.remove("bg-gray-800");
             multiplierAlienCounts.classList.add("bg-australiandarkblue");
         }
