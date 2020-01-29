@@ -1432,15 +1432,12 @@ function autoClickerBonus() {
         };
         setInterval(() => {
             if (autoclickerCount < 4) {
-                let score2 = (autoclickerCount - 1) * 2;
+                let score2;
                 if (bonusActivated === true) {
                     score2 = ((autoclickerCount - 1) * 2) * 2;
                     score = score + score2;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
                     setTimeout(() => {
-                        score2 = (autoclickerCount - 1) * 2;
-                        score = score + score2;
-                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score2}$</span>`;
                         clearInterval();
                     }, bonusActive);
                 }
@@ -1451,15 +1448,12 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 4) {
-                let score8 = (autoclickerCount - 1) * 8;
+                let score8;
                 if (bonusActivated === true) {
                     score8 = ((autoclickerCount - 1) * 8) * 2;
                     score = score + score8;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score8}$</span>`;
                     setTimeout(() => {
-                        score8 = (autoclickerCount - 1) * 8;
-                        score = score + score8;
-                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score8}$</span>`;
                         clearInterval();
                     }, bonusActive);
                 }
@@ -1470,15 +1464,12 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 9) {
-                let score16 = (autoclickerCount - 1) * 16;
+                let score16;
                 if (bonusActivated === true) {
                     score16 = ((autoclickerCount - 1) * 16) * 2;
                     score = score + score16;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score16}$</span>`;
                     setTimeout(() => {
-                        score16 = (autoclickerCount - 1) * 16;
-                        score = score + score16;
-                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score16}$</span>`;
                         clearInterval();
                     }, bonusActive);
                 }
@@ -1489,15 +1480,12 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 14) {
-                let score32 = (autoclickerCount - 1) * 32;
+                let score32;
                 if (bonusActivated === true) {
                     score32 = ((autoclickerCount - 1) * 32) * 2;
                     score = score + score32;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score32}$</span>`;
                     setTimeout(() => {
-                        score32 = (autoclickerCount - 1) * 32;
-                        score = score + score32;
-                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score32}$</span>`;
                         clearInterval();
                     }, bonusActive);
                 }
@@ -1509,15 +1497,12 @@ function autoClickerBonus() {
             }
 
             if (autoclickerCount >= 19) {
-                let score64 = (autoclickerCount - 1) * 64;
+                let score64;
                 if (bonusActivated === true) {
                     score64 = ((autoclickerCount - 1) * 64) * 2;
                     score = score + score64;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score64}$</span>`;
                     setTimeout(() => {
-                        score32 = (autoclickerCount - 1) * 64;
-                        score = score + score64;
-                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score64}$</span>`;
                         clearInterval();
                     }, bonusActive);
                 }
@@ -1528,15 +1513,12 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 24) {
-                let score128 = (autoclickerCount - 1) * 128;
+                let score128;
                 if (bonusActivated === true) {
                     score128 = ((autoclickerCount - 1) * 128) * 2;
                     score = score + score128;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score128}$</span>`;
                     setTimeout(() => {
-                        score128 = (autoclickerCount - 1) * 128;
-                        score = score + score128;
-                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score128}$</span>`;
                         clearInterval();
                     }, bonusActive);
                 }
@@ -1547,15 +1529,12 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 29) {
-                let score256 = (autoclickerCount - 1) * 256;
+                let score256;
                 if (bonusActivated === true) {
                     score256 = ((autoclickerCount - 1) * 256) * 2;
                     score = score + score256;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score256}$</span>`;
                     setTimeout(() => {
-                        score256 = (autoclickerCount - 1) * 256;
-                        score = score + score256;
-                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score256}$</span>`;
                         clearInterval();
                     }, bonusActive);
                 }
@@ -1566,15 +1545,12 @@ function autoClickerBonus() {
                 }
             }
             if (autoclickerCount >= 34) {
-                let score512 = (autoclickerCount - 1) * 512;
+                let score512;
                 if (bonusActivated === true) {
                     score512 = ((autoclickerCount - 1) * 512) * 2;
                     score = score + score512;
                     displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
                     setTimeout(() => {
-                        score512 = (autoclickerCount - 1) * 512;
-                        score = score + score512;
-                        displaySecond.innerHTML = `<span class="text-australianwhite font-semibold text-4xl mt-48 text-shadow">Dons par secondes : ${score512}$</span>`;
                         clearInterval();
                     }, bonusActive);
                 }
