@@ -121,6 +121,8 @@ let min = 0;
 let hour = 0;
 
 
+
+
 function startBonusChrono() {
     setInterval(() => {
         sec--;
@@ -268,6 +270,11 @@ function help() {
     // Conversion en nombre du diamètre du bloc (valeur de la forme "XXpx")
     var largeurBloc = parseFloat(getComputedStyle(bloc).width);
     var animationId = null; // Identifiant de l'animation
+
+    setTimeout => (function () {
+        elem.style.transition = "opacity 0.5s ease";
+        elem.style.opacity = "0.5";
+    }, 1000);
 
     // Déplace le bloc sur sa gauche jusqu'au bord du cadre
     function deplacerBloc() {
