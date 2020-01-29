@@ -218,6 +218,14 @@ body {
 
 .btn-blue {
     @apply bg-australiandarkblue text-australianwhite;
+    transition: transform 0.5s;
+}
+
+nav .btn-blue:hover {
+    @apply .bg-australianwhite .text-australiandarkblue;
+    -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
 }
 
 .btn-yellow {
@@ -592,8 +600,8 @@ body {
 
     position: absolute;
     top: 40px;
-    right: 0px;
-    height: 40px;
+    right: -180px;
+    height: 23px;
 }
 #title2{
     color: #2496E6;
