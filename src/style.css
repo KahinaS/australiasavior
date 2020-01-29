@@ -629,3 +629,6 @@ nav .btn-blue:hover {
         position: relative;
         font-size:14px;
      }
+     #chronoDisplay{
+         visibility:hidden;
+     }

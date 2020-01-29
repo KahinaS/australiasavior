@@ -122,29 +122,18 @@ let hour = 0;
 
 function startBonusChrono() {
     setInterval(() => {
-        sec--
-        if (sec === 0) {
-            sec = 59;
-            min--;
-        }
+        sec--;
         if ((min < 10) && (sec < 10)) {
-            chronoDisplay.innerHTML = `${hour}:0${min}:0${sec}`;
+            chronoDisplay.innerHTML = `${sec}`;
         } else if ((min < 10) && (sec > 10)) {
-            chronoDisplay.innerHTML = `${hour}:0${min}:${sec}`;
-        } else if ((min > 10) && (sec < 10)) {
-            chronoDisplay.innerHTML = `${hour}:${min}:0${sec}`;
-        } else if ((sec === 10) && (min < 10)) {
-            chronoDisplay.innerHTML = `${hour}:0${min}:${sec}`;
-        } else if ((sec > 10) && (min === 10)) {
-            chronoDisplay.innerHTML = `${hour}:${min}:0${sec}`;
-        } else {
-            chronoDisplay.innerHTML = `${hour}:${min}:${sec}`;
-        }
-        if ((sec < 1) && (min < 1)) {
-            clearInterval();
-            chronoDisplay.style.display = "none";
-        }
+            chronoDisplay.innerHTML = `${sec}`;
+        } 
     }, 1000);
+    setInterval(() => {
+        if (sec === 0) {
+            chronoDisplay.style.display = 'none';
+        }
+    }, 1);
 }
 
 
@@ -208,6 +197,7 @@ function myHandler(e) {
         toggleModal();
         bonusActivated = true;
         trigger.style.pointerEvents = "none";
+       
         startBonusChrono();
         setTimeout(() => {
             trigger.setAttribute("src", "img/play.svg");
@@ -220,6 +210,7 @@ function myHandler(e) {
     }
 
 }
+
 
 
 function checkDisabled() {
