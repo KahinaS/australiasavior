@@ -121,6 +121,8 @@ let hour = 0;
 
 
 function startBonusChrono() {
+    sec = 59;
+    chronoDisplay.classList.remove("hidden");
     setInterval(() => {
         sec--;
         if ((min < 10) && (sec < 10)) {
@@ -131,7 +133,7 @@ function startBonusChrono() {
     }, 1000);
     setInterval(() => {
         if (sec === 0) {
-            chronoDisplay.style.display = 'none';
+            chronoDisplay.classList.add("hidden");
         }
     }, 1);
 }
